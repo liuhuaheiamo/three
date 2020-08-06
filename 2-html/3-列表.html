@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表</title>
+    <style>
+        ol {
+            /* 控制列表的项目编号 */
+            /* list-style-type:upper-alpha */
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- orderlist 有序列表 -->
+    <!-- 布尔类型 只写属性名字 就代表了true 
+    reversed=true
+    reversed=false
+    reversed=""
+    reversed="true"
+    reversed="false"
+    reversed"111" 
+    reversed  这些的值都是true-->
+    <!-- reversed=“false” 结果依然为true 只要出现了reversed 那么他的属性值就是true，如果想要是false，那就不要写该属性-->
+    <ol start="5" reversed>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <!-- 无序列表 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <!-- 自定义列表dl -->
+    <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+    </dl>
+</body>
+
+</html>

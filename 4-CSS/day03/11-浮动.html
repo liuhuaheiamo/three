@@ -7,6 +7,7 @@
     <title>浮动</title>
     <style>
         .parent {
+            height: 300px;
             border: 1px solid blue;
         }
 
@@ -31,13 +32,18 @@
 
 <body>
     <div class="parent">hello</div>
-    <div class="parent clear2">
+    <div class="parent">
         <div class="child">1</div>
         <div class="child">2</div>
         <div class="child">3</div>
         <div class="child">4</div>
     </div>
-    <div class="parent clear">hello</div>
+    <div class="parent ">hello</div>
+    <!-- 浮动元素脱离文档流，原先位置不保留，飘在文档流上方 -->
+    <!-- 兄弟元素上使用clear：both  清除浮动对该兄弟元素的影响-->
+    <!-- 两个是或者关系 -->
+    <!-- 父级元素上使用overflow：hidden  清除子元素浮动对父级元素产生的影响-->
+    <!-- 如果一个块级元素没有设置宽度,浮动了该元素,那么该元素的宽度将不再是100%,而是内容区的宽度 -->
 </body>
 
 </html>
