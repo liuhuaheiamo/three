@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input</title>
+</head>
+
+<body>
+    <form action="#" method="GET" target="_self">
+        <section>
+            <!-- 用户不可见，数据可以提交 -->
+            <input type="hidden" value="1001" name="id">
+
+        </section>
+        <section>
+            <span>性别</span>
+            <!-- name="gender"为相同的值 ，代表他们是一组，同组内的单选按钮互斥 -->
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">男</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">女</label>
+        </section>
+        <!-- <section>
+            <span>文件上传</span>
+            <input type="file" name="file">
+        </section> -->
+        <section>
+            <span>爱好</span>
+            <input type="checkbox" name="hobby" value="basketball">篮球
+            <input type="checkbox" name="hobby" value="swimming">游泳
+            <input type="checkbox" name="hobby" value="singing">唱歌
+        </section>
+        <input type="reset" value="重置表单">
+        <button type="reset">重置表单2</button>
+        <!-- 图像按钮 -->
+        <input type="image" width="50" height="50"
+            src="file:///D:/%E5%9B%BE%E7%89%87/illust_77845097_20200122_084349.jpg">
+        <input type="button" value="普通按钮">
+        <button type="button">普通按钮2</button>
+        <button>提交按钮</button>
+    </form>
+    <!-- 提交按钮在form外面，就没有了提交功能 -->
+</body>
+
+</html>

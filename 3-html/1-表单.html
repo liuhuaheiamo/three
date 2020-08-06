@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+
+<body>
+    <!-- method 表单的提交方式   -->
+    <!-- target 打开方式 _black在新的窗口打开  _self在原本的窗口打开 -->
+    <form action="#" method="GET" target="_black" enctype="application/x-www-form-urlencoded">
+        <section>
+            <!-- label标签for属性值是他要描述的表单控件的id值  相当于绑定了文本输入框-->
+            <label for="uesrname">用户名：</label>
+            <!-- 单行文本框 -->
+            <!-- name的属性值是要提交上去的属性值 -->
+            <input type="text" id="username" name="username">
+        </section>
+        <section>
+            <label for="password">密码：</label>
+            <!--密码框 -->
+            <input type="password" name="password">
+        </section>
+        <section>
+            <!-- 提交按钮 -->
+            <input type="submit" value="提交">
+        </section>
+    </form>
+</body>
+
+</html>
