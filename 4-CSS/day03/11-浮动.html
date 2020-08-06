@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <style>
+        .parent {
+            border: 1px solid blue;
+        }
+
+        .child {
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+            margin: 10px;
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .clear2 {
+            /* 在子元素浮动后，父元素没有高度的情况下使用，可以用浮动后的子元素撑起父元素的高度 */
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">hello</div>
+    <div class="parent clear2">
+        <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child">3</div>
+        <div class="child">4</div>
+    </div>
+    <div class="parent clear">hello</div>
+</body>
+
+</html>
