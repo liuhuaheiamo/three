@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        .parent {
+            height: 600px;
+            border: 1px solid blue;
+            display: flex;
+            /* 排列方向 */
+            flex-direction: row-reverse;
+            flex-direction: column;
+            justify-content: space-evenly;
+            /* 反转 */
+            flex-direction: column-reverse;
+            flex-direction: row;
+            /* 是否换行显示 */
+            flex-wrap: nowrap;
+            flex-wrap: wrap;
+            /* 多主轴在交叉轴的对齐方式 */
+            align-content: flex-start;
+            align-content: center;
+            align-content: space-around;
+        }
+
+        .child {
+            background-color: pink;
+            /* margin: 10px; */
+            /* 设置占屏幕，父容器空间的剩余比例 */
+            /* flex: 200px 1; */
+            width: 300px;
+            height: 200px;
+        }
+
+        .child:nth-child(odd) {
+            background-color: cyan;
+            /* flex: 2; */
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child">3</div>
+        <div class="child">4</div>
+        <div class="child">5</div>
+    </div>
+</body>
+
+</html>

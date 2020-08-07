@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 定位元素，乐意使用z-index调整层叠顺序，z-index取值是数值，数值越大顺序越靠上 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100PX;
+            height: 200PX;
+            background-color: pink;
+
+        }
+
+        .one {
+            background: blueviolet;
+        }
+
+        .two {
+            background: cyan;
+            /* 固定在视口区的某一个位置，原来位置不保留，如果没有设置定位属性，就在原来位置固定定位*/
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .three {
+            background-color: teal;
+            /* 相对于文档流重中的位置相对定位 没有定位属性的情况下，默认在当前位置 */
+            /* 不脱离文档流，原先位置发生变化 */
+            position: relative;
+            /* top: 10px; */
+            bottom: 10px;
+            left: 10px;
+            z-index: 2;
+
+        }
+
+        .four {
+            background-color: chartreuse;
+            /* 绝对定位 */
+            /* 如果有定位祖先元素，相对于元素的离他最近的定位祖先元素定位，如果没有祖先元素，相对于视口区定位 */
+            /* 脱离文档流，元素位置不保留，如果没有设置定位属性，那么在原来位置显示 */
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            /* 调整元素层叠顺序 */
+            z-index: 1;
+        }
+
+        .five {
+            background-color: blue;
+            /* 刚开始是相对定位的效果，然后页面滚动到合适的位置之后，变成了钴锭定位 */
+            /* 默认不脱离文档流，默认在原先位置，原先位置保留 */
+            position: sticky;
+            top: 10px;
+            left: 200px;
+        }
+
+        .six {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">默认定位，静态定位</div>
+    <div class="two"> 固定定位</div>
+    <div class="three">相对定位</div>
+    <div class="four"> 绝对定位</div>
+    <div class="five">沾性定位</div>
+    <div class="six">默认定位，静态定位</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    end
+</body>
+
+</html>
