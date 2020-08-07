@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12栅格系统</title>
+    <style>
+        /* 占一行中的一列 */
+        .col-1 {
+            width: calc(100%/12);
+            /* width: 8.33333%; */
+        }
+
+        .col-2 {
+            width: calc(100%/12*2);
+            /* width: 16.66%; */
+        }
+
+        .col-3 {
+            width: calc(100%/12*3);
+            /* width: 16.66%; */
+        }
+
+        .col-4 {
+            width: calc(100%/12*4);
+            /* width: 16.66%; */
+        }
+
+        .col-5 {
+            width: calc(100%/12*5);
+            /* width: 16.66%; */
+        }
+
+        .col-6 {
+            width: calc(100%/12*6);
+            /* width: 16.66%; */
+        }
+
+        .col-7 {
+            width: calc(100%/12*7);
+            /* width: 16.66%; */
+        }
+
+        .col-8 {
+            width: calc(100%/12*8);
+            /* width: 16.66%; */
+        }
+
+        .col-9 {
+            width: calc(100%/12*9);
+            /* width: 16.66%; */
+        }
+
+        .col-10 {
+            width: calc(100%/12*10);
+            /* width: 16.66%; */
+        }
+
+        .col-11 {
+            width: calc(100%/12*11);
+            /* width: 16.66%; */
+        }
+
+        .col-12 {
+            width: calc(100%/12*12);
+            /* width: 16.66%; */
+        }
+
+        .bg-success {
+            background-color: darkgreen;
+        }
+
+        .size {
+            height: 40px;
+        }
+
+        .row {
+            border: 1px solid blue;
+            overflow: hidden;
+            padding-right: -10px;
+        }
+
+        .bg-error {
+            background-color: antiquewhite;
+        }
+
+        /*  设置浮动*/
+        [class*=col-] {
+            float: left;
+            padding-right: 10px;
+            box-sizing: border-box;
+            background-clip: content-box;
+        }
+
+        .row>*:last-child {
+            padding-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="size col-1 bg-success"></div>
+        <div class="size col-1 bg-error"></div>
+        <div class="size col-2 bg-success"></div>
+        <div class="size col-2 bg-error"></div>
+        <div class="size col-2 bg-success"></div>
+        <div class="size col-2 bg-success"></div>
+        <div class="size col-2 bg-success"></div>
+    </div>
+</body>
+
+</html>

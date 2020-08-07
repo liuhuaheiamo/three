@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            /* 使用动画 */
+            /* 指定动画名称 */
+            animation-name: ani;
+            /* 指定动画时长 */
+            animation-duration: 3s;
+            /* 指定动画执行的次数 */
+            /* 执行2次 */
+            animation-iteration-count: 1;
+            /* 无限次循环 */
+            /* animation-iteration-count: infinite; */
+            /* 动画执行的方向 */
+            /* reverse反转动画执行 */
+            /* animation-direction: reverse; */
+            /* alternate交替执行 */
+            /* animation-direction: alternate; */
+            /* 交替反转执行 */
+            /* animation-direction: alternate-reverse; */
+            /* 填充动画 */
+            /* forwards 用动画执行的最后 */
+            /* animation-fill-mode: forwards; */
+            /* 在延迟时间内用动画的第一帧填充元素 */
+            animation-fill-mode: backwards;
+            animation-fill-mode: both;
+            /* 动画的延迟执行 */
+            animation-delay: 2s;
+
+        }
+
+        /* 声明动画序列 */
+        /* 假设动画时长10秒，10%就是一秒时态 */
+        @keyframes ani {
+
+            /* 动画第一帧 */
+            0% {
+                width: 150px;
+            }
+
+            /* 10% {
+                width: 200px;
+            } */
+            /* 动画最后一帧 */
+            100% {
+                width: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
