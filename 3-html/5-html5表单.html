@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html5表单</title>
+
+</head>
+
+<body>
+    <form action="#">
+        进度条:<progress id="progress" max="100" value="0"></progress>
+        <br>
+        <output>结果在这里</output>
+        <br>
+        <meter min="0" max="100" value="10" low=" 40" high="60" optimum="80"></meter>
+        <br>
+        <input type="search" list="one">
+        <datalist id="one">
+            <option value="shanghai"></option>
+            <option value="beijing"></option>
+            <option value="nanjing"></option>
+        </datalist>
+        <section>
+            <h3>inout的type的取值</h3>
+            数值框：<input type="number" min="0" max="100" step="5">
+            <br>
+            滑块：<input type="range" min="0" max="100" step="20">
+            <br>
+            搜索框：<input type="search" name="">
+            <br>
+            <!-- pattern 正则表达式匹配 -->
+            电话框：<input type="tel" name="" pattern="1[0-9]{10}">
+            <br>
+            邮箱：<input type="email">
+            <br>
+            网址：<input type="url">
+            <br>
+            <!-- color=#ff0000 -->
+            颜色：<input type="color">
+            <br>
+            <h3>日期</h3>
+            年月日：<input type="data">
+            <br>
+            时间：<input type="time">
+            <br>
+            年月日时间：<input type="datetime-local">
+            <br>
+            月份：<input type="month">
+            <br>
+            周数：<input type="week">
+
+        </section>
+    </form>
+    <script>
+        // 获取id为progress的元素
+        var progress = document.getElementById('progress')
+        //progress.value = 90;
+        //progress.value = progress.value+5;
+        //间歇调用  每隔多少毫秒执行一次代码
+        setInterval(function () {
+            if (progress.value < 100) {
+                progress.value += 5;
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

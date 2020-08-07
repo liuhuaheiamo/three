@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他控件</title>
+</head>
+
+<body>
+    <form action="#">
+        <section>
+            籍贯：
+            <!--select的value值是用户选中的option的value的值，所以以后获取籍贯信息，通过select的value的值来获取 -->
+            <!-- multiple size="2" -->
+            <select name="address" id="address">
+                <option value="">请选择</option>
+                <optgroup disabled label="江苏省">
+                    <option value="suzhou">苏州</option>
+                    <option value="nanjing">南京</option>
+                </optgroup>
+                <optgroup>
+                    <option value="shanghai">上海</option>
+                    <option value="beijing">北京</option>
+                    <option value="hangzhou">杭州</option>
+                    <option value="guilin">桂林</option>
+                    <option value="lanzhou">兰州</option>
+
+                </optgroup>
+            </select>
+        </section>
+        <section>
+            个人简介：<textarea name="info" id="info" cols="30" rows="10"></textarea>
+        </section>
+        <section>
+            <fieldset>
+                <legend>基本信息</legend>
+                用户名：<input type="text">
+                <br>
+                用户名：<input type="text">
+            </fieldset>
+        </section>
+        <button>提交</button>
+    </form>
+    <button>不提交</button>
+    <script>
+        // 写js代码
+        var btn = document.getElementById("btn");
+        var select = document.getElementById('address');
+        var info = document.getElementById('info');
+        btn.onclick = function () {
+            // 获取select的值，获取textarea的值
+            console.log(select.value);
+            console.log(info.value);
+        }
+    </script>
+</body>
+
+</html>
