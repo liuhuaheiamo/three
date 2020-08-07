@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变形</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            border: 10px solid rebeccapurple;
+            /* 变形 */
+            /* 绕x轴旋转30度 */
+            /* transform: rotateX(60deg); */
+            /* transform: rotateY(60deg); */
+            transform: rotateZ(60deg);
+            animation-name: aa;
+            animation-iteration-count: infinite;
+            animation-duration: 3s;
+            /* 设定变形的源点  坐标的原点*/
+            /* left top button cneter right */
+            /* transform-origin: 20px 20px; */
+            /* 倾斜的 */
+            transform: skewX();
+            /* 缩放 */
+            transform: scaleX();
+            transform: scaleY();
+            /* 平移 */
+            transform: translateX(200px);
+        }
+
+        @keyframes aa {
+            from {
+                /* transform: rotateX(0deg); */
+                /* transform: rotateY(0deg); */
+                /* transform: rotateZ(0deg); */
+                /* rotateZ就代表rotate */
+                /* transform: skewX(0deg); */
+                /* transform: skewY(0deg); */
+                /* transform: scaleX(0); */
+                /* transform: scaleY(0); */
+                /* transform: translateX(0); */
+                /* transform: translateY(0); */
+                transform: rotate(0deg) translateX(0) skew(0deg);
+            }
+
+            to {
+                /* transform: rotateX(36000deg); */
+                /* transform: rotateY(3600deg); */
+                /* transform: rotateZ(360deg); */
+                /* transform: skewX(360deg); */
+                /* transform: skewY(360deg); */
+                /* transform: scaleX(20); */
+                /* transform: scaleY(3); */
+                /* transform: translateX(200px); */
+                /* transform: translateY(200px); */
+                transform: rotate(360deg) translateX(400px) skew(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

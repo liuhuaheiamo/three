@@ -23,3 +23,15 @@
 定位属性
     left right top bottom
     块级元素
+
+
+
+动画
+   animation
+过度
+   transition
+变形
+   transform
+-o- o鹏浏览器
+-moz- 火狐浏览器
+-webkit- chrome safari android ios

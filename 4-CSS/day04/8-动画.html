@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+            animation-name: ani;
+            animation-iteration-count: infinite;
+            animation-duration: 3s;
+            /* 动画时间函数 */
+            /* 先快后慢 */
+            animation-timing-function: ease;
+            /* 先慢后快 */
+            animation-timing-function: ease-in;
+            /* 先快后慢 */
+            animation-timing-function: ease-out;
+            /* 先慢后快再慢 */
+            animation-timing-function: ease-in-out;
+            /* 匀速执行 */
+            animation-timing-function: linear
+        }
+
+        div:hover {
+            /* 暂停动画 */
+            animation-play-state: paused;
+            /* 动画播放 */
+            /* animation-play-state: running; */
+        }
+
+        @keyframes ani {
+            from {
+                width: 200px;
+                /* height: 200px;
+                background-color: pink;
+                margin: 10px; */
+            }
+
+            to {
+                width: 400px;
+                /* height: 400px;
+                background-color: coral;
+                margin: 100px; */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
