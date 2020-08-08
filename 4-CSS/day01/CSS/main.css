@@ -1,0 +1,25 @@
+/* 设置文本的字符编码 */
+@charset 'utf-8';
+
+/* 普遍选择器 */
+/* 去除所有元素的默认样式，比如body的8px margin ol ul的40px的左padding*/
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+div {
+    background-color: cyan;
+    /* 设置文字大小 */
+    font-size: 100px;
+
+}
+
+/* id 选择器的特性值为100 */
+#one {
+    border: 1px solid red;
+}
+
+/* 类选择器 */
+.two {}

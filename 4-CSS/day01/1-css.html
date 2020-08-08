@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS样式表</title>
+    <!-- 引入外部样式表 -->
+    <!-- <link rel="stylesheet" href="./CSS/main.css"> -->
+    <!-- 在选择器权值一样的情况下，采用就近原则 -->
+    <!-- 标签选择器的特性值是1 -->
+
+    <style>
+        div {
+            @import url("./CSS/main");
+            background-color: coral;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 行内样式特性值1000 -->
+    <div style="background-color: red; color: wheat;">hello</div>
+    <br>
+    <div id="one" class="two">world</div>
+    <p>段落</p>
+</body>
+
+</html>

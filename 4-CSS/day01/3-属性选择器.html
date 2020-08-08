@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性选择器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+            margin: 10px;
+        }
+
+        /* [title]选中有title属性的元素 */
+        /* div[title] {
+            background-color: blue;
+        } */
+        /* [title=one]选中有title属性并且属性值为one的元素 */
+        /* div[title=one] {
+            background-color: blue;
+        } */
+
+        /* [title^=t]选中有title属性并且属性值以t开始的元素 */
+        /* div[title^=t] {
+            background-color: blue;
+        } */
+
+        /* [title$=e]选中有title属性并且属性值以e结尾的元素*/
+        /* div[title$=e] {
+            background-color: blue;
+        } */
+
+        /* [title*=o]选中有title属性并且属性值包含o的元素 */
+        /* div[title*=o] {
+            background-color: blue;
+        } */
+
+        /* [class~=one]选中class属性，并且属性值中有一个是one的元素 */
+        div[class~=one] {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one" title="one"></div>
+    <div class="two" title="two"></div>
+    <div class="one two" title="three"></div>
+    <div></div>
+</body>
+
+</html>

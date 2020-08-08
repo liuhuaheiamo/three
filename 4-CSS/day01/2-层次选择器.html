@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层次选择器</title>
+    <style>
+        /* 给parent的下的后代元素设置边框 */
+        /* .parent * {
+            border: 2px solid red;
+        } */
+        /* 为parent下的子元素设置边框 */
+        /* .parent>* {
+            border: 2px solid red;
+        } */
+        /* 给one的下一个兄弟设置边框 */
+        /* #one+* {
+            border: 2px solid red;
+        } */
+        /* 给one后面的所有兄弟设置边康 */
+        /* #one~* {
+            border: 2px solid red;
+        } */
+        /* 空格代表后代  >子代  +下一个兄弟  ~之后的所有兄弟 */
+        /* 在每个选择器后面都要加*号，不加星号代表只是使用了公式，但是没有选择对象 */
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div>hello</div>
+        <div id="one">
+            hello
+            <p>段落</p>
+        </div>
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+        <p>段落</p>
+    </div>
+</body>
+
+</html>
