@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大话西游改</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .xy {
+            position: relative;
+            width: 1920px;
+            height: 768px;
+            background-image: url("./images/beijing.jpg");
+            animation-name: xy;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+            animation-timing-function: linear;
+        }
+
+        .wk {
+            position: absolute;
+            width: 200px;
+            height: 180px;
+            /* border: 1px solid red; */
+            margin-top: 400px;
+            margin-left: 300px;
+            background-image: url("./images/wk.png");
+            animation-name: wk;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+            animation-timing-function: steps(8);
+
+        }
+
+        .ts {
+            position: absolute;
+            width: 170px;
+            height: 240px;
+            /* border: 1px solid red; */
+            margin-top: 365px;
+            margin-left: 500px;
+            background-image: url("./images/ts.png");
+            animation-name: ts;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+            animation-timing-function: steps(8);
+        }
+
+        .bj {
+            position: absolute;
+            width: 200px;
+            height: 180px;
+            /* border: 1px solid red; */
+            margin-top: 400px;
+            margin-left: 690px;
+            background-image: url("./images/bj.png");
+            animation-name: bj;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+            animation-timing-function: steps(8);
+
+
+        }
+
+        .wj {
+            position: absolute;
+            width: 210px;
+            height: 200px;
+            /* border: 1px solid red; */
+            margin-top: 400px;
+            margin-left: 870px;
+            background-image: url("./images/ss.png");
+            animation-name: wj;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+            animation-timing-function: steps(8);
+        }
+
+        @keyframes xy {
+            from {
+                background-position: 0px;
+            }
+
+            to {
+                background-position: 1920px;
+            }
+        }
+
+        @keyframes wk {
+            from {
+                background-position: 0px;
+            }
+
+            to {
+                background-position: 1600px;
+            }
+        }
+
+        @keyframes ts {
+            from {
+                background-position: 0px;
+            }
+
+            to {
+                background-position: 1360px;
+            }
+        }
+
+        @keyframes bj {
+            from {
+                background-position: 0px;
+            }
+
+            to {
+                background-position: 1600px;
+            }
+        }
+
+        @keyframes wj {
+            from {
+                background-position: 0px;
+            }
+
+            to {
+                background-position: 1680px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="xy">
+        <!-- <img src="./images/beijing.jpg" alt=""> -->
+        <div class="wk"></div>
+        <div class="ts"></div>
+        <div class="bj"></div>
+        <div class="wj"></div>
+    </div>
+</body>
+
+</html>

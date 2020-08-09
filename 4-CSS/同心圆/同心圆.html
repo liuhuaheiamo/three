@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同心圆</title>
+    <style>
+        * {
+            margin: 0;
+            height: 0;
+        }
+
+        .one {
+            box-sizing: border-box;
+            width: 400px;
+            height: 600px;
+            background-color: #343434;
+            position: relative;
+            color: #FFFFFF;
+            font-size: 50px;
+        }
+
+        .y1 {
+            box-sizing: border-box;
+            width: 300px;
+            height: 300px;
+            border: 10px solid #9A9A9A;
+            border-radius: 50%;
+            margin-top: 50px;
+            margin-left: 50px;
+            position: absolute;
+            animation-name: y1;
+            animation-duration: 2000ms;
+            animation-iteration-count: infinite;
+        }
+
+        .y2 {
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            border: 30px solid #FFFFFF;
+            border-radius: 50%;
+            margin-top: 100px;
+            margin-left: 100px;
+            position: absolute;
+            animation-name: y2;
+            animation-duration: 2500ms;
+            animation-iteration-count: infinite;
+        }
+
+        .zi {
+            box-sizing: border-box;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            /* border: 1px solid red; */
+            margin-top: 450px;
+            margin-left: 150px;
+        }
+
+        @keyframes y1 {
+            from {
+                width: 300px;
+                height: 300px;
+                margin-top: 50px;
+                margin-left: 50px;
+            }
+
+            to {
+                width: 330px;
+                height: 330px;
+                margin-top: 35px;
+                margin-left: 35px;
+            }
+        }
+
+        @keyframes y2 {
+            from {
+                width: 200px;
+                height: 200px;
+                margin-top: 100px;
+                margin-left: 100px;
+
+
+            }
+
+            to {
+                width: 180px;
+                height: 180px;
+                margin-top: 110px;
+                margin-left: 110px;
+
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="one">
+        <div class="y1"></div>
+        <div class="y2"></div>
+        <div class="zi">Hi</div>
+    </div>
+
+</body>
+
+
+</html>

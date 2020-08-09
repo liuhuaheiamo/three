@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大话西游</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* .one>* {
+            width: 1600px;
+            height: 800px;
+            animation-name: bj;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            animation-fill-mode: backwards;
+            animation-fill-mode: both;
+            animation-delay: 1s;
+
+
+        } */
+
+        /* .child {
+            width: 200px;
+            width: 180px;
+            border: 1px solid red;
+            animation-name: xy;
+            animation-iteration-count: infinite;
+            animation-duration: 8s;
+            animation-timing-function: linear;
+        } */
+        .parent {
+            /* border: 1px solid blue; */
+            /* width: 700px;
+            height: 180px; */
+            position: fixed;
+            top: 400px;
+            left: 300px;
+
+        }
+
+        .parent>* {
+            float: left;
+            animation-name: xy;
+            animation-duration: 6s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            /* animation-direction: reverse; */
+            /* animation-direction: alternate-reverse; */
+        }
+
+        .wk {
+            width: 200px;
+            height: 180px;
+            /* border: 1px solid red; */
+            /* position: fixed;
+            top: 400px;
+            left: 200px; */
+            background-image: url("./images/wk.png");
+            background-repeat: no-repeat;
+            /* background-position: left right; */
+        }
+
+        .ts {
+            width: 160px;
+            height: 180px;
+            /* border: 1px solid red; */
+            /* position: fixed;
+            top: 400px;
+            left: 450px; */
+            background-image: url("./images/ts.png");
+        }
+
+        .bj {
+            width: 140px;
+            height: 180px;
+            /* border: 1px solid red; */
+            /* position: fixed;
+            top: 400px;
+            left: 700px; */
+            background-image: url("./images/bj.png");
+        }
+
+        .wj {
+            width: 200px;
+            height: 180px;
+            /* border: 1px solid red; */
+            /* position: fixed;
+            top: 400px;
+            left: 950px; */
+            background-image: url("./images/ss.png");
+        }
+
+        @keyframes bj {
+            from {
+                /* widows: 200px; */
+                /* transform: rotate(0deg); */
+                transform: translateX(-200px);
+            }
+
+            to {
+                /* width: 1600px; */
+                /* transform: rotate(90deg); */
+                transform: translateX(0px);
+            }
+        }
+
+        @keyframes xy {
+            0% {
+                /* width: 100px;
+                height: 180px; */
+                /* background-position: -1600px; */
+                background-position: left;
+            }
+
+
+            /* 14% {
+                width: 400px;
+                height: 180;
+                background-position: -400px;
+            }
+
+            18% {
+                width: 600px;
+                height: 180;
+                background-position: -600px;
+            }
+
+            42% {
+                width: 800px;
+                height: 180;
+                background-position: -800px;
+            }
+
+            56% {
+                width: 1000px;
+                height: 180;
+                background-position: -1000px;
+            }
+
+            70% {
+                width: 1200px;
+                height: 180;
+                background-position: -1200px;
+            }
+
+            84% {
+                width: 1400px;
+                height: 180;
+                background-position: -1400px;
+            } */
+
+            100% {
+                /* width: 100px;
+                height: 180; */
+                /* background-position: 0px; */
+                background-position: right;
+
+            }
+
+        }
+
+        /* div:hover {
+            animation-play-state: paused;
+        } */
+    </style>
+</head>
+
+<body>
+
+</body>
+<div class="one">
+    <img src="./images/beijing.jpg" alt="">
+</div>
+<div class="parent">
+    <div class="wk"></div>
+    <div class="ts"></div>
+    <div class="bj"></div>
+    <div class="wj"></div>
+</div>
+<!-- <div class="parent">
+    <img src="./images/beijing.jpg" alt="">
+    <div class="child">
+        <img src="./images/bj.png" alt="">
+    </div>
+</div> -->
+
+</html>
