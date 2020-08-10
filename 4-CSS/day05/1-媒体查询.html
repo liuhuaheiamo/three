@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体查询</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        /* width<768   超小屏 */
+        /* 768<width< */
+        @media screen and (min-width:700px) {
+            div {
+                width: 200px;
+                background-color: burlywood;
+            }
+        }
+
+        /* 小于700和大于1200的样式一样 */
+        /* and 并且的关系圈 */
+        /* ,逗号是或者的意思 */
+        /* @media (max-width:700px),
+        (min-width: 1200px) {
+            div {
+                width: 200px;
+                background-color: burlywood;
+            }
+        } */
+        /* 769 至1200 */
+        @media (min-width:700px) and (max-width: 1200px) {
+            div {
+                width: 200px;
+                background-color: burlywood;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

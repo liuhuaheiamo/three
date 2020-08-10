@@ -1,0 +1,11 @@
+自适应布局：浮动 flex
+      浮动，pc端一行显示6列 到了手机端一行显示3，其他的样式没有发生改变，在不同设备显示一样
+浏览器兼容性问题
+  浏览器是不同的厂商制造出来的
+     列子  a厂商支持animation属性
+          b厂商不支持animation 提供了-ms-animation用来实现动画
+          div{
+              animation：ani 3s；
+              -ms-animation：ani 3s；
+          }
+          公共属性不带前缀

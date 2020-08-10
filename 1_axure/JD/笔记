@@ -1,0 +1,14 @@
+less scss 是css的预处理工具
+.less文件
+.scss文件
+装换为css文件
+
+div .one{}
+
+less,scss
+div{
+.one{
+
+}
+}
+scss文件内部可以写css代码

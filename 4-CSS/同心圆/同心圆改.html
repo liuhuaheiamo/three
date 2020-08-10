@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同心圆改</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .parent {
+            box-sizing: border-box;
+            width: 400px;
+            height: 600px;
+            background-color: #343434;
+            position: relative;
+            color: #FFFFFF;
+            font-size: 50px;
+        }
+
+        .y1 {
+            width: 300px;
+            height: 300px;
+            border: 10px solid #9A9A9A;
+            border-radius: 50%;
+            margin-top: 50px;
+            margin-left: 50px;
+            position: absolute;
+            animation-name: y1;
+            /* transition: all 2.5s; */
+            animation-duration: 2000ms;
+            animation-iteration-count: infinite;
+        }
+
+        .y2 {
+            width: 200px;
+            height: 200px;
+            border: 30px solid #FFFFFF;
+            border-radius: 50%;
+            margin-top: 100px;
+            margin-left: 100px;
+            position: absolute;
+            animation-name: y2;
+            animation-duration: 2500ms;
+            /* transition: all linear 4s; */
+            animation-iteration-count: infinite;
+        }
+
+        .text {
+            color: aliceblue;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="y1">
+            <div class="y2"></div>
+
+        </div>
+        <div class="text">Hi</div>
+    </div>
+</body>
+
+</html>

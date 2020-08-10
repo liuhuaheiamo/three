@@ -13,13 +13,14 @@
 
         .xy {
             position: relative;
-            width: 1920px;
-            height: 768px;
+            /* width: 1920px;
+            height: 768px; */
+            height: 100vh;
             background-image: url("./images/beijing.jpg");
             animation-name: xy;
-            animation-duration: 1s;
+            animation-duration: 30s;
             animation-iteration-count: infinite;
-            animation-direction: reverse;
+            /* animation-direction: reverse; */
             animation-timing-function: linear;
         }
 
@@ -84,6 +85,11 @@
             animation-iteration-count: infinite;
             animation-direction: reverse;
             animation-timing-function: steps(8);
+        }
+
+
+        .xy>*:hover {
+            animation-play-state: paused;
         }
 
         @keyframes xy {

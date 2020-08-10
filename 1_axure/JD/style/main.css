@@ -1,0 +1,34 @@
+/* 公共样式 */
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+article,
+section,
+aside,
+address,
+nav,
+header,
+footer,
+img {
+    display: block;
+}
+
+img {
+    border: none;
+}
+
+/* 去除列表项 */
+li {
+    list-style: none;
+}

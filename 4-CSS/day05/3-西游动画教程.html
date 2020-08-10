@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            height: 100vh;
+            /* 路径可以加引号或者不加 */
+            background-image: url("../大话西游/images/beijing.jpg");
+            /* animation-name: bj;
+            animation-duration: 1s; */
+            /* 动画名称  动画时长 动画次数 */
+            /* animation: bj 3s infinite linear; */
+
+        }
+
+        .parent {
+            position: absolute;
+            top: 300px;
+            left: 200px;
+        }
+
+        img {
+            display: block;
+        }
+
+        .wk {
+            border: 1px solid red;
+            width: 200px;
+            /* height: 180px; */
+            overflow: hidden;
+
+            /* animation-name: wk;
+            animation-duration: 3s;
+            animation-iteration-count: infinite; */
+        }
+
+        @keyframes bj {
+            from {
+                margin-left: -1920px;
+            }
+
+            to {
+                margin-left: 0px;
+            }
+        }
+
+        .wk img {
+            animation: wk 1s infinite linear;
+        }
+
+        @keyframes wk {
+            from {
+                margin-left: 0px;
+            }
+
+            to {
+                margin-left: -1600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 背景图片动画 -->
+    <div class="container">
+
+    </div>
+    <!-- 悟空动画 -->
+    <div class="parent">
+        <div class="wk">
+            <img src="../大话西游/images/wk.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

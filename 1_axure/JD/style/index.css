@@ -1,0 +1,131 @@
+/* 个人信息 */
+.my-info {
+    height: 30px;
+    background-color: #e3e4e5;
+}
+
+.my-info_content {
+    width: 1190px;
+    /* 元素水平居中 */
+    margin: 0 auto;
+    /* background-color: red; */
+    height: 100%;
+    line-height: 30px;
+    color: #999;
+}
+
+.my-info_content_left {
+    /* border: 1px solid blue; */
+    float: left;
+    position: relative;
+
+}
+
+.my-info_content_left:hover .content {
+    display: block;
+}
+
+/* 光标放到title选中下一个兄弟元素无论是谁 */
+/* .my-info_content_left .title:hover+* {
+    display: block;
+} */
+
+.my-info_content_left .content {
+    width: 200px;
+    height: 300px;
+    background-color: #ccc;
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    /* 原先位置不保留 */
+    display: none;
+}
+
+.my-info_content_right {
+    /* border: 1px solid red; */
+    float: right;
+}
+
+.my-info_content_right>div {
+    float: left;
+    margin: 0 7px;
+    /* padding: 0px 5px; */
+
+}
+
+.my-info_content_right .parent {
+    position: relative;
+    margin: 0 5px;
+
+}
+
+.my-info_content_right .parent:hover .title {
+    background-color: white;
+}
+
+.my-info_content_right .parent:hover .content {
+
+    display: block;
+}
+
+.my-info_content_right .title {
+    padding: 0 5px;
+}
+
+/* .content.one,
+.content.two,
+.content.three,
+.content.five */
+.my-info_content_right .content {
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+    position: absolute;
+    top: 30px;
+    /* left: 0; */
+    display: none;
+}
+
+.content.three {
+    margin-left: -140px;
+}
+
+.content.four {
+    width: 1189px;
+    /* left: 0px; */
+    margin-left: -1050px;
+}
+
+.my-info_content_right .parent .imagebg {
+    position: absolute;
+    top: 25px;
+    left: 0px;
+}
+
+.imagebg .top {
+    height: 5px;
+    width: 5px;
+    border: 1px solid blue;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-bottom: 5px solid #f7f7f7;
+    border-top: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    position: relative;
+    z-index: -1;
+}
+
+.imagebg .img-parent {
+    padding: 8px;
+    /* border: 1px solid red; */
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: -2;
+
+}
+
+.img-parent img {
+    width: 60px;
+    height: 60px;
+}

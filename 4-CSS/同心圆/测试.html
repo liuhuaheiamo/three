@@ -1,0 +1,97 @@
+**源代码：**
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        div.article {
+            width: 200px;
+            height: 300px;
+            background-color: black;
+            margin: 0 auto;
+        }
+
+        div.top {
+            height: 200px;
+            width: 200px;
+            padding: 20px;
+            animation-name: outer;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        div.text {
+            color: white;
+            text-align: center;
+        }
+
+        div#outer {
+            height: 100%;
+            border: 5px solid wheat;
+            border-radius: 50%;
+            padding: 20px;
+            animation-name: inner;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        div#inner {
+            height: 100%;
+            border: 3px solid white;
+            border-radius: 50%;
+        }
+
+        @keyframes outer {
+            25% {
+                padding: 10px;
+            }
+
+            50% {
+                padding: 20px;
+            }
+        }
+
+        @keyframes inner {
+
+            25% {
+                padding: 30px;
+            }
+
+            50% {
+                padding: 20px;
+            }
+
+            75% {
+                padding: 30px;
+            }
+
+            100% {
+                padding: 20px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="article">
+        <div class="top">
+            <div id="outer">
+                <div id="inner"></div>
+            </div>
+
+        </div>
+        <div class="text">Hi!</div>
+    </div>
+</body>
+
+</html>
