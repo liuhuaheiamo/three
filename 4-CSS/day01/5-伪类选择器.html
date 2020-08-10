@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <style>
+        /* 未被访问状态 */
+        a:link {
+            color: blue;
+        }
+
+        /* 已经访问状态 */
+        a:visited {
+            color: aqua;
+        }
+
+        /* 鼠标悬停状态 */
+        a:hover {
+            color: blueviolet;
+        }
+
+        /* 鼠标按住，的活动状态 */
+        a:active {
+            color: yellow;
+        }
+
+        /* 选中默认选中的按钮 */
+        input[type=radio]:default {
+            /* 设置外边框线 */
+            outline: 5px solid yellow;
+        }
+
+        input[type=radio]:checked {
+            outline: 3px solid blueviolet;
+        }
+
+        /* 数值在范围内 框内显示y颜色，也就是说对输入框进行判定 */
+        [type=number]:in-range {
+            background-color: green;
+        }
+
+        /* 在数值范围外，显示颜色，代表警告 */
+        [type=number]:out-of-range {
+            background-color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <a href="./1-css.html">超链接</a>
+    <div>
+        hello
+    </div>
+    <form action="#">
+        <input name="gender" type="radio" checked>男
+        <input name="gender" type="radio">女
+        <br>
+        <input type="number" min="0" max="100" step="10">
+    </form>
+</body>
+
+</html>

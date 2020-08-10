@@ -25,6 +25,7 @@ img {
 }
 
 img {
+    /* 设置边框没有 */
     border: none;
 }
 
