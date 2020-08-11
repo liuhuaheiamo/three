@@ -1,0 +1,93 @@
+.top {
+    width: 1349px;
+    height: 155px;
+    border: 1px solid red;
+    position: relative;
+    margin: 0 auto;
+}
+
+.top_left {
+    width: 400px;
+    height: 30px;
+    border: 1px solid chartreuse;
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.top_left .title>div {
+    float: left;
+    margin: 5px 8px;
+}
+
+.top_left .title .content {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    /* 隐藏块级元素框 */
+    display: none;
+}
+
+.top_left .title .parent:hover .content {
+    /* 显示出块级元素框 */
+    display: block;
+}
+
+.top_center {
+    width: 400px;
+    height: 30px;
+    border: 1px solid violet;
+    position: absolute;
+    margin-left: 450px;
+    margin-top: 10px;
+}
+
+.top_right {
+    width: 300px;
+    height: 30px;
+    border: 1px solid aqua;
+    position: absolute;
+    margin-left: 920px;
+    margin-top: 10px;
+}
+
+.top_right .title>div {
+    float: left;
+    margin: 5px 8px;
+}
+
+.top_right .content {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+.top_right .parent:hover .content {
+    position: absolute;
+    display: block;
+}
+
+.top_button {
+    width: 220px;
+    height: 70px;
+    border: 1px solid blue;
+    position: absolute;
+    margin-left: 200px;
+    margin-top: 60px;
+}
+
+.top_button .image {
+    width: 180px;
+    height: 70px;
+    /* border: 1px solid red; */
+    float: left;
+}
+
+.top_button a {
+    width: 40px;
+    height: 70px;
+    /* border: 1px solid blue; */
+    float: left;
+}

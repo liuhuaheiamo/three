@@ -9,62 +9,103 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+
         }
 
         .parent {
-            box-sizing: border-box;
             width: 400px;
             height: 600px;
+            border: 1px solid red;
             background-color: #343434;
             position: relative;
-            color: #FFFFFF;
-            font-size: 50px;
         }
 
         .y1 {
+            border-radius: 50%;
             width: 300px;
             height: 300px;
-            border: 10px solid #9A9A9A;
-            border-radius: 50%;
-            margin-top: 50px;
-            margin-left: 50px;
             position: absolute;
-            animation-name: y1;
-            /* transition: all 2.5s; */
-            animation-duration: 2000ms;
-            animation-iteration-count: infinite;
+            border: 1px solid blue;
+            margin: 50px;
+            animation: y1 2.5s infinite;
+
         }
 
         .y2 {
+            border-radius: 50%;
             width: 200px;
             height: 200px;
-            border: 30px solid #FFFFFF;
-            border-radius: 50%;
-            margin-top: 100px;
-            margin-left: 100px;
+            border: 1px solid cyan;
             position: absolute;
-            animation-name: y2;
-            animation-duration: 2500ms;
-            /* transition: all linear 4s; */
-            animation-iteration-count: infinite;
+            margin: 100px;
+            animation: y2 2s infinite;
         }
 
         .text {
-            color: aliceblue;
-            text-align: center;
+            font-size: 50px;
+            color: white;
+            position: absolute;
+            margin-top: 400px;
+            margin-left: 175px;
+            /* width: 50px;
+            height: 50px; */
+            border: 1px solid red;
         }
+
+        @keyframes y1 {
+            0% {
+                margin: 50px;
+                width: 300px;
+                height: 300px;
+            }
+
+            75% {
+                width: 320px;
+                height: 320px;
+                margin: 40px;
+            }
+
+            100% {
+                width: 320px;
+                height: 320px;
+                margin: 40px;
+            }
+
+        }
+
+        @keyframes y2 {
+            0% {
+                margin: 100px;
+                width: 200px;
+                height: 200px;
+
+            }
+
+            75% {
+                margin: 100px;
+                width: 200px;
+                height: 200px;
+
+            }
+
+            100% {
+                margin: 112px;
+                width: 176px;
+                height: 176px;
+
+            }
     </style>
 </head>
 
 <body>
     <div class="parent">
         <div class="y1">
-            <div class="y2"></div>
 
         </div>
+        <div class="y2"></div>
         <div class="text">Hi</div>
     </div>
+
 </body>
 
 </html>

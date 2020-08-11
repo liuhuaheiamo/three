@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+a {
+    /* 去除文本修饰 */
+    text-decoration: none;
+}
+
+article,
+section,
+aside,
+address,
+nav,
+header,
+footer,
+img {
+    /* 元素块级显示 */
+    display: block;
+}
+
+img {
+    /* 设置边框没有 */
+    border: none;
+}
+
+li {
+    /* 去除列表项 */
+    list-style: none;
+}

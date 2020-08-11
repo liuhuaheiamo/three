@@ -1,1 +1,5 @@
 font 规定了纯文本的字体，字体尺寸，还有字体颜色
+表单数据的内容类型：
+默认类型：application/x-www-form-urlancoded
+文件类型：multipart/form-data
+不对特殊字符编码：text/plain
