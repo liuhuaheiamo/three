@@ -1,0 +1,28 @@
+云服务器公网ip：121.199.76.85
+私有ip：172.28.215.240
+用户名：root
+密码：LIUhua.w2004
+本地密码：liuhua
+重置实例密码,重启实例
+clear  清空屏幕cmd的内容
+
+
+远程登录云服务器
+   1 使用阿里云网页登录
+   2 可以使用ssh工具在本机登录
+   远程连接密码：6Y2mLE
+
+ 本机安装Openssh ，putty软件
+   提供ssh工具，进行远程连接云服务器
+本机安装Cyberduck 进行文件系统的图形化显示并且可以进行文件的上传和下载功能
+
+在云服务上安装一些开发软件
+  apache
+mysql
+   数据库软件
+     注意输入root用户的密码root
+     登录mysql
+     mysql -uroot -p
+     本机安装navacat
+在云服务器上安装jdk java运行平台
+在云服务器安装node。js

@@ -1,0 +1,171 @@
+day01
+学习目标：
+1. mysql安装与配置，数据库
+2. nodeJS安装与配置，安装javascript的运行平台NodeJS
+3. apache安装与配置，前端项目的部署环境
+4. cyberduck安装与配置，文件上传与下载
+5. 将自己制作的静态网页项目部署到云服务器上
+6. JDK安装与配置，Java的运行平台
+
+1.购买云服务器   unix--Linux--- ubuntu(乌班图)
+  阿里云 服务器版  ubuntu版本
+  https://www.aliyun.com/activity/promotion/campus2018?accounttraceid=786cec2a5858422ba9caaaf2495e837csfgn
+  学生入口：https://promotion.aliyun.com/ntms/act/campus2018.html
+2.连接工具
+	使用ssh
+		ssh root@47.104.91.103
+		如果使用ssh连接报错，错误信息如下，需要在本机执行vi ~/.ssh/known_hosts，删除对应ip的公钥。保存之后再连接
+		@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+			@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+			Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+			It is also possible that a host key has just been changed.
+			The fingerprint for the ECDSA key sent by the remote host is
+			SHA256:ejIDrxMGqMHp9URzh1xKCzhBvJ8XXa2v00X3J06WKPY.
+			Please contact your system administrator.
+			Add correct host key in /Users/mac/.ssh/known_hosts to get rid of this message.
+			Offending ECDSA key in /Users/mac/.ssh/known_hosts:2
+			ECDSA host key for 106.52.23.167 has changed and you have requested strict checking.
+			Host key verification failed.
+	在自己电脑上访问服务器端
+		windows下安装openssh或者putty或者Xshell或者secureCRT进行远程终端访问
+    mac自带了ssh工具
+	安装cyberduck或者WinSCP软件进行文件上传与下载
+    cyberduck下载 https://cyberduck.io/download/
+3.安装服务器端软件
+	sudo apt-get update
+	查找安装路径dpkg -L apache2(软件安装的名称)
+	1.在线安装
+		ps -ef 查看正在运行的进程
+		ps -ef | grep atp   查找是否正在运行
+		atp工具   Advance Packaging Tool  高级包装工具
+		sudo apt-get update 命令来保持本地的软件包列表是最新的
+		1)安装mysql-server 
+			sudo apt-get install mysql-server
+			输入数据库的root用户密码: root
+			再次输入数据库的root用户密码: root
+			验证是否成功  mysql -uroot -proot登录
+			使用exit;退出当前mysql环境
+
+      卸载mysql 
+        按顺序执行以下命令
+          sudo apt-get autoremove --purge mysql-server-5.0
+          sudo apt-get remove mysql-server
+          sudo apt-get autoremove mysql-server
+          sudo apt-get remove mysql-common 
+          清理残留数据
+          dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
+		2)安装NodeJS环境
+			安装nodejs：sudo apt-get install nodejs
+			建立软连接：sudo ln -s /usr/bin/nodejs /usr/bin/node
+			测试是否安装成功：node -v  回车查看版本号
+				使用.exit退出node环境
+
+			安装npm 
+        sudo apt-get install npm
+			测试npm是否安装成功 npm -v 回车查看版本号
+			
+		3)安装apache2
+			sudo apt-get install apache2
+			默认安装完成后是启动的，如果要手动启动使用：
+        sudo /etc/init.d/apache2 start
+			测试ps -ef | grep httpd  安装成功
+      重启服务器：sudo /etc/init.d/apache2 restart
+      阿里云默认不开放apache的端口，如果要在本机访问云服务器上的apache，需要在【网络与安全-安全组】里添加入方向的8000/9999端口和80端口的规则
+
+			apache2的部署目录  /var/www/html
+				如果当前用户没有权限操作/var/www/html
+						使用sudo临时提升权限，将 /var/www/html的权限设置成777，原先是755。设置了之后，ubuntu用户就可以往html目录中放置文件或文件夹了
+						sudo chmod -R 777 /var/www/html
+					
+			将第一个项目部署到apache上，远程访问
+
+      在/var/www/html中新建文件，并且编辑文件内容
+        vi a.txt   回车，打开了文件   输入i 进入编辑模式，输入内容，内容输入完毕之后，使用esc键退出编辑模式，使用:进入底行模式进行保存并退出:wq
+
+        vim a.txt
+    4)在线安装jdk
+      安装jre  java命令
+        sudo apt install openjdk-8-jre-headless
+      安装jdk  javac命令
+        sudo apt install openjdk-8-jdk-headless
+      默认在线安装的时候，环境变量已经设置好了，可以直接使用java和javac命令了。
+      安装完成后jdk的家目录是
+        /usr/lib/jvm/java-8-openjdk-amd64
+=================================
+学习目标
+1.java环境的安装
+1.本机安装Navicat，连接云服务器的mysql数据库
+2.设置杰普招聘平台的数据库
+3.启动杰普招聘平台的jar包，并在浏览器上访问swagger
+4.部署杰普招聘平台的前端代码，并在浏览器上访问项目
+5.熟悉项目上线过程
+
+云服务器登录 47.104.91.103  root  root
+	ssh root@47.104.91.103
+	root
+mysql登录 47.104.91.103 root root
+	本机连接,xshell   mysql -uroot -proot
+	远程连接(本机连接云服务器mysql,不借助xshell)  
+    mysql -h47.104.91.103 -uroot -proot
+
+搭建项目环境
+	1.java环境的安装
+		在线安装jdk
+			安装jre  java命令
+				sudo apt install openjdk-8-jre-headless
+			安装jdk  javac命令
+				sudo apt install openjdk-8-jdk-headless
+			默认在线安装的时候，环境变量已经设置好了，可以直接使用java和javac命令了。
+			安装完成后jdk的家目录是
+				/usr/lib/jvm/java-8-openjdk-amd64
+	2.mysql的环境使用
+		在本机使用navicat连接云服务的mysql，创建数据库recruit，创建用户名briup和密码briup，给briup授权
+		执行sql文件
+			解决1698问题修改密码
+				update mysql.user set authentication_string=PASSWORD('root'), plugin='mysql_native_password' where user='root';
+				flush privileges;  刷新操作
+			解决2003问题
+					use mysql; 
+					update user set Host='%' where User='root';
+				修改bind_address
+					vim /etc/mysql/mysql.conf.d/mysqld.cnf
+					修改43行的bind_address=127.0.0.1为bind_address=0.0.0.0
+        注意在云服务器安全组入方向开放3306端口
+			重启mysql服务
+				service mysql restart
+			解决2005问题
+				ip地址错误
+		使用navicat远程连接root用户
+			在xshell环境中，进入到mysql，然后修改其他主机可以使用root用户远程登录。
+			首先需要设置云服务的root用户的可连接的主机
+				登录mysql环境，use mysql;    使用mysql数据库
+				查看mysql数据库中的user表中的host和user字段
+					select host,user from user;
+				update user set Host='%' where User='root';
+				update user set Host='%' where User='briup';
+			修改bind_address
+				vim /etc/mysql/mysql.conf.d/mysqld.cnf
+				修改43行的bind_address=127.0.0.1为bind_address=0.0.0.0
+			重启mysql服务
+				service mysql restart
+			开放3306端口
+				阿里云控制台，防火墙，开放3306端口
+	3.运行jar
+		上传jar包到云服务上
+		使用 java -jar XXXX.jar 运行java打包代码
+		端口号是8899，注意在阿里云的防火墙里开放8899端口
+		在浏览器中可以使用以下地址访问swagger
+			云服务器公网ip地址:后台项目端口号/swagger-ui.html
+			比如  47.104.91.103:8899/swagger-ui.html
+			能访问成功并且能获取接口的数据就是成功的
+	4.将打包后的前端代码部署到apache下
+		修改zhaopin/static/js/app.958e922e.js中的127.0.0.1为自己的服务器的公网ip地址
+		
+		将zhaopin文件夹上传到/var/www/html中
+		在浏览器访问 47.104.91.103:80/zhaopin
+
+
+	
+

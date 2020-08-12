@@ -3,22 +3,34 @@
     height: 155px;
     border: 1px solid red;
     position: relative;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    background-image: url(../images/top\ bj.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    font-size: 10px;
 }
 
 .top_left {
     width: 400px;
-    height: 30px;
+    height: 35px;
     border: 1px solid chartreuse;
     position: absolute;
     margin-left: 30px;
-    margin-top: 10px;
+    margin-top: 15px;
+    z-index: 1;
+
 }
+
 
 .top_left .title>div {
     float: left;
-    margin: 5px 8px;
+    margin: 10px 8px;
+    cursor: pointer;
+
 }
+
+/*  */
 
 .top_left .title .content {
     position: absolute;
@@ -29,17 +41,147 @@
     display: none;
 }
 
+.top_left .title .content.four {
+    width: 200px;
+    height: 200px;
+    border: 0px;
+    margin-top: 30px;
+    margin-left: -80px;
+}
+
+.top_left .title .content.three {
+    width: 480px;
+    height: 250px;
+    border: 1px solid red;
+    margin-left: -50px;
+    background-color: #FFFFFF;
+    text-align: center;
+    color: #212121;
+    font-size: 15px;
+    margin-top: 20px;
+
+}
+
+.top_left .title .content.three .img {
+    width: 150px;
+    height: 100px;
+    background-color: #FFFFFF;
+    /* border: 1px solid blue; */
+    float: left;
+    margin: 8px 8px;
+    z-index: 2;
+}
+
+.top_left .title .content.three .img:hover {
+    background-color: blueviolet;
+}
+
+.top_left .title .content.three .one {
+    width: 125px;
+    height: 70px;
+    /* border: 1px solid red; */
+    background-size: 100%;
+    margin-top: 10px;
+    margin-left: 12px;
+    background-repeat: no-repeat;
+    background-image: url(../images/1d85d5ce-afb5-4376-b64f-65ede5296dae.png);
+}
+
+.top_left .title .content.three .two {
+    width: 125px;
+    height: 70px;
+    /* border: 1px solid red; */
+    background-size: 100%;
+    margin-top: 10px;
+    margin-left: 12px;
+    background-repeat: no-repeat;
+    background-image: url(../images/2087d60f-8b25-4447-97d9-0fbd1ce9f84c.png);
+}
+
+.top_left .title .content.three .three {
+    width: 125px;
+    height: 70px;
+    /* border: 1px solid red; */
+    background-size: 100%;
+    margin-top: 10px;
+    margin-left: 12px;
+    background-repeat: no-repeat;
+    background-image: url(../images/8a40a006-dde6-48ec-b610-7baf67c9c27c.png);
+}
+
+.top_left .title .content.three .four {
+    width: 125px;
+    height: 70px;
+    /* border: 1px solid red; */
+    background-size: 100%;
+    margin-top: 10px;
+    margin-left: 12px;
+    background-repeat: no-repeat;
+    background-image: url(../images/99b75d17-7de7-446a-8233-5a52ae726c75.png);
+}
+
+.top_left .title .content.three .five {
+    width: 150px;
+    height: 225px;
+    border: 1px solid red;
+    position: absolute;
+    margin-left: 330px;
+    margin-top: 10px;
+    float: left;
+}
+
+.top_left .title .content.four .img {
+    width: 240px;
+    height: 240px;
+    background-image: url(../images/app-download.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-left: -20px;
+
+}
+
 .top_left .title .parent:hover .content {
     /* 显示出块级元素框 */
     display: block;
 }
 
 .top_center {
-    width: 400px;
-    height: 30px;
-    border: 1px solid violet;
+    width: 340px;
+    height: 35px;
+    /* border: 1px solid violet; */
+    background-color: #FFFFFF;
     position: absolute;
     margin-left: 450px;
+    margin-top: 20px;
+}
+
+input {
+    border: 0px;
+}
+
+.top_center .text {
+    width: 290px;
+    height: 35px;
+    /* border: 1px solid red; */
+    margin-left: 10px;
+    float: left;
+}
+
+.top_center .search {
+    color: #505050;
+    background-color: #E7E7E7;
+    /* border: 1px solid red; */
+    float: left;
+}
+
+button {
+    width: 40px;
+    height: 35px;
+    border: 0px;
+}
+
+.top_center .search i {
+    margin: 10px;
     margin-top: 10px;
 }
 
@@ -55,6 +197,7 @@
 .top_right .title>div {
     float: left;
     margin: 5px 8px;
+    cursor: pointer;
 }
 
 .top_right .content {
@@ -76,6 +219,8 @@
     position: absolute;
     margin-left: 200px;
     margin-top: 60px;
+    cursor: pointer;
+    /* background-image: url(.); */
 }
 
 .top_button .image {
@@ -85,7 +230,7 @@
     float: left;
 }
 
-.top_button a {
+.top_button .image_a {
     width: 40px;
     height: 70px;
     /* border: 1px solid blue; */
