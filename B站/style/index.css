@@ -7,6 +7,7 @@
     height: 9.375vw;
     min-width: 999px;
     background-image: url(../images/bj.png);
+    background-color: transparent;
     background-position: center 0;
     background-size: cover;
     background-repeat: no-repeat;
@@ -227,6 +228,7 @@ button {
 .top_right .title>div {
     float: left;
     margin: 10px 6px;
+    /* 鼠标悬停，的样式 */
     cursor: pointer;
 }
 
@@ -346,6 +348,13 @@ button {
     /* border: 1px solid blue; */
     float: left;
     overflow: hidden;
+    font-size: 12px;
+    cursor: pointer;
+
+}
+
+.first_left>div:hover {
+    color: #73C9E5;
 }
 
 .first_center {
@@ -354,15 +363,41 @@ button {
     /* border: 1px solid cyan; */
     float: left;
     overflow: hidden;
+    cursor: pointer;
+
+}
+
+
+
+.first_center>span:hover {
+    color: #73C9E5;
 }
 
 .first_center>span {
-    padding: 1px 18px;
-    margin-top: 20px;
+    padding: 0px 3px;
+    margin-top: 24px;
     margin-bottom: -20px;
     display: block;
     height: 30px;
     float: left;
+    font-size: 14px;
+}
+
+.first_center .one {
+    /* border-style: solid; */
+    color: #E7E7E7;
+    border: 0px 0px 0px 1px;
+    margin-top: 24px;
+    height: 50px;
+    width: 10px;
+}
+
+.first_center>span>em {
+    font-style: initial;
+    font-size: smaller;
+    font-style: normal;
+    background-color: #73C9E5;
+    color: white;
 }
 
 .first_right {
@@ -371,4 +406,17 @@ button {
     /* border: 1px solid violet; */
     float: left;
     overflow: hidden;
+}
+
+.first_right>span {
+    font-style: initial;
+    width: 50px;
+    height: 20px;
+    float: left;
+    display: block;
+    margin-top: 24px;
+    padding: 0px 5px;
+    margin-bottom: -20px;
+    border: 1px solid red;
+    font-size: 14px;
 }

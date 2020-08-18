@@ -1,0 +1,15 @@
+node 命令运行js    node hello.js
+node.js 语言
+    以js语言为基础
+
+弱类型语言   给他什么值就是什么值
+  //number
+  var = a =1;
+  // string
+  a = "s";
+强类型语言
+  定义什么值就是什么值
+
+
+定义多个变量
+   var a,b,c  声明多个变量
