@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //数组对象length的属性代表数组捏成员的个数，length可变
+        var arr = ['hello', true, { name: 'zhangsan' }, 12, function () { console.log(1); }];
+        console.log(arr.length);
+        arr[1] = 'a';          //修改数组元素
+        arr[10] = '10';             //如果下标超了所能表示的范围length-1  数组自动扩从到目标位置，使用undefined填充其他位置，使用给定的值填充目标位置长度为length+1
+        // console.log(arr);
+        //数组长度变大  填充undefined
+        //arr.length = 20;
+        //数组长度变小   后边的舍弃
+        //arr.length = 2;
+        //arr.length--;   //舍弃掉最后一位
+        console.log(arr);
+        //console.log(arr[2].name);           //
+        //console.log(arr[4]());
+        //arr[4]();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

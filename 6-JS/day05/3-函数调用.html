@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //函数调用
+        //  r如果你要更改函数内部的this指向，  用一下函数调用  call   apply bind
+        var obj = {
+            name: 'zhangsan',
+            sayThis: function (a, b) {
+
+                console.log(this, a, b);
+            }
+        };
+        obj.sayThis(1, 2);    //this  指向obj
+        //更改函数内部his指向   第一个函数就是this指向的对象，之后是函数需要的参数列表
+        //call(this,参数对象)
+        obj.sayThis.call({ a: 1 }, 1, 2);
+        //apply(this,参数数组)
+        obj.sayThis.apply({}, [1, 2]);
+        //  bind 方法的返回值  是更改了内部this指向的函数，但是该函数并没有执行,如果想要运行后面补个小括号代表运行
+        obj.sayThis.bind({}, 1, 2)();
+        obj.sayThis.bind({})(1, 2);
+        //获取形参个数
+        console.log(obj.sayThis.length);
+        function bb(aa, bb) {
+            //console.log(2)
+            return aa * bb;
+
+        };
+        bb(10, 2);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

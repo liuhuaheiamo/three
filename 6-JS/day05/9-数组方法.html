@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = [null, undefined, 3, 4, 6, 7, '33', 34, 67, 678, NaN, 'hello'];
+        //处理数组   null undefined NaN 处理成零
+        //将有数值得转number
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = parseInt(arr[i]);
+
+            if (isNaN(arr[i])) {
+                arr[i] = 0;
+            }
+        };
+        console.log(arr);
+        //console.log(arr);
+        //反转数组
+        //var result = arr.reverse();
+        //console.log(result);
+        // console.log(arr);
+        //数组排序  使用
+        //var result = arr.sort();
+        //arr.sort();
+        //console.log(arr);
+        //自定义排序
+        function compare(a, b) {
+            return a - b;
+            //a-b>0  a>b   b,a  升序
+            //a-b<0  a<b   a,b   升序
+            //  b-a   降序
+            /*if (a > b) {       // a>b  
+                return -1;
+            } else {
+                return 1;
+            }*/
+
+        };
+        var result = arr.sort(compare);
+        console.log(arr)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

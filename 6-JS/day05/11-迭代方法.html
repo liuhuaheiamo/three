@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr1 = ['a', 'b', 'c', 'd'];
+        //每个元素都会运行一次·
+        arr1.forEach(function (item, index, arr) {
+            //item  代表的是元素
+            // index  代表的是索引
+            // arr 指向着数组arr1
+            console.log(item, index, arr1);
+        });
+        //判断是否满足谋个条件 every 返回true或者false
+        var arr2 = [23, 45, 34, 6];
+        var result = arr2.every(function (item, index) {
+            return item > 18;
+        });
+        console.log(result);
+        var result = arr2.some(function (item) {
+            return item > 18;
+        });
+        console.log(result);
+        //过滤   返回满足条件的元素的数组
+        var result = arr2.filter(function (item) {
+            return item > 18;
+        });
+        console.log(result);
+        //映射计算   返回时计算后的元素组成的数组
+        var result = arr2.map(function (item) {
+            return item * item;
+        });
+        console.log(result);
+        //item.name  拿出item中得名字组成一个数组
+        //  作业 将数组内的每个对象的年龄加1  返回学生对象
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

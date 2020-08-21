@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //编写自己的函数原码
+        //  考虑调用方法     参数    是否改变原数组  功能  返回值
+        //在原型对象中添加方法
+        Array.prototype.myPop = function () {
+            //如何在里面拿到数组  this  就是指向arr数组
+            //先拿到最后一位元素，然后再去
+            var temp = this[this.length - 1]
+            this.length--;
+            return temp;
+
+        }
+        var arr = [3, 4, 5, 6, 7];
+        console.log(arr);
+        var result = arr.myPop();
+        console.log(result);
+        console.log(arr);
+        //arr.myPop();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
