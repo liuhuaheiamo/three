@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //匹配hello2或者1字符串   不是匹配hello2或者hello1字符串
+        // var pattern = /hello2|1/img;
+        //var pattern = /hello(2|1)/img;
+        var pattern = /(?<sdd>\w)\w\w\1/img;
+        var str = 'hello1abca2002';
+        console.log(pattern.exec(str));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //every  函数的特点   如果有不满足的那么直接返回false不在继续往后判断，如果全部满足返回true
+        var arr = [12, 34, 56, 78, 90];
+        Array.prototype.myEvery = function (fun, obj) {
+
+            //this指向数组arr
+            for (var i = 0; i < this.length; i++) {
+
+                if (!(obj ? fun.bind(obj)(this[i], i, this) : fun(this[i], i, this))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        var result = arr.myEvery(function (item, index, arr) {
+            console.log(this);
+            return item < 50;
+        }, { name: ''zhangsan }
+        );
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

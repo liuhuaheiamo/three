@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //字符类
+        var pattern2 = /[^1hello]/img;
+        //字符集合
+        var pattern = /\w\d/img;
+        //边界符
+        var pattern3 = /^h\w*\.$/img;     //以h开头以点结尾的  *代表0或者多次
+        var str = 'hello123.';
+        console.log(pattern.exec(str));
+        console.log(pattern2.exec(str));
+        console.log(pattern3.test(str));
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

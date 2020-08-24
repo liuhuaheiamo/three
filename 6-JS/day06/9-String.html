@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //string对正则表达式的支持方法
+        var pattern = /\w{2,}?/img;
+        var str = 'hello1world';
+        //search  返回位置或者-1
+        //console.log(str.search(pattern));     //返回的是位置  找到就返回位置  没找到就返回-1
+
+        //console.log(str.match(pattern));     //没有找到的就返回null
+        //替换
+        var result = str.replace(/o/img, 'E');
+        console.log(result);
+        //切割    可以进行字符串转数据
+        var str1 = '1002&1003&1004&1005';
+        //var result = str1.split('&');
+        //正则表达式方法
+        var result = str1.split(/&/);
+        console.log(result);
+//如何将一个数组转成字符串
+//数组的序列化
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //声明方式  
+        // 构造函数
+        //var pattern = new RegExp('表达式文本', '修饰符');
+        // i    g  global  全局匹配  
+        var pattern = new RegExp('hello', 'mg');
+        console.log(pattern);
+        //字面量方式
+        var pattern2 = /hello/img;
+        console.log(pattern2);
+        //匹配   为字符串匹配服务
+        var str = '你好，世界Hello World';
+        console.log(pattern.exec(str));    //检索正则表达式的匹配，匹配不到就返回null
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
