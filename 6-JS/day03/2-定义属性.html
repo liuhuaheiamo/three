@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj = {
+            name: 'zhangsa',
+            age: 12
+        }
+
+
+        console.log(obj);
+        //Object.defineProperty(对象的名字,对象内的属性名字,一个描述符对象{});
+        Object.defineProperty(obj, 'name', {
+            //一般默认为true  当为false的时候就是不能写 意思就是说，在外面不能对name  里面的内容进行修改，例如  obj.name = 'sss'; 就不成立
+            writable: false,
+            //这个默认也是true  通俗的来说就是能不能在次的调用方法 Object.defineProperty();方法对对象内的属性进行修改  当为false时候不能够再次调用函数修改
+            configurable: false,
+            enumerable: false,
+
+            //value: 'lisi'
+        });
+        //obj.name = 'oo';
+        //这次的方法不起效果，因为上面的方法里面的configurable设定成了false  意思就是不予许第二次的修改
+        Object.defineProperty(obj, 'name', {
+            value: 'ppp'
+        });
+        console.log(obj);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

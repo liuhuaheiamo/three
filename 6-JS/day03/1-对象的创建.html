@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //构造函数法
+        //声明了一个名字为person的Object类的对象
+        var person = new Object();
+        person.name = 'zhangsan';
+        person.ss = '22';
+        person.age = 12;
+        var person1 = {
+            name: 'lisi',
+            age: 12
+        };
+        console.log(person, person1);
+        //访问对象的属性
+        //点表示法
+        //删除属性
+        // delete person.name;
+        // console.log(person.name, person.age);
+        //中括号表示法
+        // console.log(person['age'], person1['name']);
+        // console.log(person1['age'], person['name']);
+        //检测属性
+        console.log('name' in person);
+        console.log(person.hasOwnProperty('name'));    //检查是否是自有属性  ，如果是继承属性那就返回false
+        console.log('name' in Object);
+        console.log(person.propertyIsEnumerable('name'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
