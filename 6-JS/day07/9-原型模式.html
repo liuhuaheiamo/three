@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //原型模式
+        //  属性和方法都在原型中
+        function Person() { }
+        Person.prototype = 'zhangsan';
+        Person.prototype = 12;
+
+
+
+        //重新定义构造函数的指向
+        Person.prototype = {
+            constructor: Person,
+            name: 'ton',
+            age: 12,
+            gender: '男',
+            friends: [],
+            sayName: function () {
+                console.log(this.name);
+            }
+        };
+
+
+        var p1 = new Person();
+
+        var p2 = new Person();
+
+        p1.friends.push('fr12');
+
+        //该私有的没有，全部是公共的属性   一般都是放公共函数  私有的一般放在构造函数中
+        console.log(p1.friends === p2.friends);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

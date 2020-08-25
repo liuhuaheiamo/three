@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //时间操作
+        var date = Date();
+        console.log(date);
+
+        console.log(parseDate(date));
+        //对时间进行解析
+        function parseDate(date) {
+            //获取年份   获取的是完整年份
+            var year = date.getFullYear();
+
+
+            //获取月份
+            var month = date.getMonth() + 1;
+
+            //获取日   每个月的第多少天
+            var day = data.getDate();
+            //获取小时
+            var hours = date.getHours();
+
+            //获取分
+            var minutes = date.getMinutes();
+            //获取秒
+            var seconds = date.getSeconds();
+
+            //console.log(year, month, day, hours, minutes, seconds);
+
+            return year + '-' + addZero(month) + '-' + addZero(day) + '-' + addZero(hours) + ':' + addZero(minutes) + ':' + addZero(seconds);
+        }
+
+        function addZero(num) {
+            return num < 10 ? '0' + num : num;
+
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

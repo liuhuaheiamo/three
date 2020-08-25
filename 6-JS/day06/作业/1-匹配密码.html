@@ -6,16 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        var pattern = /\w[A-Za-z]+\d+/mg;
-        var str = function () {
-            a: '123244141';
-            b: '123sdaf22';
-            c: '123214345';
-            d: '123dsf466';
-            e: '123214342'
-        };
-        str();
-        console.log(str);
+
+
+        var pattern = /\D+\W+/img;
+        var str = '123erw224';
+        console.log(pattern.exec(str));
+
+
+
+
+
+        // var pattern = /\w[A-Za-z]+\d+/mg;
+        // var str = function () {
+        //     a: '123244141';
+        //     b: '123sdaf22';
+        //     c: '123214345';
+        //     d: '123dsf466';
+        //     e: '123214342'
+        // };
+        // str();
+        // console.log(str);
         // var result = pattern.exec(str);
         // if (result[i].length > 1) {
         //     console.log(result[i]);

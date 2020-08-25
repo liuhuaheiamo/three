@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //构造函数
+        //  构造函数创建出来的函数都是有种类的
+
+        var sayName = function () {
+            console.log(this.name);
+        };
+        function Person(name, age, gender) {
+            //1.创建实例    var obj = {}；
+            //2.this-->obj
+            //3.执行函数内的代码。
+            // 4.返回obj
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+
+            this.sayName = sayName;
+        }
+        var p1 = new Person('zhangsan', '12', '男');
+
+        var p2 = new Person('lisi', '12', '女');
+        console.log(p1, p2);
+
+        var result = Person('tiks', '12', '男');
+        console.log(result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
