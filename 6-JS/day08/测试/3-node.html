@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .child {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var parent = document.getElementsByClassName('parent')[0];
+            //console.log(parent);
+            var two = parent.children[1];
+            console.log(two);
+            var newChild = document.createElement('div');
+            newChild.innerHTML = `<div class="child">55</div>`;
+            //在某个位置插入一个节点  第一个参数为想要插入的节点  第二参数为参考点  就比如这次，要插入的是newChild点  参考点为two  方法为insertBefore
+            //parent.insertBefore(newChild, two);
+            //  替换掉某个节点  第一个参数为替换节点   第二个参数为  被替换的节点  方法  replaceChild
+            // parent.replaceChild(newChild, two);
+            //移除某个节点
+            parent.removeChild(two);
+            // 清除某个节点里面的所有内容
+            newChild.innerHTML = ``;
+
+        };
+    </script>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">1</div>
+        <div class="child">two</div>
+        <div class="child">3</div>
+
+    </div>
+</body>
+
+</html>

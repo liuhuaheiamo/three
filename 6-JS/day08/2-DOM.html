@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <script>
+        window.onload = function () {
+            //body节点
+            var body = document.body;
+            //console.log(body);
+            //查看节点类型   9为Document   1 为element
+            console.log(body.nodeType);
+            //获取节点名称  全大写
+            console.log(body.nodeName);
+            //获取子节点
+            console.log(body.childNodes);
+            var childs = body.childNodes;
+            //对child进行判断  是否为数组
+            console.log(Array.isArray(childs));
+            //将类数组转为数组
+            // var arr = Array.prototype.slice.call(childs, 0);
+            // console.log(arr);
+            var temp = Array.from(childs);
+            console.log(temp);
+            // 从孩子节点中过滤出元素节点
+            var result = temp.filter(function (item) {
+                return item.nodeType == 1;
+            });
+            console.log(result);
+            //获取某元素内的孩子节点
+            console.log(body.children);
+
+
+            console.log(childs[3]);
+            console.log(body.ownerDocument);
+            console.log(body.hasChildNodes);
+        }
+    </script>
+</head>
+
+<body>
+    hello
+    <div id="one" class="two">
+        div的内容
+    </div>
+    world
+    <!-- 注释 -->
+</body>
+
+</html>

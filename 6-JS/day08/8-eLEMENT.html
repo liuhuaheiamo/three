@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element</title>
+    <script>
+        function test() {
+            console.log(1);
+        }
+        window.onload = function () {
+            var div = document.getElementById('one');
+            //console.log(div);
+            //获取属性值
+            console.log(div.id);
+            console.log(div.className);
+            console.log(div.title);
+            //使用点表示法访问不到自定义属性的值
+            console.log(div['data - flag']);
+            console.log(div.getAttribute('data-flag'));
+            //修改属性值
+            div.id = 'one1';
+            console.log(div);
+            //div['data-flag'] = 'teat';
+            //点修改方式不能修改自定义属性
+            //修改自定义属性
+            div.setAttribute('data-flag', 'test');
+            console.log(div);
+            //获取style属性值和onclick属性值
+            console.log(div.style);
+            //修改属性style里面的height
+            // 点表示法拿到的对象
+            div.style.height = '200px';
+            console.log(div.onclick);
+            //拿到的是字符串
+            console.log(div.getAttribute('style'));
+            console.log(div.getAttribute('onclick'));
+            //移除属性
+            div.removeAttribute('title');
+            console.log(div);
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="one" class="two" title="hello" data-flag="testdata" style="width: 100px;height: 100px;background: pink;"
+        onclick="test()">
+    </div>
+</body>
+
+</html>

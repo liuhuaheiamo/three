@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node方法</title>
+    <style>
+        .child {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var parent = document.getElementsByClassName('parent')[0];
+            var two = parent.children[1];
+            console.log(two);
+            //追加
+            //  同一个节点在页面中只能存在一次
+            //parent.appendChild(two);
+            //  插入
+            var newChild = document.createElement('div');
+            newChild.innerHTML = `<div class="child">newChild</div>`;
+            //  将newChild  插入到two前
+            //parent.insertBefore(newChild, two);
+            // 替换
+            // parent.replaceChild(newChild, two);
+            //  删除节点
+            //parent.removeChild(two);
+            //  获取parent内部内容   
+            // console.log(parent.innerHTML);
+            // console.log(parent.innerText);
+            // console.log(parent.textContent);
+            //设置内部内容   innerHTML识别代码片段   innerText和textcontent  只是识别文本
+            //parent.innerHTML = `hello`;
+            parent.innerText = 'hgggg';
+            // 清空
+            parent.innerHTML = ``;
+        };
+    </script>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">one</div>
+        <div class="child">two</div>
+        <div class="child">three</div>
+
+
+    </div>
+</body>
+
+</html>
