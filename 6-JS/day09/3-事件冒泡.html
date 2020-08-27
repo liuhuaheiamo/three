@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件冒泡</title>
+    <style>
+        #outer {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+        }
+
+        #center {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 0 auto;
+        }
+
+        #inner {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: brown;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var outer = document.getElementById('outer');
+            var center = document.getElementById('center');
+            var inner = document.getElementById('inner');
+
+            function handle(event) {
+                console.log(this);
+                //事件原目标
+                console.log(event.target);
+                console.log('-----------------');
+            }
+            //handle();
+            outer.onclick = handle;
+            center.onclick = handle;
+            inner.onclick = handle(event);
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="outer">
+        outer
+        <div id="center">
+            center
+            <div id="inner">
+                inner
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

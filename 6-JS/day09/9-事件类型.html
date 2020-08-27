@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>级联菜单</title>
+    <script>
+        window.onclick = function () {
+            var grade = document.getElementById('grade');
+            var clazz = document.getElementById('clazz');
+
+            var grades = [{
+                id: 1001,
+                name: '一年级'
+            }, {
+                id: 1002,
+                name: '二年级'
+            }, {
+                id: 1003,
+                name: '三年级'
+            }];
+            var clazzes = [{
+
+                id: 101,
+                name: '一年级一班',
+                gradeId: 1001
+            }, {
+                id: 102,
+                name: '一年级二班',
+                gradeId: 1001
+            }, {
+                id: 103,
+                name: '二年级一班',
+                gradeId: 1002
+            }, {
+                id: 104,
+                name: '二年级二班',
+                gradeId: 1002
+            }, {
+                id: 105,
+                name: '三年级一班',
+                gradeId: 1003
+            }, {
+                id: 106,
+                name: '三年级二班',
+                gradeId: 1003
+            }]
+            //处理数据追加节点
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h3>级联菜单</h3>
+    <!-- 年级下拉列表 -->
+    <select name="" id="grade"></select>
+    <!-- 班级下拉列表 -->
+    <select name="" id="clazz"></select>
+</body>
+
+</html>

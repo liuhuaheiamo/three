@@ -1,147 +1,147 @@
-             复习html css
-  html超文本标记语言   结构
-  css层叠样式表    表现
-  css在html中的使用
-      外部样式
-       <link href="xxx.css">
-       a.css b.css
-       在b.css中的第一行引用@import a.css  的意思是在b的css中引用a的样式，如果在外部的样式表中引入b的css这个b的css中会有吧自己的样式和a样式表中的样式。
-     内部样式
-       <style>
-       @import a.css
-       </style>
-    行内样式
-    在一个元素中直接用style设置样式
-      style="color:red;"
-    注释：
-      html的注释：  <!-- -->
-      css的注释：   /* */
-    基本的选择器
-       *{}  为普遍选择器 意思大概为全部内容选中
-       #id id选择器
-       .class 类选择器
-       div  标签选择器
-    组合选择器
-      #one.two.div{}
-    嵌套选择器
-      div#one.two{}
-    后代选择器
-      空格 代表的是后代
-      > 代表着子代
-      + 代表着下一个兄弟
-      ~ 之后的所有兄弟
-    属性选择器
-      [attr] 有着attr属性名的 选中
-      [attr=val]有attr属性并且属性值是val
-      [attr^=val] 有attr属性并且值以val开头的
-      [attr$=val]有attr属性并且值以val结尾的
-      [attr*=val]有attr属性并且值中包含val字符串的
-      [attr~=val]有attr属性并且有一个值是val的
-    伪类选择器
-      后代子代伪类选择器
-        ：first-child 作为别人的第一个孩子的元素
-         div：first-child 选择div并且是该div的第一个孩子
-        :last-child  作为别人的做后一个孩子
-        :nth-child（n）作为别人孩子中的第几个孩子
-        :last-of-type-child作为别人每种类型中倒数第几个孩子
-        :last-of-child作为别人类型中倒数第一个孩子
-        :nth-of-child（n）作为被人类型中第几个孩子
-        :nth-last-child（n）作为别人倒数第几个孩子
-        :only-child作为别人的独生孩子元素呗选中
-      a标签的伪类选择器
-        :lnk 未被访问状态
-        :visited 已经被访问状态
-        :hover鼠标悬停状态
-        :active事件的活动状态 鼠标的点击状态
-      form的伪类选择器
-        :valid 通过验证的
-        :invalid 没有通过验证的
-        :checked 用户选中的
-        :default 默认选中的
-        :in-range 在范围内的
-        :out-of-range 在范围外的
-      伪元素选择器
-        ::before 在元素前面添加伪元素，在该伪元素内可以设定内容content，设定宽高
-        ::after  在元素后面添加伪元素
-        ::first-line  选中第一行文字作为伪元素
-        :first-letter 选中第一个字符作为伪元素
-        :selection 选中的文字当做伪元素
-  css级联
-    如果给同一个元素的同一个属性设定了不同的属性值，判断哪一个属性值最终生效
-      重要性修饰
-        查看属性值有没有使用！important修饰  important修饰时最优先级
-      特性值
-        style="" 行内样式  的特性值是1000
-        id选择器在css内的声明  特性值为100
-        类选择器，伪类选择器，属性选择器  特性值为10
-        标签选择器，还有伪元素选择器 特性值为1
-        * + ~ > 空格  特性值为0
-      代码位置
-        越靠下面越是优先级越高，对于同一个元素的同一个属性来说 后面的css声明覆盖了前面的css声明
-      css继承
-        inherit 继承
-        initial 不继承
-        unset 不设定
-  字体样式
-    font-xxxxx
-    font-family：字体家族，各种个样的字体
-    font-weight：bold 字体加粗/bolder比父元素粗/lighter比父元素细/字体大小100-900/ 一般字体大小在400 
-    font-style：normal/italic/oblique、 字体倾斜
-    color： 字体颜色 有5种设定方式
-      关键字  比如说red blue 
-      rgb(0-255,0-255,0-255)红绿蓝三色组成，每个的取值在0-255范围
-      rgba(0-255,0-255,0-255,0-1) 这个比rgb多了一个透明度，取值是0-1,，1为不透明
-      hsl(0-360,0%-100%,0%-100%) 第一个为色相，取值为0-360 其中120为绿色，240为蓝色，二0和360为红色。第二个为饱和度，饱和度取值为0%-100%，其中0%为灰色，100%为全色。第三个定义为亮度，0%为暗色，50%为普通，100%为白色，hsl就像一个圆盘，上面可以调节颜色。
-      hsla(0-360,0%-100%，0%-100,0-1)比hsl多了一个透明度，取值为0-1,1为不透明
-    font-size：可以设定成像素px，em和rem
-  文本样式
-    text-xxxxx
-      text-decoration:; 文本的修饰线
-        text-decoration-line：underline/overline/line-through/none 文本修饰线的位置
-        text-decoration-style：solid/dashed/dotted/double 文本修饰线的样式和种类
-        text-decoration-color：文本修饰线的颜色
-        text-transform：uppercase/lowercase/capitalize,文本变形
-        text-shadow：x y blue color;阴影
-        text-align：center/left/right; 水平对齐方式
-  列表样式
-    list-style-type:circle/square/desc
-    list-style:none
-    list-style-position:inside/outside;
-  表格样式
-    border-collapse：collapse/separate;
-    caption-side:top/bottom
+复习html css
+html超文本标记语言 结构
+css层叠样式表 表现
+css在html中的使用
+外部样式
+<link href="xxx.css">
+a.css b.css
+在b.css中的第一行引用@import a.css 的意思是在b的css中引用a的样式，如果在外部的样式表中引入b的css这个b的css中会有吧自己的样式和a样式表中的样式。
+内部样式
+<style>
+  @import a.css
+</style>
+行内样式
+在一个元素中直接用style设置样式
+style="color:red;"
+注释：
+html的注释：
+<!-- -->
+css的注释： /* */
+基本的选择器
+*{} 为普遍选择器 意思大概为全部内容选中
+#id id选择器
+.class 类选择器
+div 标签选择器
+组合选择器
+#one.two.div{}
+嵌套选择器
+div#one.two{}
+后代选择器
+空格 代表的是后代
+> 代表着子代
++ 代表着下一个兄弟
+~ 之后的所有兄弟
+属性选择器
+[attr] 有着attr属性名的 选中
+[attr=val]有attr属性并且属性值是val
+[attr^=val] 有attr属性并且值以val开头的
+[attr$=val]有attr属性并且值以val结尾的
+[attr*=val]有attr属性并且值中包含val字符串的
+[attr~=val]有attr属性并且有一个值是val的
+伪类选择器
+后代子代伪类选择器
+：first-child 作为别人的第一个孩子的元素
+div：first-child 选择div并且是该div的第一个孩子
+:last-child 作为别人的做后一个孩子
+:nth-child（n）作为别人孩子中的第几个孩子
+:last-of-type-child作为别人每种类型中倒数第几个孩子
+:last-of-child作为别人类型中倒数第一个孩子
+:nth-of-child（n）作为被人类型中第几个孩子
+:nth-last-child（n）作为别人倒数第几个孩子
+:only-child作为别人的独生孩子元素呗选中
+a标签的伪类选择器
+:lnk 未被访问状态
+:visited 已经被访问状态
+:hover鼠标悬停状态
+:active事件的活动状态 鼠标的点击状态
+form的伪类选择器
+:valid 通过验证的
+:invalid 没有通过验证的
+:checked 用户选中的
+:default 默认选中的
+:in-range 在范围内的
+:out-of-range 在范围外的
+伪元素选择器
+::before 在元素前面添加伪元素，在该伪元素内可以设定内容content，设定宽高
+::after 在元素后面添加伪元素
+::first-line 选中第一行文字作为伪元素
+:first-letter 选中第一个字符作为伪元素
+:selection 选中的文字当做伪元素
+css级联
+如果给同一个元素的同一个属性设定了不同的属性值，判断哪一个属性值最终生效
+重要性修饰
+查看属性值有没有使用！important修饰 important修饰时最优先级
+特性值
+style="" 行内样式 的特性值是1000
+id选择器在css内的声明 特性值为100
+类选择器，伪类选择器，属性选择器 特性值为10
+标签选择器，还有伪元素选择器 特性值为1
+* + ~ > 空格 特性值为0
+代码位置
+越靠下面越是优先级越高，对于同一个元素的同一个属性来说 后面的css声明覆盖了前面的css声明
+css继承
+inherit 继承
+initial 不继承
+unset 不设定
+字体样式
+font-xxxxx
+font-family：字体家族，各种个样的字体
+font-weight：bold 字体加粗/bolder比父元素粗/lighter比父元素细/字体大小100-900/ 一般字体大小在400
+font-style：normal/italic/oblique、 字体倾斜
+color： 字体颜色 有5种设定方式
+关键字 比如说red blue
+rgb(0-255,0-255,0-255)红绿蓝三色组成，每个的取值在0-255范围
+rgba(0-255,0-255,0-255,0-1) 这个比rgb多了一个透明度，取值是0-1,，1为不透明
+hsl(0-360,0%-100%,0%-100%) 第一个为色相，取值为0-360
+其中120为绿色，240为蓝色，二0和360为红色。第二个为饱和度，饱和度取值为0%-100%，其中0%为灰色，100%为全色。第三个定义为亮度，0%为暗色，50%为普通，100%为白色，hsl就像一个圆盘，上面可以调节颜色。
+hsla(0-360,0%-100%，0%-100,0-1)比hsl多了一个透明度，取值为0-1,1为不透明
+font-size：可以设定成像素px，em和rem
+文本样式
+text-xxxxx
+text-decoration:; 文本的修饰线
+text-decoration-line：underline/overline/line-through/none 文本修饰线的位置
+text-decoration-style：solid/dashed/dotted/double 文本修饰线的样式和种类
+text-decoration-color：文本修饰线的颜色
+text-transform：uppercase/lowercase/capitalize,文本变形
+text-shadow：x y blue color;阴影
+text-align：center/left/right; 水平对齐方式
+列表样式
+list-style-type:circle/square/desc
+list-style:none
+list-style-position:inside/outside;
+表格样式
+border-collapse：collapse/separate;
+caption-side:top/bottom
 盒子模型
-  元素在网页中有四个区域组成，内容区，padding区，border区，margin区，称为盒子模型
-    w3c盒子也称为内容盒子
-      设定的width和height为内容区的宽高
-      转换盒子的语句
-      box-sizing:content-box;
-      内容区的宽高就是width/height
-      盒子的宽高为 内容区的宽高加上padding区和border区
-      盒子所占屏幕的空间 内容区加上padding区和border加上margin区
-    ie盒子 也称为边框盒子
-      设定的width和height为盒子的宽高
-        转换盒子的语句
-        box-sizing：border-box;
-        内容区的宽高为  盒子的宽高减去padding区和border
-        盒子的宽高为就是width/height
-        盒子所占屏幕的空间  盒子的宽高加上margin区
-        padding:10px 20px;
-        margin：10px 10px 10px 10px
-        如果为两个值，那么方位为 上下 左右
-        如果为三个值，那么方位为上 左右 下
-        如果为四个值，那么方位为 上 右 下 左
-        如果为一个值，那么方位为 上下左右
+元素在网页中有四个区域组成，内容区，padding区，border区，margin区，称为盒子模型
+w3c盒子也称为内容盒子
+设定的width和height为内容区的宽高
+转换盒子的语句
+box-sizing:content-box;
+内容区的宽高就是width/height
+盒子的宽高为 内容区的宽高加上padding区和border区
+盒子所占屏幕的空间 内容区加上padding区和border加上margin区
+ie盒子 也称为边框盒子
+设定的width和height为盒子的宽高
+转换盒子的语句
+box-sizing：border-box;
+内容区的宽高为 盒子的宽高减去padding区和border
+盒子的宽高为就是width/height
+盒子所占屏幕的空间 盒子的宽高加上margin区
+padding:10px 20px;
+margin：10px 10px 10px 10px
+如果为两个值，那么方位为 上下 左右
+如果为三个值，那么方位为上 左右 下
+如果为四个值，那么方位为 上 右 下 左
+如果为一个值，那么方位为 上下左右
 浮动
-  float:left/right;
-  clear:both; 清除浮动
-  overflow:hidden;
+float:left/right;
+clear:both; 清除浮动
+overflow:hidden;
 定位
-  定位元素：relative，absolute，fixed，sticky
-  定位元素的特性：有定位元素可以使用，top/bottom/left/right
-  position:relative;相对定位元素 相对于原本在文档流中的位置进行定位，原先位置保留 不脱离文档流
-  position:absolute绝对定位元素，如果没有定位的祖先元素，相对于视口区左上角定位，如果有祖先元素，相对于离他最近的定位祖先元素定位，原先位置不保留，脱离文档流
-  position:fixed;固定定位元素，相对于视口窗进行定位，原先位置不保留，脱离文档流。
-  position:sticky; 粘性定位，美哦与超过阈值前，相对定位的表现，超过阈值后，固定定位的表现，原先位置保留，不脱离文档流
-
-
+定位元素：relative，absolute，fixed，sticky
+定位元素的特性：有定位元素可以使用，top/bottom/left/right
+position:relative;相对定位元素 相对于原本在文档流中的位置进行定位，原先位置保留 不脱离文档流
+position:absolute绝对定位元素，如果没有定位的祖先元素，相对于视口区左上角定位，如果有祖先元素，相对于离他最近的定位祖先元素定位，原先位置不保留，脱离文档流
+position:fixed;固定定位元素，相对于视口窗进行定位，原先位置不保留，脱离文档流。
+position:sticky; 粘性定位，美哦与超过阈值前，相对定位的表现，超过阈值后，固定定位的表现，原先位置保留，不脱离文档流

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止默认行为</title>
+    <script>
+        window.onload = function () {
+            var a = document.getElementsByTagName('a')[0];
+            var btn = document.getElementById('btn');
+            a.onclick = function (event) {
+                event.preventDefault();
+            }
+            btn.onclick = function (event) {
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <a href="http://www.baidu.com">跳转</a>
+    <form action="./1-html事件处理程序.html">
+        <button id="btn">提交</button>
+    </form>
+</body>
+
+</html>

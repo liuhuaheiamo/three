@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+    <script>
+        window.onclick = function () {
+            var one = document.getElementById('one');
+            //DOM零级绑定事件  再次绑定是覆盖行为
+            one.onclick = function () {
+                console.log(1);
+            }
+            // one.onclick = function () {
+            //     console.log(2);
+            // }
+            //解绑
+            // one.onclick = null;
+            //DOM2级绑定   添加事件监听事件  不会覆盖  追加事件处理程序
+            function handle() {
+                console.log(1);
+            }
+            one.addEventListener('click', handle);
+            //解绑
+            one.removeEventListener('click', handle);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="one">点击我</div>
+</body>
+
+</html>

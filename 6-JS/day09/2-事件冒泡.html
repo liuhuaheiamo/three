@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件冒泡</title>
+    <style>
+        #outer {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+        }
+
+        #center {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 0 auto;
+        }
+
+        #inner {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: brown;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var outer = document.getElementById('outer');
+            var center = document.getElementById('center');
+            var inner = document.getElementById('inner');
+            //绑定同样的事件处理程序
+            //dom0级事件绑定
+            outer.onclick = function (event) {
+                console.log(this);
+                console.log(event);
+                //事件目标  触发事件的源头   源元素
+                console.log(event.target);
+                //当前事件目标    当前执行事件处理函数的元素
+                console.log(event.currentTarget);
+                console.log(this === event.currentTarget);
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="outer">
+        outer
+        <div id="center">
+            center
+            <div id="inner">
+                inner
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

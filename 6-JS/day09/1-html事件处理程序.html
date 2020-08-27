@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html事件绑定</title>
+    <script>
+        function test(event, a, b) {
+            //console.log(2);
+            //事件处理程序
+            console.log(event, a, b);
+        };
+    </script>
+</head>
+
+<body>
+    <div onclick="console.log(1)">点击我</div>
+    <div onclick="test()">点击我2</div>
+    <div onclick="test(event,10,20)">点击我3</div>
+</body>
+
+</html>

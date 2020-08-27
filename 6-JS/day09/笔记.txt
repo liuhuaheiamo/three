@@ -1,0 +1,9 @@
+DOM 事件
+事件的三要素
+事件目标(event target)
+事件处理程序(event handler)
+事件的对象(event object)
+事件流
+事件冒泡(IE事件)
+从内往外
+注意：IE8以及更早的版本只支持事件的冒泡
