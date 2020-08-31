@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax参数传递</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.9.4/qs.min.js"></script>
+    <script>
+        window.onload = function () {
+            //点击按钮的时候访问后台数据 将数据展现到页面中
+            var btn = document.getElementById('findAll');
+            btn.onclick = function () {
+                var httpRequest = new XMLHttpRequest();
+                // //大的  Qs是qs迎引进来的对象
+                var qs = Qs;
+                // console.log(qs.stringify(obj));
+                //post方式传参
+                httpRequest.open('post', 'http://121.199.76.85:7788/user/login');
+                //发起请求
+                //post的传参在send方法里
+                var obj = {
+                    username: 'admin1',
+                    password: '123321'
+                };
+                //设置数据格式  在请求头部设置
+                //设置请求头部方法
+                //httpRequest.setRequestHeader('Content-Type', 'application/json');
+                //认证  在请求头部加认证
+                httpRequest.setRequestHeader('Authorization', 'token');
+                httpRequest.send(JSON.stringify(obj));
+                //httpRequest.send(qs.stringify(obj));
+                //接受请求
+                httpRequest.onreadystatechange = function () {
+                    if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+                        console.log(httpRequest.responseText);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="findAll">获取数据</button>
+</body>
+
+</html>

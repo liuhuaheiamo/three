@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间</title>
+    <script>
+        window.onload = function () {
+            //在time上显示时间
+            //获取节点
+            var time = document.getElementById('time');
+            //时间字符串
+            var timeStr = new Date().toLocaleString();
+            //将时间字符串设置到节点内部
+            time.innerHTML = timeStr;
+            //动态时间
+            setInterval(function () {
+                time.innerHTML = new Date().toLocaleString()
+            }, 1000)
+            //history  实现返回上一页功能
+            var btn = document.getElementById('back');
+            btn.onclick = function () {
+                history.back();
+            };
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="time"></div>
+    <button id="back">返回上一页</button>
+</body>
+
+</html>

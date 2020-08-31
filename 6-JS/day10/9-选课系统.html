@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选课系统</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.9.4/qs.min.js"></script>
+    <script src="./utils.js">
+        var user = {
+            username: 'admin1',
+            password: '123321'
+        };
+        login(user);
+        //调用postJson对象
+        // myAjax.postJSON(四个实参   第一个是url  第二个参数对象 后两个是函数);
+        //调用postFrom对象
+        //测试get方法
+        // myAjax.get('/baseUser/findAll', null, function (res) {
+        //     console.log(res);
+        // }, function (err) {
+        //     console.log(err);
+        // });
+        window.onload = function () {
+            var main = document.getElementById('main');
+            myAjax.get('/baseUser/findAll', null, function (res) {
+                main.innerHTML = JSON.stringify(res);
+                //console.log(res);
+
+            }, function (err) {
+                console.log(err);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="main"></div>
+</body>
+
+</html>

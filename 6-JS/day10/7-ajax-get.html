@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax参数传递</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/qs/6.9.4/qs.min.js"></script>
+    <script>
+        window.onload = function () {
+            //点击按钮的时候访问后台数据 将数据展现到页面中
+            var btn = document.getElementById('findAll');
+            btn.onclick = function () {
+
+                var httpRequest = new XMLHttpRequest();
+                var obj = {
+                    name: 'zhangsan',
+                    age: 12
+                };
+                //大的  Qs是qs迎引进来的对象
+                var qs = Qs;
+                console.log(qs.stringify(obj));
+                //get方式传参
+                httpRequest.open('get', 'http://47.106.244.1:8099/manager/category/findAllCategory' + '?' + qs.stringify(obj));
+                //发起请求
+                httpRequest.send();
+                //接受请求
+                httpRequest.onreadystatechange = function () {
+                    if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+                        console.log(httpRequest.responseText);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="findAll">获取数据</button>
+</body>
+
+</html>

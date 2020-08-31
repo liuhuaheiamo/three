@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生ajax</title>
+    <script>
+        //ajax技术
+        //创建对象
+        var httpRequest = new XMLHttpRequest();
+        //打开一个http链接
+        // http://47.106.244.1:8099/manager/category/findAllCategory
+        httpRequest.open('get', 'http://47.106.244.1:8099/manager/category/findAllCategory');
+        //发起请求  send()可以传递参数
+        httpRequest.send();
+        //接受相应
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState === 4 && httpRequest.status === 200)
+                //获取相应
+                console.log(httpRequest.responseText);
+        }
+        if (httpRequest.readyState === 4 && httpRequest.status === 500)
+            //获取相应
+            console.log(httpRequest.responseText);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

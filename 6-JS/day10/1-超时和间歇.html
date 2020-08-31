@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //延时调用 超时调用
+        var id1 = setTimeout(function () {
+            console.log(1);
+        }, 2000);
+        //间歇调用
+        var id2 = setInterval(function () {
+            console.log(10);
+        }, 1000);
+        console.log(2);
+        //清除间歇调用  清除定时器
+        clearInterval(id2);
+        //清除超时调用
+        clearTimeout(id1);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

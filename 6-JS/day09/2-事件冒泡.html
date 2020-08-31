@@ -34,13 +34,13 @@
             //绑定同样的事件处理程序
             //dom0级事件绑定
             outer.onclick = function (event) {
-                console.log(this);
-                console.log(event);
+                //console.log(this);
+                //console.log(event);
                 //事件目标  触发事件的源头   源元素
                 console.log(event.target);
                 //当前事件目标    当前执行事件处理函数的元素
                 console.log(event.currentTarget);
-                console.log(this === event.currentTarget);
+                //console.log(this === event.currentTarget);
             }
         }
     </script>
