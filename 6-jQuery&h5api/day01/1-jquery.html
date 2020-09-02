@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script src="../js/jQuery-3.5.1.js"></script>
+    <script>
+        // $===JQuery
+        console.log($);
+        console.log(jQuery);
+        // 先学习选择器
+        //在文档加载完毕之后
+        $(function () {
+            var one = $('#one');
+            console.log(one);
+            console.log($('.two'));
+            //获取one的dom节点
+            console.log(one[0]);
+            //将dom转成我们的jquery对象
+            var temp = $(one[0]);
+            console.log(temp);
+            //在body内追加节点
+            var child = $(`
+            <div>one</div>
+            <div>one</div>
+            <div>one</div>
+            <div>one</div>
+            <div>one</div>
+            <div>one</div>
+            <div>one</div>
+            `);
+            //$('body').append(child);
+            $('.two').append(child);
+        })
+    </script>
+</head>
+
+<body>
+    <div id="one">one</div>
+    <div class="two">two</div>
+    <div class="two">two</div>
+</body>
+
+</html>

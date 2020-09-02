@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+    <style>
+        .parent {
+            border: 1px solid blue;
+            overflow: hidden;
+        }
+
+        .child {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin: 10px;
+            float: left;
+
+
+        }
+    </style>
+    <script src="../js/jQuery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            //给child绑定事件
+            // $('.child').on('click', function (event) {
+            //     //this指向dom节点
+            //     console.log(this);
+            // })
+            //只是执行一次
+            // $('.child').one('click', function (event) {
+            //     //this指向dom节点
+            //     console.log(this);
+            // })
+
+            // function handle() {
+            //     console.log(this);
+
+            // }
+            // $('.child').on('click', handle);
+            // //解除绑定
+            // $('.child').off('click', handle);
+            // //事件模拟触发
+            // //触发第一个child的点击事件
+            // console.log($('.child:first-child'));
+            //$('.child:first-child').trigger('click');
+            //绑定事件  快捷绑定事件
+            $('.child').click(function () {
+                console.log(this);
+            })
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+
+</body>
+
+</html>

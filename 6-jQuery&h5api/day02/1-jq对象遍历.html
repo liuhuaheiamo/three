@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象遍历</title>
+    <script src="../js/jQuery-3.5.1.js"></script>
+    <script>
+        //回调函数
+        $(function () {
+            var ones = $('.one');
+            //遍历ones  each
+            //item是dom节点
+            ones.each(function (index, item) {
+                console.log(index, item);
+            });
+            //过滤jq对象的节点  内部内容带o字符的
+            var result = ones.filter(function (index, item) {
+                //item.innerText
+                //  $(item).text 获取内部文本
+                return $(item).text().indexOf('o') > -1
+            });
+            console.log(result);
+            var ids = ones.map(function (index, item) {
+                return item.id
+                return $(item).attr(id);
+            });
+            console.log(ids);
+            //将jq对象转成数组  三个方法
+            //var arr = Array.prototype.slice.call(ones, 0);
+            //var arr = Array.from(ones);
+            //     var arr = ones.toArray();
+            //     arr.forEach(function (item, index) {
+            //         console.log(item, index);
+            //     });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="1001" class="one">one</div>
+    <div id="1002" class="one">two</div>
+    <div id="1003" class="one">three</div>
+</body>
+
+</html>

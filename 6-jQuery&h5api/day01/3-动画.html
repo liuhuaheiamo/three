@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <script src="../js/jQuery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            // //添加一个类
+            // $('h1:last-child').addClass('animate__bounce');
+            // //移除一个类
+            // $('h1:first-child').removeClass('animate__bounce');
+            $('button').click(function () {
+                // //点击有动画
+                // if (count % 2 == 1) {
+                //     $('#one').addClass('animate__bounce');
+                // } else {
+                //     $('#one').removeClass('animate__bounce');
+                //     //点击，没有动画
+                // }
+                $('#one').toggle('animate__bounce');
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+</head>
+
+<body>
+    <button>切换</button>
+    <h1 id="one" class="animate__animated ">An animated element</h1>
+    <h1 class="animate__animated animate__rollIn">An animated element</h1>
+    <h1 class="animate__animated ">An animated element</h1>
+
+</body>
+
+</html>

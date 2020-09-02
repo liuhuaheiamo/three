@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        table {
+            margin-top: 10px;
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+    <script src="../js/jQuery-3.5.1.js"></script>
+    <script>
+        //设置基础url
+        var baseURL = 'http://121.199.76.85:7788';
+        //配置全局ajax
+        if (sessionStorage.getItem('token')) {
+            $.ajaxSetup({
+                headers: {
+                    'Authorization': sessionStorage.getItem('token')
+                }
+            });
+        }
+        $(function () {
+            // Auth2认证 JWT认证
+            //登录功能:点击登录  向后台发起请求  访问后台接口获取token，将token存sessionStorage
+            $('.login').click(function () {
+                var user = {
+                    username: 'admin1',
+                    password: '123321'
+                };
+                //发起请求
+                $.ajax({
+                    url: baseURL + '/user/login',
+                    method: 'post',
+                    data: JSON.stringify(user),
+                    //局部请求头
+                    headers: {
+                        //设置json
+                        'Content-Type': 'application/json'
+                    },  //设置请求头的json格式
+                    success: function (res) {
+                        console.log(res);
+                        sessionStorage.setItem('token', res.data.token);
+                        //配置全局ajax
+                        $.ajaxSetup({
+                            headers: {
+                                'Authorization': sessionStorage.getItem('token')
+                            }
+                        });
+                    },
+
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            })
+            //获取数据功能  点击获取数据按钮 发起请求 请求携带token，获取响应，响应拿到之后，遍历数据，生成tr，追加到body中
+            $('.load').click(function () {
+                $.ajax({
+                    url: baseURL + '/baseUser/cascadeRoleFindAll',
+                    method: 'get',
+                    success: function (res) {
+                        //清空数据
+                        $('.tables tbody').empty();
+                        console.log(res);
+                        console.log('--------');
+                        res.data.forEach(function (item, index) {
+                            //item  就是每一个用户对象
+                            var newTr = $(`<tr>
+                    <td>
+                        <input type="checkbox" value = "$(item.imgDiv)">
+                    </td>
+                    <td>${index + 1}</td>
+                    <td>${item.username}</td>
+                    <td>${item.realname}</td>
+                    <td>${item.roles.map(function (it) {
+                                return it.name
+                            }).join()}</td>
+                    <td>${item.gender === 'male' ? '男' : '女'}</td>
+                    <td>${item.status}</td>
+                    <td>${item.telephone}</td>
+                    <td>
+                        <button data-id = '${item.id}' class = 'deleteBtn'>删除</button>
+                        <button>修改</button>
+                        </td>
+                </tr>`);
+                            $('.tables tbody').append(newTr);
+                        })
+                    },
+                    error: function (err) {
+                        console.log(err);
+                        console.log('+++++++');
+                    }
+                });
+            });
+            //单个删除，：获取到当前要删除的用户id，是否确认删除，拿到id给后台，后台删除成功后，再次查找数据局部刷新操作
+            //事件代理  代理deleteBtn
+            $('.tables tbody').on('click', '.deleteBtn', function () {
+                console.log(this);
+                //获取data-id
+                var id = $(this).attr('data-id');
+                console.log(id);
+                if (confirm('确认删除吗？')) {
+                    $.ajax({
+                        url: baseURL + '/baseUser/deleteById',
+                        method: 'get',
+                        //第一个id时与后台对应的 ，后台删除接口需要一个参数id  第二个id是变量的id  是要删除用户的id
+                        data: { id: id },
+                        success: function (res) {
+                            console.log(res);
+                            //重新加载
+                            //模拟点击
+                            $('.load').trigger('click');
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    })
+                }
+            })
+            //批量删除  首先查看用户是否有勾选  ，如果有勾选，询问用户是否删除，（执行批量删除）如果没有勾选，提示用户勾选
+            $('.batchDelete').click(function () {
+                //获取用户勾选的节点
+                var checks = $('.tables tbody *:checkbox:checked')
+                console.log(checks);
+                //获取每个节点上value属性的值
+                var ids = checks.map(function (index, item) {
+                    return $(item).val();
+                });
+                ids = ids.toArray();
+                //console.log(ids);
+                if (ids.length == 0) {
+                    alert('请选择要删除的数据');
+                    return;
+                }
+                if (confirm('是否确认批量删除')) {
+                    //发起请求 进行批量删除操作，局部更新数据
+                    alert(ids.toString() + '批量删除');
+                    $('.load').trigger('click');
+                }
+            });
+            //点击全按钮 进行全选或者全不选
+            $('.tables thead *:checkbox').change(function () {
+                //判断checkbox是否选中
+                console.log($(this).prop('checked'));
+                var value = $(this).prop('checked')
+                //设置表体的复选框
+                $('.tables tbody :checkbox').prop('checked', value);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 按钮组 -->
+    <div class="btns">
+        <button class="login">登录</button>
+        <button class="load">加载数据</button>
+        <button>新增</button>
+        <button class="batchDelete">批量删除</button>
+    </div>
+    <!-- 表格 -->
+    <div class="tables">
+        <!-- 追加数据到表格中 -->
+        <table>
+
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox">
+                    </th>
+                    <th>编号</th>
+                    <th>用户名</th>
+                    <th>姓名</th>
+                    <th>角色</th>
+                    <th>性别</th>
+                    <th>状态</th>
+                    <th>手机号</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>编号</td>
+                    <td>用户名</td>
+                    <td>姓名</td>
+                    <td>角色</td>
+                    <td>性别</td>
+                    <td>状态</td>
+                    <td>手机号</td>
+                    <td>操作</td>
+                </tr> -->
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>

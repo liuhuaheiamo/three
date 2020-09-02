@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10的阶乘</title>
+    <script>
+        var temp = 1;
+        for (var i = 1; i <= 10; i++) {
+            temp = temp * i
+        }
+        console.log(temp);
+        var aa = 1, i = 1;
+        while (i <= 10) {//while里面不能够声明变量，所以while的变量必须在while外面声明，而for语句可以直接在括号里面声明变量，而且while里面也只能做判定语句，不能对i做i++操作
+            aa = aa * i
+            i++
+        }
+        console.log(aa);
+        var bb = 1;
+        var i = 1;
+        do {
+            bb = bb * i
+            i++
+        } while (i <= 10)
+        console.log(bb);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
