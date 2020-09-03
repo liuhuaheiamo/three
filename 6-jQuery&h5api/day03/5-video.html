@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐视频</title>
+    <script src="../js/jQuery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            var video = $('video')[0];
+            $('button').click(function () {
+                //播放
+                if ($(this).text() === '播放') {
+                    video.play();
+                }
+                //暂停
+                if ($(this).text() === '暂停') {
+                    video.pause();
+                }
+                //切换
+                if ($(this).text() === '切换') {
+                    // 音视频是否暂停paused
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                    // console.log(video.paused);
+                }
+                //音量+
+                if ($(this).text() === '音量+') {
+                    video.volume = (video.volume > 0.9 ? 0.9 : video.volume) + 0.1;
+                }
+                //音量-
+                if ($(this).text() === '音量-') {
+                    video.volume = (video.volume < 0.1 ? 0.1 : video.volume) - 0.1;
+                }
+                //快进
+                if ($(this).text() === '快进') {
+                    video.currentTime += 5;
+                }
+                //回退
+                if ($(this).text() === '回退') {
+                    video.currentTime -= 5;
+                }
+                //倍速播放
+                if ($(this).text() === '倍速播放') {
+                    video.playbackRate = 10;
+                }
+            });
+        });
+    </script>
+    <style>
+        video {
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- controls 给视频加上进度条和开始按钮 -->
+    <!-- loop 循环播放 -->
+    <!-- autoplay 自动播放 -->
+    <!-- poster 封面 -->
+    <!-- muted  静音 -->
+    <video src="./video/1.mp4" controls></video>
+    <button>播放</button>
+    <button>暂停</button>
+    <button>切换</button>
+    <!-- 控制音量 -->
+    <button>音量-</button>
+    <button>音量+</button>
+    <button>快进</button>
+    <button>回退</button>
+    <button>倍速播放</button>
+</body>
+
+</html>

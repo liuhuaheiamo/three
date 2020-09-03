@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css样式</title>
+    <script src="../js/jQuery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            //$('div')
+            //拿不到css内的属性值，只能拿行内style的属性值
+            //console.log($('.one')[0].style.height);
+            //可以获取行内和css内的style样式的属性值 匹配到第一个元素的值
+            //获取值的话，匹配第一个元素的值
+            //设置值得话，会进行批量设置
+            //console.log($('.one').css({ height: '100px', width: '100px', backgroundColor: 'cyan' }));
+            console.log($('.one').css({ height: '100px', width: '100px', 'background-color': 'cyan' }));
+        });
+    </script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="one"></div>
+    <div id="one" class="one" style="height: 200px;"></div>
+</body>
+
+</html>

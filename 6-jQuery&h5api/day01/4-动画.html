@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jQuery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            $('button').click(function () {
+                // //隐藏
+                // $('div').hide();
+                // //显示
+                // $('div').show();
+                //切换
+                //$('div').toggle();
+                //淡出事件
+                // $('div').fadeOut();
+                // //淡入
+                // $('div').fadeIn();
+                //淡入淡出切换
+                // $('div').fadeToggle();
+                //划上
+                $('div').slideUp();
+                //滑下
+                $('div').slideDown();
+                //切换
+                $('div').slideToggle();
+            });
+        });
+    </script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>动画按钮</button>
+    <div class="one"></div>
+    <div class="one"></div>
+</body>
+
+</html>

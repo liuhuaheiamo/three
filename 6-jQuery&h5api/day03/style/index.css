@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav,section,article,header{
+    display: block;
+}
+li{
+    list-style: none;
+}
+body{
+    display: flex;
+    height: 100vh;
+}
+body>nav{
+    flex: 4;
+    /* background-color: pink; */
+}
+body>nav>header,body>article>header{
+    height: 80px;
+    background-color: #ccc;
+    
+}
+body>nav>section{
+    height: calc(100vh - 80px);
+    background-color: #eee;
+}
+body>nav>section li{
+    line-height: 60xp;
+    font-size: 20xp;
+    text-align: center;
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+body>nav>section li:hover{
+    color: teal;
+}
+body>article{
+    flex: 20;
+    /* background-color: cyan; */
+}
+body>article>section{
+    margin: 10px;
+    height: calc(100vh - 100px);
+    background-color: #ddd;
+}

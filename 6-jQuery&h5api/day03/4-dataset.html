@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义属性获取</title>
+    <script>
+        //原生js
+        window.onload = function () {
+            //querySelectorAll 拿了全部的
+            var one = document.querySelector('#one');
+            //dataset  里面保存了data-*的属性名字和属性值
+            console.log(one.dataset);
+            console.log(one.dataset.id)
+        };
+    </script>
+</head>
+
+<body>
+    <div id="one" flag="1" data-id="1001" data-item="test">one</div>
+</body>
+
+</html>

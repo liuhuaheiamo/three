@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组排序</title>
+    <script>
+        var arr = [11, 12, 55, 22, 33, 88, 10, 25, 14, 23, 21];
+        console.log(arr);
+        //反转数组排序
+        //console.log(arr.reverse());
+        //默认排序  调用每个的toString方法，然后按照字符序列排序
+        console.log(arr.sort(compare));
+        //自定义排序
+        //降序排序
+        // function compare(a, b) {
+        //     if (a > b) {
+        //         //返回负数，位置没有发生调换
+        //         return -1;
+        //     } if (a < b) {
+        //         return 1;
+        //     } else {
+        //         return 0;
+        //     }
+        // };
+        //升序排序
+        function compare(a, b) {
+            if (a < b) {
+                //返回负数，位置没有发生调换
+                return -1;
+            } if (a > b) {
+                return 1;
+            } else {
+                return 0;
+            }
+        };
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
