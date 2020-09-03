@@ -49,6 +49,12 @@
                     video.playbackRate = 10;
                 }
             });
+            video.onvolumechange = function () {
+                // console.log('音量事件监听');
+                if (this.volume > 0.8) {
+                    alert('为了你的听力健康请你加大音量')
+                }
+            }
         });
     </script>
     <style>
@@ -74,6 +80,7 @@
     <button>快进</button>
     <button>回退</button>
     <button>倍速播放</button>
+    <audio src="./video/1.mp3" controls></audio>
 </body>
 
 </html>

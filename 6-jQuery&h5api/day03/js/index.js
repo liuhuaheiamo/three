@@ -15,7 +15,7 @@ $(function () {
         }
         if (text === '用户管理') {
             // 右侧内容区加载栏目管理页面
-            $('body>article>section').load('./pages/user.html')
+            $('body>article>section').load('/6-jQuery&h5api/day01/3-ajax.html')
         }
     });
     $('body>nav li:first').trigger('click'

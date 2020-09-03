@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js值的复制</title>
+    <script>
+        //基本数据类型的复制
+        var a = 5;
+        var b = a;
+        console.log(a, b);
+        b = 6;
+        console.log(a, b);
+        // 引用数据类型的复制
+        var obj = {
+            name: 'zhangsan',
+            age: 12
+        };
+        // console.log(obj);
+        var c = obj;  //这里时指向同一个对象  引用赋值
+        console.log(c);
+        c.name = 'lisi';  //这里修改的是对象里面的name的值，如果是基本数据类型的话，这里只是修改c的name值不会修改到obj的name值。
+        console.log(c, obj);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

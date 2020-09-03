@@ -1,0 +1,11 @@
+
+
+nav {
+    flex: 4;
+    background-color: aqua;
+}
+
+article{
+    flex: 20;
+    background-color: blue;
+}

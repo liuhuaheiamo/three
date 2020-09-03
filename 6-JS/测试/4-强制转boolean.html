@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强制转boolean</title>
+    <script>
+        // 可以使用!!对变量进行强制转换为boolean类型的数据，有着五个特例，0,""空字符串,null,undefined,false,NaN都是为false，其余数据转换基本为true
+        // var a = 0;
+        // var b = "";
+        // var c = null;
+        // var d = undefined;
+        // var e = false;
+        // var f = NaN;
+        // var g = 1;
+        // var h = 'a';
+        // console.log(!!a, !!b, !!c, !!d, !!e, !!f, !!g, !!h);
+        //强制转为number
+        // +obj
+        // 如果数据是类似于number数据类型的数据的话 比如说'20'会转化为number类型的20
+        var aa = '20';    //20
+        var a = 0;        //0
+        var b = "";       //0
+        var c = null;     //0
+        var d = undefined;  //NaN
+        var e = false;     //0
+        var f = NaN;       //NaN
+        var h = 'a';       //NaN
+        var g = true;        //1
+        var i = '123e';
+        //  boolean数据类型的true转number为1  false转number为0 ，而有三个是特殊例子 一个是undefined 转number为NaN，string类型的数组中不以类number转的话为NaN,NaN转number也为NaN,空字符串还有null都为0,其中混合的字符串也为NaN
+        console.log(+aa, +a, +b, +c, +d, +e, +f, +h, +g, +i);
+        //通常可以使用void(0)  来获取undefined的值，就是因为在局部变量中undefined是可以被赋值的，所以比较一个数值是否为undefined的时候不用console.log(a===undefined)  而是使用console.log(a===void(0))，来比较
+        //字符串在js原生中也是可以又length长度的
+        console.log(void (0));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
