@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script src=""></script>
+    <script>
+        window.onload = function () {
+            // 获取画布dom
+            var canvas = document.querySelector('canvas')
+            // 获取画布上下文对象
+            var context = canvas.getContext('2d');
+            //  要绘制路径  
+            // 开始路径
+            var bubble = {
+                x: 100,
+                y: 100,
+                r: 50,
+                color: 'red'
+            };
+            // 调用draw方法
+            draw(bubble);
+            // 循环移动
+            setInterval(function () {
+                context.clearRect(0, 0, 400, 400);
+                move(bubble);
+            }, 1000 / 6);
+            //setTimeout(function () { }, 2000)
+
+            // 封装一个绘制的方法
+            function draw(bubble) {
+                context.beginPath();
+                context.arc(bubble.x, bubble.y, bubble.r, 0, Math.PI * 2);
+                context.fillStyle = bubble.color;
+                context.fill();
+            };
+            // 移动
+            function move(bubble) {
+                bubble.x += 5;
+                bubble.y += 5;
+                draw(bubble);
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <canvas width="400xp" height="400px"></canvas>
+</body>
+
+</html>

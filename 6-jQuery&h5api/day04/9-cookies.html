@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/latest/js.cookie.js"></script>
+    <script>
+        console.log(Cookies);
+        //存储数据
+        Cookies.set('name', 'zhangsan', { expires: 7 });
+        // 获取数据 获取cookies里面的数据
+        console.log(Cookies.get('name')); 
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

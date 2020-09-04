@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        body {
+            height: 400px;
+
+        }
+
+        .parent {
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        .child {
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+            margin: 10px;
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var childs = document.querySelectorAll('child');
+            var parent = document.querySelector('parent');
+            console.log(childs);
+            childs = Array.from(childs);
+            childs.forEach((item, index) => {
+                item.ondragstart = function () {
+                    console.log('ondragstart');
+                };
+                item.ondrag = function () {
+                    console.log('ondrag');
+                };
+                item.ondragend = function () {
+                    console.log('ondragend');
+                };
+                parent.ondragenter = function () {
+                    console.log('ondragenter');
+                };
+                parent.ondragover = function () {
+                    console.log('ondragover');
+                };
+                parent.ondrop = function () {
+                    console.log('ondragover');
+                };
+            });
+
+        };
+    </script>
+</head>
+
+<body>
+    <div class="parent"></div>
+    <div id="one" class="child" draggable="true">1</div>
+    <div id="two" class="child" draggable="true">2</div>
+    <div id="three" class="child" draggable="true">3</div>
+    <div id="four" class="child" draggable="true">4</div>
+</body>
+
+</html>

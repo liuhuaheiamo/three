@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变</title>
+    <script>
+        window.onload = function () {
+            var canvas = document.querySelector('canvas');
+            var context = canvas.getContext('2d');
+            // 绘制图片到画布中
+            var img = new Image();
+            console.log(img);
+            img.src = '../day03/images/8a40a006-dde6-48ec-b610-7baf67c9c27c.png'
+            // 绘制图片到画布中  0.0开始，200x200的大小
+
+            img.onload = function () {
+                context.drawImage(img, 0, 0, 200, 200);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <canvas width="400px" height="400px"></canvas>
+</body>
+
+</html>

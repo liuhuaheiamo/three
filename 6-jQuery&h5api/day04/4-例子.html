@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粒子动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        function random(min, max) {
+            // 获取随机数
+            return Math.random() * (max - min) + min;
+        }
+        //获取一下窗口的宽高  
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        var image = new Image();
+        image.src = '../day03/images/8a40a006-dde6-48ec-b610-7baf67c9c27c.png'
+        var images = Object.keys(image);
+        function Bubble() {
+            this.r = random(1, 200);
+            this.x = random(this.r, width - this.r);
+            this.y = random(this.r, height - this.r);
+            this.image = images[Math.floor(random(0, images.length))];
+            // 设定偏移  步长
+            this.xr = random(-5, 5);
+            this.yr = random(-5, 5);
+        };
+        Bubble.prototype = {
+            // 绘制
+            draw: function (context) {
+                context.beginPath();
+                context.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                context.fillStyle = this.image;
+                context.fill();
+            },
+            // 移动
+            move: function (context) {
+                this.x += this.xr;
+                this.y += this.yr;
+                // 边缘检测
+                (this.x + this.r > width || this.x - this.r < 0) ? (this.xr = -this.xr) : null;
+                (this.y + this.r > height || this.y - this.r < 0) ? (this.yr = -this.yr) : null;
+                this.draw(context);
+            }
+        };
+        window.onload = function () {
+            var canvas = document.querySelector('canvas')
+            canvas.width = width;
+            canvas.height = height;
+            var context = canvas.getContext('2d');
+            var arr = [];
+            var total = 500;
+            for (var i = 0; i < total; i++) {
+                var bubble = new Bubble();
+                bubble.draw(context);
+                arr.push(bubble);
+            }
+            //活动 动画 粒子运动
+            var id = setInterval(function () {
+                context.clearRect(0, 0, width, height);
+                // 开始移动
+                for (var i = 0; i < arr.length; i++) {
+                    arr[i].move(context);
+                }
+            }, 1000 / 600)
+            //  点击次数 控制定时器的操作
+            var count = 0;
+            canvas.onclick = function () {
+                if (count++ % 2 == 0) {
+                    // 停止
+                    clearInterval(id);
+                } else {
+                    id = setInterval(function () {
+                        context.clearRect(0, 0, width, height);
+                        // 开始移动
+                        for (var i = 0; i < arr.length; i++) {
+                            arr[i].move(context);
+                        }
+                    }, 1000 / 600)
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <canvas title="点击停止，再次点击活动"></canvas>
+</body>
+
+</html>

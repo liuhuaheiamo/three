@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画布</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script src=""></script>
+    <script>
+        window.onload = function () {
+            // 获取画布dom
+            var canvas = document.querySelector('canvas')
+            // 获取画布上下文对象
+            var context = canvas.getContext('2d');
+            //  要绘制路径  
+            // 开始路径
+            context.beginPath();
+            // 路径的方法 
+            // 圆的路径  确定圆心或者半径  x,y 圆心坐标点 半径  r开始弧度 结束弧度  是否顺时针也就是圆的方向
+            // Math.PI  180度  走的是弧线   0, Math.PI为顺时针绘制 ，如果设置了true则为逆时针(这个参数是是否为逆时针画)  arc是用来画弧线的
+            context.arc(100, 100, 50, 0, Math.PI / 4,)
+            // 绘制直线路径  直线的终点
+            context.lineTo(100, 100)  //这里的100,100是直线的终点 这里的起点是一上面圆的终点为起点，所以只需要画终点坐标
+            context.lineTo(150, 100);
+            context.arc(300, 300, 50, 0, Math.PI * 2);
+            // 结束路径  也就是闭合路径  也就是开始绘制点连接结束点
+            // context.closePath();
+            // 开始绘制
+            // 设置颜色
+            context.fillStyle = 'red';
+            // 填充
+            context.fill();
+            // 不走填充 走轮廓
+            // context.stroke();
+
+
+        };
+    </script>
+</head>
+
+<body>
+    <canvas width="400xp" height="400px"></canvas>
+</body>
+
+</html>

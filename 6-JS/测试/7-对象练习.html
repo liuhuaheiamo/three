@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象练习</title>
+    <script>
+        var obj = {
+            name: '可可',
+            age: 5,
+            type: '阿拉斯加犬',
+            color: 'red',
+            sayBank: function () {
+                console.log('旺旺旺');
+            },
+            show: function () {
+                console.log('演电影');
+            }
+        }
+        console.log(obj.age);
+        obj.sayBank();
+        obj.show();
+        var obj1 = new Object();
+        obj1.name = '鸣人';
+        obj1.age = 12;
+        obj1.sex = '男';
+        obj1.skill = function () {
+            console.log('影分身');
+        }
+        console.log(obj1.name);
+        obj1.skill();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画布</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script src=""></script>
+    <script>
+        window.onload = function () {
+            var canvas = document.querySelector('canvas')
+            // 获取画布上下文对象
+            var context = canvas.getContext('2d');
+            // x,y,width,height
+            // 在绘制之前可以定义颜色  定义样式 默认颜色为黑色
+            context.fillStyle = 'red';
+            // 绘制填充矩形
+            context.fillRect(10, 10, 100, 100);
+            // context.fillRect(0, 0, 400, 400);
+            // 设定轮廓样式 可以设置颜色和边框宽度
+            // 颜色
+            // context.strokeStyle = 'blue';
+            // // 设置轮廓的线宽
+            // context.lineWidth = 4;
+            // // 绘制边框矩形 或者绘制轮廓矩形  只有边框
+            // context.strokeRect(10, 10, 100, 100);
+            // 清除某一部分 清除一部分区域  相当于橡皮檫
+            context.clearRect(0, 0, 50, 50);
+            // 清除全部画布
+            context.clearRect(0, 0, 400, 400);
+        };
+    </script>
+</head>
+
+<body>
+    <canvas width="400xp" height="400px"></canvas>
+</body>
+
+</html>
