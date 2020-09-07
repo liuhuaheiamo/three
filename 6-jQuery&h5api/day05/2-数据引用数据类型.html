@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组内引用数据类型</title>
+    <script>
+        // arr = [1, 2, 3, 4, 5]
+        arr = [{}, {}, {}, {}, {}]
+        arr.forEach(function (item, index) {
+            // 基本数据类型以下方法无效
+            // item = item + 1;
+            // 以下基本数据类型方法有效
+            // arr[index] = item + 1;
+            // item.name = 'zhangsan';
+            item = [1, 2];
+        });
+        console.log(arr);
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

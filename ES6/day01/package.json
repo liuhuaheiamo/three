@@ -1,0 +1,19 @@
+{
+  "name": "day01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1-hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "qs": "^6.9.4"
+  }
+}

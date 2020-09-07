@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket</title>
+    <script>
+        // 创建一个WebSocket对象
+        var socket = new WebSocket('ws://121.199.76.85:7788/imserver/1');
+        // 接受推送消息的事件监听
+        // 事件监听
+        socket.onmessage = function (e) {
+            console.log(e);
+            // e.data 就是推送的数据
+            console.log(e.data, '-----------------');
+            // websocket 和服务器链接成功的事件监听
+        };
+        socket.onopen = function () {
+            console.log('websocket 和服务器链接成功的事件监听');
+            // 客户端可以和服务器端
+            socket.send('这是给服务器发送的数据');
+        };
+        // websocket 和服务器链接关闭
+        socket.onclose = function () {
+            console.log('关闭服务器连接');
+        };
+        setTimeout(() => {
+            // 手动关闭连接
+            socket.close();
+        }, 5000);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

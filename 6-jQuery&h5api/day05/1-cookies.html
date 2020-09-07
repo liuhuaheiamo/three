@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生cookies操作</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/latest/js.cookie.js"></script>
+    <script>
+        //放cookies里面传输据
+        //Cookies.set('cookies1', 'test1');
+        //原生获取
+        //Cookies.set('cookies2', 'test2');
+        var cookieStr = document.cookie;
+        console.log(cookieStr);
+        //获取cookies2 key对应的值
+        var arr = cookieStr.split('; ');
+        //console.log(arr);
+        //如果item是引用数据类型可以将item指向新的地址
+        // arr.forEach(function (item, index) {
+        //     arr[index] = item.split('=');
+        // });
+        var result = arr.map(function (item) {
+            return item.split('=');
+        });
+        // console.log(arr);
+        console.log(result);
+        // 获取cookies2 key对应的value值
+        var tempArr = result.filter(function (item) {
+            return item[0] == 'cookies2';
+        });
+        console.log(tempArr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
