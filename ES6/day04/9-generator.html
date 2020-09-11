@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/6-jQuery&h5api/js/jQuery-3.5.1.js"></script>
+    <script>
+        function* test(handle) {
+            handle();
+            let res = yield getData();
+            console.log(res);
+            handle();
+            yield '结束了'
+
+        };
+        // text();
+        // console.log(test);
+        let geo = test(function () {
+            console.log(111);
+        });
+        // console.log(aa);
+        // let geo = text();
+        // console.log(geo);
+        geo.next();
+        // 封装函数
+        function getData() {
+            return $.get('http://47.106.244.1:8099/manager/category/findAllCategory', {}, (res) => {
+                //发起状态机内，第二段状态执行
+                geo.next(res);  //将第一段代码的结果，当做第二段代码的入口
+            });
+        };
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generator函数</title>
+    <script>
+        function* test() {
+            consoleLog();
+            // 发起请求 res
+            let res = yield 1;
+            consoleLog();
+            console.log(res);
+            yield 2;
+            consoleLog();
+            yield 3;
+            consoleLog();
+            yield 4;
+        };
+        let geo = test();
+        // generator 对象  也是迭代器对象
+        console.log(geo);
+        let result = geo.next();
+        let result2 = geo.next(100);
+        console.log(result);
+        console.log(result2);
+        function consoleLog() {
+            for (let i = 1; i < 11; i++) {
+                console.log('木大木大哆啦咪');
+            }
+        };
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
