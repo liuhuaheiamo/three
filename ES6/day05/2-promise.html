@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise对象</title>
+    <script src="/6-jQuery&h5api/js/jQuery-3.5.1.js"></script>
+    <script>
+        // 声明一个promise对象
+        let p = new Promise((resolve, reject) => {
+            // 发起异步请求
+            // $.grt('http://47.106.244.1:8099/manager/category/findAllCategory',{});
+            $.ajax({
+                url: 'http://47.106.244.1:8099/manager/category/findAllCategory',
+                success(res) {
+                    resolve(res);
+                },
+                error(err) {
+                    reject(err);
+                }
+            });
+        });
+        p.then((res) => {
+            console.log(res);
+            // 对res操作
+        });
+        p.catch((err) => {
+            console.log(err);
+        });
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

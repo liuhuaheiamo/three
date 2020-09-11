@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+    <script src="/6-jQuery&h5api/js/jQuery-3.5.1.js"></script>
+    <script>
+        // 创建promise对象
+        let p = new Promise((resolve, reject) => {
+            // resolve, reject回调函数
+            // resolve()函数是promise对象最终状态为成功状态
+            //  reject()函数是promise对象最终状态为失败状态
+            if (10 > 2) {
+                // 成功状态
+                resolve('hello');   //传了一个实参
+            } else {
+                // 失败状态
+                reject('error');
+            }
+        });
+        // 成功执行then里面的回调函数  第一种方式
+        // p.then((res) => {
+        //     console.log('promise成功', res);
+        // });
+        // // 失败执行catch里面的回调函数
+        // p.catch((error) => {
+        //     console.log('promise失败', error);
+        // });
+        // p.finally(() => {
+        //     console.log('最终失败走这里');
+        // });
+        // 第二种方式
+        // 如果then提供了两个回调函数，分别代表resolve函数还会reject函数,提供不了finally函数，只能提供两个函数
+        p.then((res) => {
+            console.log('promise成功', res);
+        }, (error) => {
+            console.log('promise失败', error);
+        }, () => {
+            console.log('最终失败走这里');
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

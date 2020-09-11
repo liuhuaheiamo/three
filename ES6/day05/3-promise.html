@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise封装</title>
+    <script src="/6-jQuery&h5api/js/jQuery-3.5.1.js"></script>
+    <script>
+        // 封装一个promise工厂函数
+        function getPromise(url, method = 'get', data = null) {
+            return new Promise((resolve, reject) => {
+                // 异步请求
+                $.ajax({
+                    url,
+                    method,
+                    data,
+                    success(res) {
+                        resolve(res);
+                    },
+                    error(err) {
+                        reject(err);
+                    }
+                });
+            });
+        };
+
+        let p1 = getPromise('http://47.106.244.1:8099/manager/category/findAllCategory');
+        let p2 = getPromise('http://47.106.244.1:8099/manager/user/findAllUser');
+        // p1.then((res) => {
+        //     console.log(res, '+++++);
+        // });
+        // p1.then((res) => {
+        //     console.log(res, '----');
+        // });
+        // promise.all
+        // 同时成功就返回成功，一个失败就是失败
+        // let p3 = Promise.all([p1, p2]);
+        // p3.then((res) => {
+        //     console.log(res, '+++++++');
+        // });
+        // p3.catch((err) => {
+        //     console.log(err, '------');
+        // });
+
+
+
+        // 谁快用谁  
+        // let p3 = Promise.race([p1, p2]);
+        // p3.then((res) => {
+        //     console.log(res, '+++++++');
+        // });
+        // p3.catch((err) => {
+        //     console.log(err, '------');
+        // });
+
+
+        // 有一个成功就成功，都失败才失败
+        let p3 = Promise.any([p1, p2]);
+        p3.then((res) => {
+            console.log(res, '+++++++');
+        });
+        p3.catch((err) => {
+            console.log(err, '------');
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
