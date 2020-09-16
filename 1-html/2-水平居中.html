@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在父元素中水平居中</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*第一种方式，直接设置position距离 */
+        /* #one {
+            width: 600px;
+            height: 600px;
+            border: 1px solid red;
+            background-color: aqua;
+        }
+
+        #two {
+            margin-top: 150px;
+            margin-left: 150px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            background-color: blueviolet;
+        } */
+        /* 第二种方式  运用定位 */
+        /* #one {
+            width: 600px;
+            height: 600px;
+            background-color: aqua;
+            position: relative;
+        }
+
+        #two {
+            width: 300px;
+            height: 300px;
+            background-color: blueviolet;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        } */
+        /* 第三种方式 */
+        /* #one {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+            position: relative;
+        }
+
+        #two {
+            width: 300px;
+            height: 300px;
+            background-color: blueviolet;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -150px;
+        } */
+        /* 第四种方式  display   伸缩盒子布局*/
+        /* #one {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #two {
+            width: 300px;
+            height: 300px;
+            background-color: blueviolet;
+            position: absolute;
+
+        } */
+        /* 第五种方式    */
+        #one {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+            display: table-cell;
+            vertical-align: middle;
+
+        }
+
+        #two {
+            width: 300px;
+            height: 300px;
+            background-color: blueviolet;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="one">
+        <div id="two"></div>
+    </div>
+</body>
+
+</html>

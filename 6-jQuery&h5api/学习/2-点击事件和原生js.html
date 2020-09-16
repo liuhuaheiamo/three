@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点击事件和原生js</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 选中button按钮   通过id
+            var btnone = document.getElementById('one');
+            var btntwo = document.getElementById('two');
+            var btnthree = document.getElementById('three');
+            //  选中div  通过标签名字
+            var divs = document.getElementsByTagName('div');
+            // 给btnone  设置点击事件  设置边框
+            btnone.onclick = function () {
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].style.border = '1px solid blue';
+                };
+            };
+            // 给btntwo   设置点击事件  设置文本
+            btntwo.onclick = function () {
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].textContent = '这是设置的文本';
+                }
+            };
+            // 给btnthree  设置点击事件  设置背景颜色
+            btnthree.onclick = function () {
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].style.backgroundColor = 'red';
+                };
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <button id="one">设置边框</button>
+    <button id="two">设置文本</button>
+    <button id="three">设置背景颜色</button>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+</html>

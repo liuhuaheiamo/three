@@ -35,23 +35,21 @@
             //     console.log(this);
             // })
 
-            // function handle() {
-            //     console.log(this);
-
-            // }
-            // $('.child').on('click', handle);
-            // //解除绑定
-            // $('.child').off('click', handle);
-            // //事件模拟触发
-            // //触发第一个child的点击事件
-            // console.log($('.child:first-child'));
-            //$('.child:first-child').trigger('click');
-            //绑定事件  快捷绑定事件
-            $('.child').click(function () {
+            function handle() {
                 console.log(this);
-            })
-        })
-
+                $('.child').on('click', handle);
+                // //解除绑定
+                // $('.child').off('click', handle);
+                // //事件模拟触发
+                // //触发第一个child的点击事件
+                // console.log($('.child:first-child'));
+                //$('.child:first-child').trigger('click');
+                //绑定事件  快捷绑定事件
+                // $('.child').click(function () {
+                //     console.log(this);
+                // })
+            }
+        }
     </script>
 </head>
 

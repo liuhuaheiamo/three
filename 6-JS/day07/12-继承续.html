@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组合继承</title>
+    <script>
+        // 经典继承是继承了父构造函数的属性，而原型链继承则是继承了方法
+        // 父构造函数
+        function Aniaml(name, age, weight, type) {
+            this.name = name;
+            this.age = age;
+            this.weight = weight;
+            this.type = type;
+        };
+
+        // 新建一个原型对象，这个原型对象是Aniaml新的原型对象
+        Aniaml.prototype = {
+            // 原型对象里面的constructor指回构造函数Animal  实现双向继承
+            constructor: Aniaml,
+            sayType: function () {
+                console.log(this.type);
+            }
+        };
+        // 新建一个构造函数Dog
+        function Dog(name, age, weight, type, color, height) {
+            // 构造函数继承
+            Aniaml.call(this, name, age, weight, type);
+            this.color = color;
+            this.height = height;
+        };
+        // 原型链继承
+        // 当原型对象等于另外一个类型的实例即为继承  这里的Dog的原型对象就是Animal的实例
+        // 这里是修改了Dog的原型对象，新建了一个原型对象来作为Dog新的原型对象
+        Dog.prototype = new Aniaml();
+        // 这里是原型对象指回构造函数Dog实现双向指向
+        constructor: Dog;
+        // 在Dog的新的原型对象中添加一个新的属性sayName
+        Dog.prototype.sayName = function () {
+            console.log(this.name);
+        };
+        // 创建一个实例对象，这个实例对象的父亲是Dog
+        var dog = new Dog('小白', '1', '5kg', '狗', '黑色', '30cm');
+        console.log(dog);
+        dog.sayType();
+        dog.sayName();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -26,8 +26,8 @@ body>nav>section{
     background-color: #eee;
 }
 body>nav>section li{
-    line-height: 60xp;
-    font-size: 20xp;
+    line-height: 60px;
+    font-size: 20px;
     text-align: center;
     border-bottom: 2px solid white;
     cursor: pointer;
