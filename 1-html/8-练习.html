@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+        window.onload = function () {
+            var btns = document.getElementsByTagName('button');
+            var lis = document.getElementsByTagName('li');
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].onclick = function () {
+                    // 清除所有按钮样式
+                    for (var j = 0; j < btns.length; j++) {
+                        btns[j].className = ''
+                    };
+                    event.target.className = 'btn';
+                    for (var k = 0; k < lis.length; k++) {
+                        lis[k].className = '';
+                    }
+                    lis[num].className = 'one'
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .two {
+            width: 500px;
+            height: 400px;
+            border: 1px solid red;
+        }
+
+        li {
+            list-style: none;
+            width: 500px;
+            height: 400px;
+            background-color: aqua;
+            display: none;
+        }
+
+        .btn {
+            background-color: blueviolet;
+        }
+
+        .one {
+            background-color: bisque;
+            color: black;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button class="btn">学生</button>
+        <button>教师</button>
+        <button>选课</button>
+        <button>用户</button>
+    </div>
+    <div class="two">
+        <ul>
+            <li class="one">学生页面</li>
+            <li>教师页面</li>
+            <li>选课页面</li>
+            <li>用户页面</li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>坦克移动</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .one {
+            /* margin-left: 50px; */
+            padding-left: 50px;
+            line-height: 100px;
+            border-bottom: 1px solid red;
+        }
+
+        .two {
+            margin-top: 50px;
+            margin-left: 50px;
+            width: 800px;
+            height: 500px;
+            border: 1px solid red;
+        }
+
+        span {
+            font-size: 20px;
+            color: red;
+            font-weight: bold;
+        }
+
+        img {
+            position: relative;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btns = document.getElementsByTagName('button');
+            var imgs = document.images;
+            console.log(imgs);
+
+
+            // 绑定点击移动事件
+            btns[0].onclick = function () {
+                imgs[0].style.left = imgs[0].offsetLeft + 20 + 'px';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="one">
+        <button>手动移动</button>
+        <button>发射</button>
+        <button>赛跑</button>
+        <button>自动转圈</button>
+        <span>5</span>
+    </div>
+    <div class="two">
+        <img src="./img//tanke_right.jpg" alt="">
+        <br>
+        <img src="./img//tanke_right.jpg" alt="">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		div:first-child {
+			height: 50px;
+			line-height: 50px;
+			border-bottom: 1px solid black;
+			padding-left: 50px;
+		}
+
+		div:last-child {
+			width: 600px;
+			height: 350px;
+			border: 1px solid black;
+			margin: 50px;
+		}
+
+		span {
+			color: red;
+			font-size: 24px;
+			font-weight: bold;
+			margin-left: 10px;
+		}
+
+		img {
+			position: relative;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			//1.获取元素
+			var btns = document.getElementsByTagName('button');
+			var imgs = document.images;
+
+			//2.绑定事件
+			//手动移动
+			btns[0].onclick = function () {
+				imgs[0].style.left = imgs[0].offsetLeft + 20 + "px";
+				if (imgs[0].offsetLeft > 450) {
+					imgs[0].style.left = 450 + "px";
+				}
+			}
+
+			//发射
+			var span = document.getElementsByTagName('span')[0];
+			btns[1].onclick = function () {
+				var id = setInterval(function () {
+					span.innerHTML = --span.innerHTML;
+
+					if (span.innerHTML == "0") {
+						clearInterval(id);
+						imgs[0].style.left = "200px";
+					}
+
+				}, 1000);
+
+
+			}
+
+			//赛跑
+			btns[2].onclick = function () {
+				var id = setInterval(function () {
+					var random1 = parseInt(Math.random() * 50);
+					var random2 = parseInt(Math.random() * 50);
+					imgs[0].style.left = imgs[0].offsetLeft + random1 + "px";
+					imgs[1].style.left = imgs[1].offsetLeft + random2 + "px";
+					if (imgs[0].offsetLeft >= 450 || imgs[1].offsetLeft >= 450) {
+						clearInterval(id);
+						if (imgs[0].offsetLeft > imgs[1].offsetLeft) {
+							alert("tanke1胜利！");
+						} else {
+							alert("tanke2胜利！");
+						}
+
+					}
+
+
+				}, 500);
+
+
+			}
+
+			//自动移动
+			function run() {
+				var id0 = setInterval(function () {
+					imgs[0].style.left = imgs[0].offsetLeft + 10 + "px";
+					if (imgs[0].offsetLeft >= 450) {
+						clearInterval(id0);
+						imgs[0].src = "./img/tanke_down.jpg";
+						var id1 = setInterval(function () {
+							imgs[0].style.top = imgs[0].offsetTop + 10 + "px";
+							if (imgs[0].offsetTop >= 250) {
+								clearInterval(id1);
+								imgs[0].src = "./img/tanke_left.jpg";
+
+								var id2 = setInterval(function () {
+									imgs[0].style.left = parseInt(imgs[0].style.left) - 10 + "px";
+									if (imgs[0].offsetLeft < 100) {
+										clearInterval(id2);
+										imgs[0].src = "./img/tanke_up.jpg";
+										var id3 = setInterval(function () {
+											imgs[0].style.top = parseInt(imgs[0].style.top) - 10 + "px";
+											if (imgs[0].offsetTop < 100) {
+												clearInterval(id3);
+												imgs[0].src = "./img/tanke_right.jpg";
+												run();
+
+											}
+										}, 100);
+									}
+								}, 100);
+
+							}
+
+						}, 100);
+					}
+				}, 100);
+
+			}
+			btns[3].onclick = run;
+
+
+
+		}
+	</script>
+</head>
+
+<body>
+	<div>
+		<button>手动移动</button>
+		<button>发射</button>
+		<button>赛跑</button>
+		<button>自动移动</button>
+		<span>5</span>
+	</div>
+	<div>
+		<img src="./img/tanke_right.jpg" alt="">
+		<br>
+		<img src="./img//tanke_right.jpg" alt="">
+	</div>
+</body>
+
+</html>
