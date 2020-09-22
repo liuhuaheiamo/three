@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> 资讯管理系统</title>
+	<link href="./favicon.ico" rel="icon" type="image/x-ico">
+	<link rel="stylesheet" href="./css/font-awesome-4.7.0/css/font-awesome.min.css">
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		div.login_container h2 {
+			text-align: center;
+			margin: 30px auto;
+			color: #777777;
+		}
+
+		div.login_container div.login_content {
+			height: 400px;
+			background-color: #2cb5ac;
+			position: relative;
+		}
+
+		div.login_content .left_bg {
+			width: 370px;
+			height: 300px;
+			position: absolute;
+			top: 50px;
+			left: 180px;
+		}
+
+		div.login_content .left_bg img {
+			width: 370px;
+			height: 300px;
+		}
+
+		div.login_content .right_form {
+			width: 370px;
+			height: 300px;
+			float: right;
+			margin-right: 100px;
+			margin-top: 50px;
+			background-color: #fff;
+			border-radius: 10px;
+		}
+
+		div.login_content .right_form p {
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+			margin: 30px 0 20px 0;
+
+		}
+
+		div.login_content .right_form div {
+			width: 85%;
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
+
+		div.login_content .right_form span {
+			position: relative;
+			left: 30px;
+			color: #889aa4;
+			font-size: 18px;
+		}
+
+		div.login_content .right_form input {
+			box-sizing: border-box;
+			width: 90%;
+			height: 40px;
+			background-color: #e5e5e5;
+			border: none;
+			border-radius: 5px;
+			padding-left: 40px;
+			font-size: 14px;
+		}
+
+		div.login_content .right_form input::-moz-placeholder {
+			color: #ccc;
+		}
+
+		div.login_content .right_form input:-ms-input-placeholder {
+			color: #ccc;
+		}
+
+		div.login_content .right_form input::-webkit-input-placeholder {
+			color: #ccc;
+		}
+
+		div.login_content .right_form button {
+			width: 90%;
+			display: block;
+			height: 35px;
+			margin: 0 auto;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-size: 14px;
+			color: #7f8084
+		}
+
+		div.login_content .right_form button:hover {
+			cursor: pointer;
+			border-color: rgba(44, 181, 172, 0.4);
+			color: rgba(44, 181, 172, 0.6);
+			background-color: rgba(44, 181, 172, 0.2);
+		}
+	</style>
+	<script src="./js/jquery3.5.0.min.js"></script>
+	<script src="./css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script src="./js/index.js"></script>
+</head>
+
+<body>
+	<div class="login_container">
+		<h2>资讯管理系统</h2>
+		<div class="login_content">
+			<div class="left_bg">
+				<img src="./images/bg.png" alt="">
+			</div>
+			<div class="right_form">
+				<p> 用户名密码登陆</p>
+				<div>
+					<span class="fa fa-user"></span>
+					<input type="text" placeholder="Username">
+				</div>
+				<div>
+					<span class="fa fa-lock"></span>
+					<input type="text" placeholder="Password">
+				</div>
+				<div>
+					<button>登录</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+</body>
+
+</html>

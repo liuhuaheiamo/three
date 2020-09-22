@@ -1,0 +1,42 @@
+1,HTML5有什么新的特性
+   1 语义标签
+     <header>  定义了文档的头部
+     <footer>  定义了文档的尾部
+     <nav>  定义文档的导航
+     <section>  定义了文档的节
+     <article>  定义了文章
+     <aside>  定义了页面以外的内容
+     <details>  定义用户可以看到或者隐藏的额外细节
+     <summary>  标签包含details元素的标题
+     <dialog>  定义对话框
+     <figure>  定义字包含内容
+     <main>  定义文档住内容
+     <mark>  定义文档的主内容
+     <time>  定义日期时间
+   2 增强型表单
+     html5修改一些新的input输入特性，改善更好的控制和验证
+     color  主要用于选取颜色
+     date  选取日期
+     datetime  选取日期（utc时间）
+     datetime-local  选取日期（无时区）
+     month  选取一个月份
+     week  选取周和年
+     time  选择一个时间
+     email  包含一个e-mail地址的输入域
+     number  数值的输入域
+     url  url地址的输入域
+     tel  定义输入电话号码和字段
+     search  用于搜索域
+     range  一个范围数值的输入域
+   3 视频和音频
+     audio  音频
+     video  视频
+   4 canvas绘图也叫画布
+   5 SVG绘图
+   6 地理定位
+   7 拖放api
+   8 Web Worker
+   9 Web Storage
+   10 Web Socket
+2,css3新增属性
+  

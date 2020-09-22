@@ -18,6 +18,5 @@ $(function () {
             $('body>article>section').load('/6-jQuery&h5api/day01/3-ajax.html')
         }
     });
-    $('body>nav li:first').trigger('click'
-    );
+    $('body>nav li:first').trigger('click');
 });
