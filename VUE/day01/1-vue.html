@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js//vue.js"></script>
+    <script> Vue.config.productionTip = false</script>
+    <script>
+        // 典型的数据驱动
+        window.onload = function () {
+            var appone = new Vue({
+                el: '#app',
+                data: {
+                    // 典型的vm模式  v+m模式
+                    name: 'lisi2222'
+                },
+                beforeCreat: function () {
+                    alert(this.name);    //this指向new vue  实例对象
+                },
+                craeted: function () {
+                    alert(this.name);
+                },
+                beforeMount: function () {
+                    alert(this.name);
+                },
+                mounted: function () {
+                    alert(this.name);
+                },
+                beforeUpdata: function () {
+                    alert(this.name);
+                },
+                updataed: function () {
+                    alert(this.name);
+                }
+            });
+            // console.log(appone.name);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        {{name}}
+    </div>
+</body>
+
+</html>

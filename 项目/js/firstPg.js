@@ -9,8 +9,14 @@ $(function () {
         if (text == '系统首页') {
             $('.content-main').load('./pages/home.html')
         };
-        if (text == '角色权限') {
+        if (text == '用户管理') {
             $('.content-main').load('./pages/roleManager.html')
+        };
+        if (text == '权限管理') {
+            $('.content-main').load('./pages/power.html')
+        };
+        if (text == '角色管理') {
+            $('.content-main').load('./pages/role.html')
         };
         if (text == '分类管理') {
             $('.content-main').load('./pages/classifyManager.html')
@@ -25,51 +31,56 @@ $(function () {
             $('.content-main').load('./pages/user.html')
         };
     });
+    // 模拟点击事件
     $('nav>ul> li:first').click();
 
-
+    // 点击事件显示用户管理选项卡
+    $('.container-left .setuser ').click(function () {
+        // alert();
+        $('.userone').toggle(500);
+    });
 
 
     // 该按钮绑定事件
-    $('.container-left li').eq(1).click(function () {
-        // 获取用户的信息
-        $.ajax({
-            url: baseURL + '/baseUser/cascadeRoleFindAll',
-            type: 'get',
-            headers: {
-                'Authorization': sessionStorage.getItem('token')
-            },
-            success: function (res) {
+    // $('.container-left li').eq(1).click(function () {
+    //     // 获取用户的信息
+    //     $.ajax({
+    //         url: baseURL + '/baseUser/cascadeRoleFindAll',
+    //         type: 'get',
+    //         headers: {
+    //             'Authorization': sessionStorage.getItem('token')
+    //         },
+    //         success: function (res) {
 
-                // 清空数据
-                $('table tbody').empty();
-                // 遍历
-                res.data.forEach(function (item, index) {
-                    var newTr = $(`<tr>
-            <td>
-                <input type="checkbox" value = "$(item.imgDiv)">
-            </td>
-            <td>${index + 1}</td>
-            <td>${item.username}</td>
-            <td>${item.realname}</td>
-            <td>${item.roles.map(function (it) {
-                        return it.name
-                    }).join()}</td>
-            <td>${item.gender === 'male' ? '男' : '女'}</td>
-            <td>${item.status}</td>
-            <td>${item.telephone}</td>
-            <td>
-                <button data-id = "${item.id}" class ='setbtn'>设置</button>
-                <button data-id = "${item.id}" class ='debtn' >移除</button>
-                <button data-id = "${item.id}" class = 'atbtn'>详情</button>
-                <button data-item ='${JSON.stringify(item)}' class = 'toUpdate'>修改</button>
-                </td>
-        </tr>`);
-                    $('table tbody').append(newTr);
-                });
-            }
-        });
-    });
+    //             // 清空数据
+    //             $('table tbody').empty();
+    //             // 遍历
+    //             res.data.forEach(function (item, index) {
+    //                 var newTr = $(`<tr>
+    //         <td>
+    //             <input type="checkbox" value = "$(item.imgDiv)">
+    //         </td>
+    //         <td>${index + 1}</td>
+    //         <td>${item.username}</td>
+    //         <td>${item.realname}</td>
+    //         <td>${item.roles.map(function (it) {
+    //                     return it.name
+    //                 }).join()}</td>
+    //         <td>${item.gender === 'male' ? '男' : '女'}</td>
+    //         <td>${item.status}</td>
+    //         <td>${item.telephone}</td>
+    //         <td>
+    //             <button data-id = "${item.id}" class ='setbtn btn btn-primary' >设置</button>
+    //             <button data-id = "${item.id}" class ='debtn btn btn-danger' >移除</button>
+    //             <button data-id = "${item.id}" class = 'atbtn btn btn-success'>详情</button>
+    //             <button data-item ='${JSON.stringify(item)}' class = 'toUpdate btn btn-warning'>修改</button>
+    //             </td>
+    //     </tr>`);
+    //                 $('table tbody').append(newTr);
+    //             });
+    //         }
+    //     });
+    // });
 
 
 

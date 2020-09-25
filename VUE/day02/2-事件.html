@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    name: 'zhangsan',
+                    num: 0,
+                },
+                methods: {
+                    handler(event) {
+                        console.log(event);
+                        // 获取num的值   这个this指向的是当前vue的实例对象
+                        this.num++
+                    }
+                }
+            })
+            console.log(app.name);
+            console.log(app.handler);
+        };
+    </script>
+</head>
+
+<body>
+    <div id="app">
+
+        <b>{{num}}</b>
+        <!--  1 事件绑定 -->
+        <button v-on:click='num++'> num</button>
+
+        <!-- 2 事件绑定 -->
+        <button v-on:click='handler'> num</button>
+        <!-- 3 传递参数 -->
+        <button v-on:click='handler(22)'> num</button>
+
+    </div>
+    <!-- 事件liu
+    先进行事件捕获，然后进行事件冒泡
+    事件绑定 -->
+
+</body>
+
+</html>

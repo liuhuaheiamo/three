@@ -1,33 +1,37 @@
-<script src="./js/jquery3.5.0.min.js"></script>
-<script src="./js//roleManager.js"></script>
+<script src="./js/roleManager.js"></script>
 <style>
-  .btnone {
-    width: 50px;
-    height: 30px;
-    background-color: #56C4BD;
-    color: #FFFFFF;
+  .dialog {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 30px;
+    display: none;
   }
 
-  .inputone {
-    height: 30px;
-  }
-
-  .btntwo {
-    width: 60px;
-    height: 30px;
+  .container {
+    width: 60%;
+    height: 300px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: calc((100vh - 300px) / 2);
+    border-radius: 2px;
+    padding: 30px;
   }
 </style>
 <div class="one">
-  <button class="btnone">添加</button>
-  <input type="text" class="inputone" placeholder="请输入用户名">
-  <select name="" id="" class="opselect">
-    <option value="" class="optionone">请选择角色</option>
+  <button class="btnone btn btn-primary">添加</button>
+  <input type="text" class=" inputone input-large" placeholder="请输入用户名">
+  <select class="opselect">
+    <option class="val">请选择角色</option>
   </select>
-  <button class="btntwo">搜索</button>
+  <button class="btntwo btn btn-success">搜索</button>
   <table class="table table-hover ">
     <thead>
       <tr>
-        <th><input type="checkbox"></th>
+        <th><input class="batchDelete" type="checkbox"></th>
         <th>序号</th>
         <th>用户名</th>
         <th>姓名</th>
@@ -45,7 +49,7 @@
 <div class="lastdiv">
   <nav aria-label="Page navigation">
     <ul class="pagination">
-      <li>
+      <li class="oneli">
         <a href="#" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
@@ -58,4 +62,38 @@
       </li>
     </ul>
   </nav>
+</div>
+
+
+
+
+<!-- 模态框 -->
+<div class="dialog">
+  <div class="container">
+    <div class="dialog-header">
+      添加用户信息
+    </div>
+    <div class="dialog-center">
+      <div>
+        用户名：<input type="text" name="username">
+      </div>
+      <div>
+        密码：<input type="password" name="password">
+      </div>
+      <div>
+        真实姓名：<input type="text" name="realname">
+      </div>
+      <div>
+        电话号码：<input type="text" name="telephone">
+      </div>
+      <div>
+        性别：<input type="radio" value="male" name="gender">男
+        <input type="radio" value="female" name="gender">女
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="cancel">取消</button>
+      <button class="submit">确认</button>
+    </div>
+  </div>
 </div>

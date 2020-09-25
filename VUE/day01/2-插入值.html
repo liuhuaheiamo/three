@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插入值</title>
+    <style>
+        section {
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            margin: 10px;
+        }
+
+        .active {
+            color: #fff;
+            background-color: blue;
+
+        }
+
+        .active_f {
+            color: blueviolet;
+            background-color: yellow;
+        }
+
+        .current {
+            font-size: 20px;
+        }
+    </style>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            var app = new Vue({
+                el: '.app',
+                data: {
+                    active: 'active',
+                    isactive: false,
+                    name: 'lisi',
+                    age: 12,
+                    gender: '男',
+                    html: '<h1>hello</h1>',
+                    id: 'one',
+                    a: 'blue',
+                    b: '20px',
+                    current: 'current',
+                    active_f: 'active_f ',
+                    list: ['苹果', '香蕉', '桃子', '栗子', '梨子', '西瓜', '葡萄'],
+                    students: [{
+                        name: 'lisi',
+                        age: 55,
+
+                    },
+                    {
+                        name: 'lisi11',
+                        age: 5555,
+
+                    },
+                    {
+                        name: 'lisi22',
+                        age: 5566,
+
+                    },],
+                    object: {
+                        name: 'zhangsan22',
+                        age: 77
+                    },
+                    handler: function () {
+                        alert('handler函数');
+                    }
+                },
+                // 绑定事件使用method
+                methods: {
+                    handler2: function () {
+                        alert('22222');
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <section v-bind:style='{color:a,fontSize:b}'></section>
+
+
+
+        <hr>
+        <!-- 设置两个变量class -->
+        <section v-bind:class='[active,current]'>hello</section>
+        <!-- 绑定一个class -->
+        <section v-bind:class='{active:isactive}'>hello</section>
+        <!-- <section v-bind:class='[isactive?active:active:current'>hello</section> -->
+
+
+
+
+        <hr>
+
+        <ul>
+            <li v-for='(value,key,index) in object'> {{key}}--{{value}}--{{index}} </li>
+        </ul>
+        <hr>
+
+
+
+
+        <!-- 列表渲染 -->
+        <ul>
+            <!-- 循环遍历 -->
+            <li v-for='(item,index) in list'>{{item}}--{{index}} </li>
+            <li v-for='(item,index) in students' :key='index'>{{item.name}}--{{index}}--{{item.age}} </li>
+        </ul>
+
+
+
+        <section v-show='current==1'>show</section>
+        <hr>
+
+
+        <!-- template  添加一个父元素   vue提供的一个模板  浏览器解析的时候不会解析template标签 -->
+        <!-- <template v-if='current==1'>
+            <section>1</section>
+            <section>2</section>
+            <section>3</section>
+        </template>
+        <template v-else>
+            <section>4</section>
+            <section>5</section>
+            <section>6</section>
+        </template> -->
+
+
+        <!-- v-if  判断是否显示隐藏  true为显示false为隐藏 -->
+        <!-- <section v-if='current==1'>1</section>
+        <section v-else-if='current==2'>2</section>
+        <section v-else='current==3'>3</section> -->
+
+
+
+        <hr>
+        <!-- 可以直接在数据里面直接运算  比如说直接在age里面直接插入一个值 -->
+        <p> {{name}}--{{age+10}}--{{gender}} </p>
+        <p v-html='html'>666</p>
+        <p v-bind:id='id'></p>
+        <p v-on:click='handler2'> 点击</p>
+    </div>
+</body>
+
+</html>
