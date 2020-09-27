@@ -61,7 +61,7 @@ $(function () {
                     <td>${item.status}</td>
                     <td>${item.telephone}</td>
                     <td>
-                        <button data-id = "${item.id}" class = 'setbtn btn btn-primary'>设置</button>
+                        <button data-item ='${JSON.stringify(item)}' class = 'setbtn btn btn-primary'>设置</button>
                         <button data-id = "${item.id}" class ='debtn btn btn-danger' >删除</button>
                         <button data-item ='${JSON.stringify(item)}' class = 'atbtn btn btn-info'>详情</button>
                         <button data-item ='${JSON.stringify(item)}' class = 'toUpdate btn btn-warning'>修改</button>
@@ -110,6 +110,7 @@ $(function () {
         // 获取输入的值
         var username = $('.inputone').val();
         var rolename = $('.opselect option:selected').text();
+        // alert(rolename);
         if (username == '' && rolename == '请选择角色') {
             url = baseURL + '/baseUser/pageQuery?page=' + page + '&pageSize=' + pageSize;
         } else if (username != '' && rolename == '请选择角色') {
@@ -235,25 +236,83 @@ $(function () {
         $('.dialog').fadeOut();
     });
 
-    // 给详细按钮绑定事件
-    $('table tbody').on('click', '.atbtn', function () {
-        $('.content-main').load('./pages/user.html');
 
-        // 发送请求
+    // 给设置功能写上
+    // 绑定设置按钮
+    $('table tbody').on('click', '.setbtn', function () {
+        // 显示模态框
+        $('.dialogtwo').fadeIn();
+        // 获取数据然后添加数据到模态框中
+        user = $(this).attr('data-item');
+        // 把user转化为json对象
+        user = JSON.parse(user);
+        // 清空一下option
+        $('.dialogtwo select').empty();
+        getData('get', baseURL + '/role/findAll', function (res) {
+            res.data.forEach(function (item) {
+                var newOp = $(`<option value="${item.id}">${item.name}</option>`);
+                $('.dialogtwo select').append(newOp);
+            });
+        });
+        $('.userp').text(user.username);
+    });
 
 
-        // user = $(this).attr('data-item');
-        // // 把user转化为json对象
-        // user = JSON.parse(user);
-        // $('.userdata').empty();
-        // $('.username').text(user.username)
-        // $('.realname').text(user.realname)
-        // $('.telephone').text(user.telephone)
-        // $('.gender').text(user.gender)
-        // $('.registerTime').text(user.registerTime)
-        // $('.status').text(user.status)
+    // 给模态框的确认绑定事件
+    $('.submittwo').click(function () {
+        // 获取模态框的值 然后更新
+        var username = $('.userp').text();
+        var names = $('.dialogtwo select option:selected').text();
+        // 发起请求
+        $.ajax({
+            url: baseURL + '/baseUser/setRoles',
+            method: 'post',
+            data: {
+                username: username,
+                names: names
+            },
+            success: function (res) {
+                if (res.status == 200) {
+                    alert('保存成功');
+                    $('.dialogtwo').fadeOut();
+                    $('.one .btntwo').click()
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
 
     });
+
+
+
+
+    //取消，然后隐藏模态框
+    $('.canceltwo').click(function () {
+        $('.dialogtwo').fadeOut();
+    });
+
+
+    // 给详细按钮绑定事件
+    // $('table tbody').on('click', '.atbtn', function () {
+    //     $('.content-main').load('./pages/user.html');
+
+    //     // 发送请求
+
+
+    //     // user = $(this).attr('data-item');
+    //     // // 把user转化为json对象
+    //     // user = JSON.parse(user);
+    //     // $('.userdata').empty();
+    //     // $('.username').text(user.username)
+    //     // $('.realname').text(user.realname)
+    //     // $('.telephone').text(user.telephone)
+    //     // $('.gender').text(user.gender)
+    //     // $('.registerTime').text(user.registerTime)
+    //     // $('.status').text(user.status)
+
+    // });
 
     //数据的批量删除  先检查用户是否有勾选  有的话就问用户是否删除数据
 
@@ -279,4 +338,8 @@ $(function () {
     //     var value = $(this).prop('cheched');
     //     $('.table thead :checkbox').prop('checked', value);
     // })
+
+
+
+
 });

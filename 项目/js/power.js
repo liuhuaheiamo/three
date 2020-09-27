@@ -105,7 +105,7 @@ $(function () {
 
         $.ajax({
             url: baseURL + '/privilege/findPrivilegeTree',
-            method: 'get',
+            method: 'post',
             success: function (res) {
                 res.data.forEach(function (item) {
                     var op = $(` <option value="">` + item.name + `</option>`)
