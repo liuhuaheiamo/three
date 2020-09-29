@@ -1,0 +1,34 @@
+事件机制
+  1 事件三要素
+  2 事件绑定
+  3 事件流
+  4 事件对象
+  5 事件代理
+  6 事件类型
+
+
+  事件绑定
+    可以用v-on指令监听dom事件，并在触发是运行一些javascript代码  v-on还可以接受一个要调用的方法名称
+    v-on:click=''
+    v-on:事件的类型=事件的修饰符
+    简写
+      @click=''
+
+  常见的修饰符
+    在事件处理程序中调用event.preventDefaut()或者event.stopPropagation()是非常常见的需求。vue提供了跟好的方法，事件处理函数只有纯粹的数据逻辑，而不是去处理dom事件细节，通过事件修饰符来完成这些细节
+       .stop   停止事件冒泡
+       .prevent   阻止默认行为
+       .capture   在事捕获执行事件处理函数
+       .self    只当event。target是当前元素的自身时触发处理函数
+       .once   事件处理函数执行一次后解绑
+       .passive   滚动事件的默认行为
+
+
+
+
+事件的修饰符
+   按键修饰符
+     一般与keyup事件类型配合使用
+      .enter  .tab   .delete   .esc   .space  .up .down   .left   .right   .ctrl   .alt   .shift  .meta
+    鼠标修饰符
+       .left  .right   .middle

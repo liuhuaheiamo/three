@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件绑定</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    num: 0,
+                    msg: 12,
+                    math: 50,
+                    eg: 'hello',
+                    info: 'hello world',
+                    checked: '',
+                    checkeds: [1, 2, 3, 4, 5, 65],
+                    picked: '',
+                    as: '',
+                    text: '88'
+                },
+                methods: {
+                    handler() {
+                        // alert();
+                        this.num++
+                    },
+                    handler2() {
+                        this.num--
+                    }
+                },
+                computed: {
+                    res() {
+                        // split分割字符串     reverse顺序颠倒    join字符串的拼接
+                        return this.eg.split('').reverse().join('')
+                    }
+                },
+                watch: {
+                    text(newvalue, oldvalue) {
+                        console.log(newvalue);
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <span>{{num}}</span>
+        <button v-on:click='handler'>hello</button>
+
+        <button @click='handler2'></button>
+        <!-- 键盘按键事件绑定 -->
+        <span>{{num}}</span>
+        <button @keyup.enter='handler2'>enter</button>
+
+
+
+        <!-- 表单输入绑定 -->
+        <!-- 单行文本框 -->
+        <!-- 绑定了data里面的info属性，并且使文本框默认底层输入显示为绑定的元素值，当改变文本框中的值的时候，info属性里面的舒心值也会发生相应的改变 -->
+        <input v-model='info' type="text">
+        <p>{{info}}</p>
+        <!-- 多行文本框 -->
+        <textarea v-model='info' name="" id="" cols="30" rows="10"></textarea>
+        <p>{{info}}</p>
+        <!-- 复选按钮 -->
+        <input v-model='checkeds' type="checkbox">
+        <p>{{checkeds}}</p>
+        <input v-model='checkeds' type="checkbox">
+        <p>{{checkeds}}</p>
+        <!-- 单选按钮 -->
+        <input v-model='picked' type="radio" name="gender" value="male">男
+        <input v-model='picked' type="radio" name="gender" value="female">女
+        <p>{{picked}}</p>
+
+
+        <!-- 下拉菜单 -->
+        <select v-model='as'>
+            <option value="">请选择</option>
+            <option value="">1</option>
+            <option value="">5</option>
+        </select>
+        <p>{{as}}</p>
+
+
+
+        <!-- 修饰符 -->
+        <!-- 使用修饰符可以增强表单绑定的能力 -->
+        <!-- lazy    不是同步更新-->
+        <input v-model.lazy='info' type="text" name="" id="">
+        <!-- number -->
+        <input v-model.number='info' type="number">
+        <br>
+        <!-- trim   自动过滤了前后的空白字符-->
+        <input v-model='info' type="text">555
+        <br>
+        <span>{{info}}</span>
+        <br>
+        <input v-model.trim='info' type="text">666
+        <br>
+        <span>{{info}}</span>
+
+
+
+        <!-- 计算属性 -->
+        <!-- 1  直接使用js方法 -->
+        <p>{{num+10}}</p>
+        <!-- 2 添加computed -->
+        <p>{{num+msg+math}}</p>
+        <p>{{eg}}</p>
+        <p>{{res}}</p>
+
+
+
+
+        <!-- 监听属性 -->
+        <p>{{text}}</p>
+    </div>
+</body>
+
+</html>

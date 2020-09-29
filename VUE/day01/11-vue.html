@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue入门</title>
+    <style>
+        button {
+            width: 40px;
+            height: 20px;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var app = new Vue({
+                el: '.app',
+                data: {
+                    name: 'lisi',
+                    age: 12,
+                    h1: '<h1>hahaha</h1>',
+                    id: '666',
+                    number: 1,
+                    oneshow: false,
+                    arr: ['11', '22', '33', '55', '66'],
+                    dataone: [
+                        {
+                            name: 'zhang',
+                            age: 10,
+                            weight: 20
+                        },
+                        {
+                            name: 'zhang1',
+                            age: 11,
+                            weight: 21
+                        },
+                        {
+                            name: 'zhang2',
+                            age: 12,
+                            weight: 22
+                        },
+                        {
+                            name: 'zhang3',
+                            age: 13,
+                            weight: 23
+                        },
+                        {
+                            name: 'zhang4',
+                            age: 14,
+                            weight: 24
+                        },
+                    ],
+                    obj: {
+                        name: 'hshah',
+                        age: 14,
+                    }
+                },
+                methods: {
+                    // 这里是写函数的专门地方
+                    handler() {
+                        alert('点击事件')
+                    },
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <!-- vue和原生js的显著区别机试不在多dom进行操作，而是通过对数据操作来改变视图 -->
+
+    <!-- 生命周期 -->
+    <!-- 分为四个阶段
+    1 创建之前   beforcreate
+       创建之后  created
+    2    挂载阶段       beformouth
+            挂载完成      mouth
+    3 更新之前   beforupdate
+         更新成功   update
+    4 摧毁之前    befordestroy
+        摧毁   destroy
+    
+    -->
+
+    <!-- 模板语法 -->
+    <!-- 文本     {{属性名}}   列子：{{name}} -->
+    <!-- 原始的html   v-html='rawHtml' -->
+
+
+    <div class="app">
+        <!-- 可以进行javascript的运算 -->
+        <button v-on:click='number++'></button>
+        <span>{{number}}</span>
+        <!-- 显示内容 -->
+        <span>{{name}}--{{age}}</span>
+        <!-- 原始标签 -->
+        <span v-html='h1'></span>
+        <!-- 属性 -->
+        <!-- 在浏览器中检查元素的位置可以看到为span标签添加了一个id -->
+        <span v-bind:id='id'></span>
+        <!-- 事件  click 后面的是事件程序 -->
+        <button v-on:click='handler'></button>
+
+
+
+
+
+        <!-- 条件渲染 -->
+        <!-- v-if  当返回true的时候回渲染   -->
+        <!-- <span>{{name}}</span> -->
+        <h1 v-if='oneshow'>你好哈vue</h1>
+        <h1 v-else='oneshow'>你是失败的vue+++</h1>
+        <h1 v-show='oneshow'>你是失败的vue</h1>
+
+        <!-- 列表渲染 -->
+        <!-- 数组 -->
+        <ul>
+            <li v-for='(item,index) in arr'>{{item}}--{{index}}</li>
+        </ul>
+        <!-- 循环对象数组 -->
+        <ul>
+            <li v-for='(item,index) in dataone '>{{item.name}}--{{item.age}}--{{item.weight}}--{{index}}</li>
+        </ul>
+        <!-- 对象 -->
+        <ul>
+            <!-- value值代表着属性值，而key代表属性名  -->
+            <li v-for='(value,key,index) in obj'>{{value}}--{{key}}--{{index}}</li>
+        </ul>
+
+
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>

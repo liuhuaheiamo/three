@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            Vue.component('my-child', {
+                data() {
+                    return {
+                        substr: 'hello'
+                    }
+                },
+                props: {
+                    msg:
+                },
+                template: `
+                <div>
+                <h1>这是孩子</h1>
+            </div>
+                `
+            });
+            new Vue({
+                el: '.app',
+                components: {
+                    'my-parent': {
+                        data() {
+                            return {
+                                num: 10
+                            }
+                        },
+                        template: `
+                        <div>
+                            <h1>这个是父</h1>
+                            <my-child :msg='这是父组件的数据' ></my-child>
+                            </div>
+                        `
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <my-parent></my-parent>
+    </div>
+</body>
+
+</html>

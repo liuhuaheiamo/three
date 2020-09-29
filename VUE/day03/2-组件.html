@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            // 兄弟级组件不能直接嵌套
+            new Vue({
+                el: '.app',
+                data: {},
+                methods: {},
+                components: {
+                    'my-div': {
+                        data() {
+                            return {
+                                num: 0
+                            }
+                        },
+                        methods: {
+                            handler() {
+                                this.num++
+                            }
+                        },
+                        template: `
+                  <div>
+                   <h1>hearder {{num}}</h1>
+                   <p>hello</p>
+                   <button @click='handler'>hah</button>
+                 </div>
+                `
+                    }
+                },
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <my-div></my-div>
+        <my-div></my-div>
+        <my-div></my-div>
+    </div>
+</body>
+
+</html>

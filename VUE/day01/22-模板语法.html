@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板语法</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    active: 'active',
+                    as: true,
+                    aa: false,
+                    bb: false,
+                    color: 'red',
+                    style: {
+                        color: 'red',
+
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- class绑定 -->
+        <!-- 设置了两个class到p标签上 -->
+        <p v-bind:class='[as,active]'>66666</p>
+        <!-- 当aa的值为true时候设置class到p标签上 -->
+        <p v-bind:class='{as:aa}'></p>
+
+        <p v-bind:class='[as?active:aa,bb]'></p>
+
+
+        <!-- 属性绑定 -->
+        <div v-bind:style='style'>你好</div>
+        <div>你好2</div>
+    </div>
+</body>
+
+</html>

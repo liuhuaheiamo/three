@@ -91,6 +91,11 @@ $(function () {
     });
 
 
+    // 添加
+
+
+
+
     // 修改数据
 
     $('table tbody').on('click', '.updata', function () {

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            // 全局声明组件
+            Vue.component('my-div', {
+                // 组件中的data一定是一个函数
+                data() {
+                    return {
+                        num: 0
+                    }
+                },
+                methods: {
+                    handler() {
+                        // 获取数据
+                        // alert()
+                        this.num++
+                    }
+                },
+                template: `
+                  <div>
+                   <h1>hearder {{num}}</h1>
+                   <p>hello</p>
+                   <button @click='handler'>hah</button>
+                 </div>
+                `
+            });
+            new Vue({
+                el: '.app',
+                data: {},
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <my-div></my-div>
+        <my-div></my-div>
+        <my-div></my-div>
+    </div>
+</body>
+
+</html>
