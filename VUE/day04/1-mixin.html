@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>混入</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        // 重复周期声明的话，两个都采用   函数都使用
+        window.onload = function () {
+            Vue.mixin({
+                data() {
+                    return {
+                        num: 20
+                    }
+                },
+                methods: {},
+                components: {}
+            })
+
+            // 当mixin里面的data和实例对象中的data的num都有数据的时候，也就是数据的冲突，会使用实例对象中的数据
+
+            new Vue({
+                // 数据冲突的话使用的是实例对象中的数据  ，对象冲突只是用一个
+                el: '.app',
+                data: {
+                    // num: 10
+                },
+                methods: {},
+
+
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <p>{{num}}</p>
+    </div>
+</body>
+
+</html>

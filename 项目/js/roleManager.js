@@ -14,9 +14,6 @@ $(function () {
         $.ajax({
             url: url,
             method: method,
-            headers: {
-                'Authorization': sessionStorage.getItem('token')
-            },
             success: fn
         })
     };
@@ -40,9 +37,6 @@ $(function () {
         $.ajax({
             url: url,
             method: method,
-            headers: {
-                'Authorization': sessionStorage.getItem('token')
-            },
             success: function (res) {
                 $('table tbody').empty();
                 // 遍历
@@ -81,9 +75,6 @@ $(function () {
     $.ajax({
         url: baseURL + '/baseUser/findAll',
         method: 'get',
-        headers: {
-            'Authorization': sessionStorage.getItem('token')
-        },
         success: function (res) {
             // 获取长度
             var th = res.data.length;
@@ -123,6 +114,9 @@ $(function () {
         begcread('get', url)
     });
 
+
+
+
     // 单个删除
     $('table tbody').on('click', '.debtn', function () {
         // 要获取到想要删除的数据id
@@ -131,9 +125,6 @@ $(function () {
             $.ajax({
                 url: baseURL + '/baseUser/deleteById',
                 method: 'get',
-                headers: {
-                    'Authorization': sessionStorage.getItem('token')
-                },
                 data: { id: id },
                 success: function (res) {
                     console.log(res);
@@ -262,6 +253,7 @@ $(function () {
     $('.submittwo').click(function () {
         // 获取模态框的值 然后更新
         var username = $('.userp').text();
+        // 获取选中的option的文本值
         var names = $('.dialogtwo select option:selected').text();
         // 发起请求
         $.ajax({
@@ -294,50 +286,14 @@ $(function () {
     });
 
 
-    // 给详细按钮绑定事件
-    // $('table tbody').on('click', '.atbtn', function () {
-    //     $('.content-main').load('./pages/user.html');
-
-    //     // 发送请求
-
-
-    //     // user = $(this).attr('data-item');
-    //     // // 把user转化为json对象
-    //     // user = JSON.parse(user);
-    //     // $('.userdata').empty();
-    //     // $('.username').text(user.username)
-    //     // $('.realname').text(user.realname)
-    //     // $('.telephone').text(user.telephone)
-    //     // $('.gender').text(user.gender)
-    //     // $('.registerTime').text(user.registerTime)
-    //     // $('.status').text(user.status)
-
-    // });
-
-    //数据的批量删除  先检查用户是否有勾选  有的话就问用户是否删除数据
-
-    // $('.batchDelete').click(function () {
-    //     var checks = $('table tbody *checkbox:checked');
-    //     var ids = checks.map(function (item, index) {
-    //         return $(item).val();
-
-    //     });
-    //     ids = ids.toArray();
-    //     if (ids.length == 0) {
-    //         alert('请勾选要删除的数据');
-    //         return;
-    //     } else if (confirm('是否确认全部删除')) {
-    //         // 发起删除批量删除请求
-    //         alert(ids.toArray() + '批量删除')
-    //     }
-    // });
-
-
-    // // 点击按钮，全部选择
-    // $('.table thead :checkbox').change(function () {
-    //     var value = $(this).prop('cheched');
-    //     $('.table thead :checkbox').prop('checked', value);
-    // })
+    // 给详情按钮绑定事件
+    $('table tbody').on('click', '.atbtn', function () {
+        // 获取数据然后存储到本地的localstorage中
+        user = $(this).attr('data-item');
+        // user = JSON.parse(user);
+        localStorage.setItem('useradd', user);
+        $('.content-main').load('./pages/user.html');
+    });
 
 
 

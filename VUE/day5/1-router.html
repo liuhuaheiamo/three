@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路由机制</title>
+    <script src="../js//vue.js"></script>
+    <script src="../js//vue-router.js"></script>
+    <script>
+        window.onload = function () {
+            // 组件的定义
+            var aaa = {
+                template: `
+                <div>
+                    <h2>这是组件aaa</h2>
+                </div>
+                `
+            }
+            var bbb = {
+                template: `
+                <div>
+                    <h2>这是组件bbb</h2>
+                </div>
+                `
+            }
+            var ccc = {
+                template: `
+                <div>
+                    <h2>这是组件ccc</h2>
+                </div>
+                `
+            }
+            // 2 路由定义
+            var router = new VueRouter({
+                routes: [
+                    // 重定向
+                    {
+                        // 当页面访问到/时候就是跳转到aaa页面，相当于ajax里面的模拟触发
+                        path: '/',
+                        redirect: '/aaa'
+                    },
+                    {
+                        path: '/aaa',
+                        component: aaa
+                    },
+                    {
+                        path: '/bbb',
+                        component: bbb
+                    },
+                    // 命名路由
+                    {
+                        path: '/ccc',
+                        // 大名也就是正式名字  通过正式名字也可以访问到ccc页面
+                        name: 'liuhua',
+                        // 别名，也可使用/acc访问到ccc页面
+                        alias: '/acc',
+                        component: ccc
+                    }
+                ]
+            })
+            // 3 组件注册
+            new Vue({
+                el: '.app',
+                router
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 4 模板内容 -->
+        <router-link to='/aaa'>跳转到aaa</router-link>
+        <router-link to='/bbb'>跳转到bbb</router-link>
+        <!-- :to  相当于v-bind-->
+        <router-link :to='{name:"liuhua"}'>跳转到ccc</router-link>
+        <router-view></router-view>
+    </div>
+</body>
+
+</html>

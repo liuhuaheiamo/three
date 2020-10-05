@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件的学习</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {},
+                methods: {},
+                computed: {},
+                watch: {},
+                components: {}
+            });
+            // 全局声明的组件
+            Vue.component('y-div', {
+                data() {
+                    return {
+
+                    }
+                },
+                methods: {
+
+                },
+                template: {
+
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+
+    </div>
+</body>
+
+</html>

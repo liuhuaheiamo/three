@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路由嵌套</title>
+    <script src="../js//vue.js"></script>
+    <script src="../js//vue-router.js"></script>
+    <script>
+        window.onload = function () {
+            var aaa = {
+                template: `
+              <div>
+            <h2>这里是aaa</h2>    
+            </div>
+    `
+            }
+            var bbb = {
+                // 这里必须使用父级目录/bbb
+                template: `
+              <div>
+            <h2>这里是bbb</h2> 
+           
+            <router-link to='/bbb/ccc'> 点击跳转ccc</router-link>
+            <router-link to='/bbb/ddd'> 点击跳转ddd</router-link>
+            <router-view></router-view>
+            </div>
+    `
+            }
+            var ccc = {
+                template: `
+              <div>
+            <h2>这里是ccc</h2>    
+            </div>
+    `
+            }
+            var ddd = {
+                template: `
+              <div>
+            <h2>这里是ddd</h2>    
+            </div>
+    `
+            }
+            var router = new VueRouter({
+                routes: [
+                    {
+                        path: '/aaa',
+                        component: aaa
+                    },
+                    {
+                        path: '/bbb',
+                        component: bbb,
+                        children: [
+                            {
+                                path: 'ccc',
+                                component: ccc
+                            },
+                            {
+                                path: 'ddd',
+                                component: ddd
+                            }
+                        ]
+                    }
+
+                ]
+            })
+            new Vue({
+                el: '.app',
+                router
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <router-link to='/aaa'> 点击跳转aaa</router-link>
+        <router-link to='/bbb'> 点击跳转bbb</router-link>
+        <router-view></router-view>
+    </div>
+</body>
+
+</html>

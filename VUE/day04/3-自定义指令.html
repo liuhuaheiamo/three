@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义指令directive</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            // 全局声明
+            // Vue.directive('focus', {
+            //     inserted: function (el) {
+            //         // 事件聚焦
+            //         el.focus();
+            //     }
+            // });
+            new Vue({
+                el: '.app',
+                data: {
+                    num: 10
+                },
+                // 局部声明
+                directives: {
+                    focus: {
+                        inserted: function (el) {
+                            el.focus();
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <p>{{num}}</p>
+        <input v-focus type="text">
+    </div>
+</body>
+
+</html>

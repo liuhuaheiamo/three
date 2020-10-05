@@ -1,0 +1,93 @@
+兄弟组件之间的传值
+  1 parent：
+      a
+      b
+      a-->b不可以
+      a---parent---->b   间接传递
+
+props 验证
+   props:['msg']
+
+   props:{
+str:String    //数据验证   标明数据类型
+str1:[String,Number]    //可以选择类型
+//   null和undefined可以通过任意验证
+str2:{
+    type:String,
+    required:true
+}
+//  传递默认
+str3:{
+    type:Number,
+    default:10
+}
+str4:{
+    type:object,
+    default:function(){}
+
+}
+   }
+
+
+       插槽
+         用来接收组件是传递的参数
+           function getdata(a,b){}
+           getdata(1,2);
+
+
+
+           template:`
+           
+           <div>hello</div>
+           <my-div> 1</my-div>
+           
+           `
+
+
+   可复用技术
+     1 mixin 
+       封装好vue中可复用功能
+       
+          如果混入的是对象的话，出现数据冲突的时候，保留实例对象中的数据
+          如果混入的是声明周期函数的话，会将两个构造函数保存到一个数组中，都会执行
+
+          1 全局声明     全局谨慎使用
+          缺点：所有的实例对象都会混入生命周期函数，在mixin里面的生命周期函数会被每一个new Vue执行
+                    Vue.mixin({
+                        //可复用的属性和方法
+                         //这里的data是函数
+                        data(){
+                            return{}
+                        },
+                        methods:
+
+                    })
+
+                    new Vue({
+                        data:{}
+                    })
+          2 局部声明
+               在实例对象或者属性中声明一个mixins属性，属性值为数组，可以存放多个混入对象
+                  
+
+
+
+
+自定义指令    钩子函数
+        v-mybind
+           全局注册
+                  Vue.directive('指令名称','对象'); 
+                   Vue.directive('div',{
+                       bind
+                       inserted
+                          参数：
+                            el  当前绑定指令的dom对象
+                            binding   当前指令的详细对象
+                            vnode  虚假dom
+                   }) 
+
+           局部注册
+
+
+    3 过滤器
+       

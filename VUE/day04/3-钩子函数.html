@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>混入</title>
+    <script src="../js//vue.js"></script>
+    <script>
+
+        window.onload = function () {
+            //  全局注册指令
+            Vue.directive('myfocus', {
+                bind(el, binding, vnode, old)
+            });
+
+
+
+            new Vue({
+                // 数据冲突的话使用的是实例对象中的数据  ，对象冲突只是用一个
+                el: '.app',
+                data: {},
+                methods: {},
+                template: {},
+
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <input type="text" v-model>
+    </div>
+</body>
+
+</html>

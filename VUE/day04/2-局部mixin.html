@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>混入</title>
+    <script src="../js//vue.js"></script>
+    <script>
+
+        window.onload = function () {
+
+            // 在全局声明一个mixin  然后谁调用就是在谁的作用域中，vue的实例对象以后肯定不止一个，如果不声明一个全局的mixin，局部调用，每个实例对象都要写一遍mixin
+            var mixin = {
+                data() {
+                    return {
+                        num: 20
+                    }
+                },
+                methods: {},
+                template: {
+
+                },
+            }
+            new Vue({
+
+                el: '.app',
+                data: {
+
+                },
+                methods: {},
+                template: ``,
+                // 局部声明
+                mixins: [mixin]
+
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <p>{{num}}</p>
+    </div>
+</body>
+
+</html>

@@ -1,4 +1,9 @@
 $(function () {
+    $.ajaxSetup({
+        headers: {
+            'Authorization': sessionStorage.getItem('token')
+        }
+    });
     var user = null;
     var baseURL = 'http://121.199.76.85:7788';
     function getRole() {
@@ -7,9 +12,7 @@ $(function () {
         $.ajax({
             url: baseURL + '/category/findAll',
             method: 'get',
-            headers: {
-                'Authorization': sessionStorage.getItem('token')
-            },
+
             success: function (res) {
                 res.data.forEach(function (item, index) {
                     var newTr = $(`<tr>
@@ -36,9 +39,7 @@ $(function () {
         $.ajax({
             url: url,
             method: method,
-            headers: {
-                'Authorization': sessionStorage.getItem('token')
-            },
+
             success: fn
         })
     };
@@ -108,9 +109,7 @@ $(function () {
                 data: {
                     id: ids
                 },
-                headers: {
-                    'Authorization': sessionStorage.getItem('token')
-                },
+
                 success: function (res) {
                     if (res.status == 200) {
                         alert('删除成功');
@@ -145,9 +144,7 @@ $(function () {
                 description: description,
                 parentId: parentId
             },
-            headers: {
-                'Authorization': sessionStorage.getItem('token')
-            },
+
             success: function (res) {
                 console.log(res);
                 if (res.status == 200) {
