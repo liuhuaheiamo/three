@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业</title>
+    <script src="../js//vue-router.js"></script>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            var one = {
+
+                template: `
+            <tbody>
+                <h3>这是student</h3>
+            </tbody>
+            `
+            }
+
+
+            var router = new VueRouter({
+                routes: [
+                    {
+                        path: '/one',
+                        component: one
+                    }
+                ]
+            })
+
+
+            new Vue({
+                el: '.app',
+                router,
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        输入数据：<input v-model='content' type="text">
+        <button @click='handler'>提交</button>
+        <router-view></router-view>
+        <table>
+            <thead>
+                <tr>
+                    <td>数据</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

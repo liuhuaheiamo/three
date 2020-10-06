@@ -5,10 +5,6 @@ $(function () {
         }
     });
 
-
-    // 获取本地数据localStorage
-    var user = localStorage.getItem('useradd');
-    user = JSON.parse(user)
     // 把时间戳转换为正常时间
     function formatDate(now) {
         //取得4位数的年份
@@ -74,4 +70,37 @@ $(function () {
     });
 
 
+
+
+    // 发起ajax请求获取数据添加到select中
+    // 请求所有的角色插入到下拉框中
+    $.ajax({
+        url: baseURL + '/category/findAll',
+        method: 'get',
+        success: function (res) {
+            res.data.forEach(function (item) {
+                var newOp = $(`<option value="${item.id}" class='setop'>${item.name}</option>`);
+                $('.addselect').append(newOp);
+            });
+        }
+    });
+
+
+    // 绑定select的op事件代理
+    $('.addselect').on('click', '.setop', function () {
+        alert();
+    })
+
+
+
+
+    // 修改
+    $('table tbody').on('click', '.toUpdate', function () {
+        // 页面跳转
+        $('.content-main').load('./pages/addmessageManager.html')
+        // 获取数据
+        user = $(this).attr('data-item')
+        // 存储到本地的localStorage
+        localStorage.setItem('adduser', user);
+    })
 });

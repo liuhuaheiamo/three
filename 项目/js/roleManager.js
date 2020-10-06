@@ -235,6 +235,8 @@ $(function () {
         $('.dialogtwo').fadeIn();
         // 获取数据然后添加数据到模态框中
         user = $(this).attr('data-item');
+        // 存储id
+        localStorage.setItem('userid', user);
         // 把user转化为json对象
         user = JSON.parse(user);
         // 清空一下option
@@ -246,6 +248,7 @@ $(function () {
             });
         });
         $('.userp').text(user.username);
+
     });
 
 
@@ -255,13 +258,19 @@ $(function () {
         var username = $('.userp').text();
         // 获取选中的option的文本值
         var names = $('.dialogtwo select option:selected').text();
+        // 获取id
+        var ids = localStorage.getItem('userid');
+        roles = ids.roles
+        console.log(roles);
+        id = JSON.parse(ids)
+        id = id.id
+
         // 发起请求
         $.ajax({
             url: baseURL + '/baseUser/setRoles',
             method: 'post',
             data: {
-                username: username,
-                names: names
+                id: id,
             },
             success: function (res) {
                 if (res.status == 200) {

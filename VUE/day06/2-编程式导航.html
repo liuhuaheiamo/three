@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编程式导航</title>
+    <script src="../js//vue.js"></script>
+    <script src="../js//vue-router.js"></script>
+    <script>
+        window.onload = function () {
+            // 声明组件
+            var student = {
+
+                template: `
+                <div>
+                <h3>这是student</h3>
+                </div>
+            `
+            }
+            var teacher = {
+                template: `
+                <div>
+                <h3>这是teacher</h3>
+                </div>
+            `
+            }
+
+            var router = new VueRouter({
+                routes: [{
+                    path: '/student:id',
+                    name: 'a',
+                    component: student
+                },
+                {
+                    path: '/teacher',
+                    component: teacher
+                }]
+            });
+            new Vue({
+                el: '.app',
+                // 编程式导航
+                router,
+                data: {},
+                methods: {
+                    handler() {
+                        // this.$router.push('student')
+                        // this.$router.push({ path: 'student' })
+                        // 传递参数
+                        this.$router.push({ path: 'student' });
+                        this.$router.push({ name: 'a', params: { id: 1 } })
+
+                    },
+                    handler1() {
+                        this.$router.push('teacher')
+
+                    }
+                }
+
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- <router-link to='/student'>跳转student</router-link>
+        <router-link to='/teacher'>跳转teacher</router-link> -->
+        <button @click='handler'>student</button>
+        <button @click='handler1'>teacher</button>
+        <router-view></router-view>
+    </div>
+</body>
+
+</html>
