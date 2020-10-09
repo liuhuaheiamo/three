@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vuex</title>
+    <script src="../js//vue-router.js"></script>
+    <script src="../js//vue.js"></script>
+    <script src="../js//vuex.min.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    msg: '',
+                    index: 1,
+                    list: []
+                },
+                methods: {
+                    addMemo() {
+                        var memo = {
+                            id: this.index,
+                            msg: this.msg,
+                            // time: new Data().toLocaleString()
+                        }
+                        this.list.push(memo);
+                        this.msg = '';
+                        this.index++;
+                    },
+                    delmemo(id) {
+                        this.list = this.list.filter((item) => {
+                            return item.id != id;
+                        })
+                    }
+
+                }
+
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <h2>备忘录</h2>
+        <form action="" @submit.prevent='addMemo'>
+            <input type="text" v-model='msg'>
+            <input type="submit" value="保存">
+        </form>
+        <ul>
+            <li v-for='item in list'>
+                <span>{{item.id}}</span>
+                <span>{{item.msg}}</span>
+                <span>{{item.time}}</span>
+                <a href="#" @click.prevent='delmemo(item.id)'>删除</a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

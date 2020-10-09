@@ -1,0 +1,98 @@
+1 vuex
+   1 作用 
+      1 vuex是一个vue的一个插件
+      2 是vue的状态管理机制   管理共享数据的状态
+      3 适合中大型项目
+   2 安装
+      cdn 
+      npm
+      第三方文件
+      外部脚本文件
+   3 使用
+      1 实例化状态机
+        store  = new Vuex.Store({
+            有四个属性
+            1 state:{
+                //初始化数据
+                //类似于data
+                //通过突变进行修改
+            }
+            2 getters:{
+                //存放的都是函数
+                //获取器
+                //声明你想获取的函数
+            }
+            3 mutations:{
+                //突变
+                //修改states
+                //类似于methods   一定是同步函数
+            }
+            4 actions:{
+                //动作   请求异步函数   类似于methods
+            }
+        })
+
+        调用突变：
+             
+
+      在vue实例中获取数据
+          在计算属性中获取
+
+
+    4 辅助函数   简化代码
+        四个
+        1 mapStores
+        2 mapGetters
+        3 mapMutations
+        4 mapActions
+
+      2 注入或者挂载
+          注入到vue的根实例中
+
+
+
+
+
+    2 axios
+      vue:10
+      vue基础
+      vue生态圈：
+          element-ui
+          vue-router
+          vuex
+          axios：发送异步请求
+    好处区别：
+       1 axios专一的异步请求框架
+         jquery专门封装dom操作
+       2 axios是基于promise承诺对象
+         处理并发请求
+       3 axios将相应数据进行二次封装
+           封装的格式是统一的 
+       4 axios发送post请求时，默认封装json字符串
+       jquery默认发送查询字符串
+
+          查询字符串
+            name=list&age=20
+         josn字符串
+         {
+             'name':'list',
+             'age':'20'
+         }
+
+         引入或者安装
+            cdn
+            npm
+            外部引入
+        使用
+          底层api
+             axios(comfig)  //通过配置信息直接发送请求
+             comfig是一个对象
+              //创建实例对象
+             axios.create(
+                 
+             )  
+          简写api
+          axios或者axios实例对象调用
+             get
+             post
+        3 全局默认请求配置信息

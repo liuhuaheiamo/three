@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class绑定</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    one: 'true',
+                    aa: 'aa',
+                    bb: 'bb',
+                    red: "red"
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 这里的名字都是变量，而且在data里面为字符串 -->
+        <!-- 判定，当one为true的时候div有一个as的class类，为false则没有 -->
+        <div v-bind:class='{as:one}'></div>
+        <!-- 这里可以是设置多个类， -->
+        <div v-bind:class='[aa,bb]'></div>
+        <!-- 条件判定 -->
+        <div v-bind:class='[cc?"":aa,bb]'></div>
+        <!-- 属性绑定 -->
+        <!-- style绑定 -->
+        <div v-bind:style='{color:red}'>666</div>
+    </div>
+</body>
+
+</html>

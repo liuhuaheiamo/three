@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    one: false,
+                    two: true,
+
+
+                },
+                methods: {
+                    handler() {
+                        // alert(this.$data.two)
+                        //    设置值
+                        this.$data.one = 'true';
+                        this.$data.two = 'false'
+
+                    }
+                }
+
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <button v-on:click='handler()'>点击显示</button>
+        <h3 v-if='one'>显示</h3>
+        <h3 v-else>隐藏</h3>
+        <h3 v-show='two'>66666</h3>
+        <span>{{two}}</span>
+    </div>
+</body>
+
+</html>

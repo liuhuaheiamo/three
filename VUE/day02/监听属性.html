@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>监听属性</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    num: 8,
+                    obj: {
+                        name: 'zhangsan',
+                        age: 10
+                    }
+                },
+                methods: {
+                    handler() {
+
+                        // return this.obj.name = 'lisi'
+                        return this.obj.age = 12
+
+                    }
+                },
+                watch: {
+                    // 监听单个值
+                    num(newval, oldval) {
+                        if (newval = oldval) {
+                            // 如果值发生了改变，就把num的值改成10
+                            return this.num = 10
+                        }
+
+                    },
+                    // 监听对象
+                    'obj.name': {
+                        handler(newval, oldval) {
+                            alert('88');
+                        },
+                        // 当设定deep为true的时候属性变化也能够监听得到
+                        deep: true
+                    }
+                }
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <input type="text" v-model='num'>
+        <span>{{num}}</span>
+        <br>
+        <button v-on:click='handler()'>改变名字</button>
+        <span>{{obj.name}}</span>
+        <span>{{obj.age}}</span>
+    </div>
+</body>
+
+</html>

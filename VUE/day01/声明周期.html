@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>声明周期</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    num: 20
+                },
+                // 创建实例以前   获取不带数据
+                beforeCreate: function () {
+                    console.log(this.num, '1');
+                },
+                // 创建实例完成之后
+                created: function () {
+                    console.log(this.num, '2');
+                },
+                // 挂载前
+                beforeMount: function () {
+                    console.log(this.num, '3');
+                },
+                // 挂载后
+                mounted: function () {
+                    console.log(this.num, '4');
+                },
+                // 更新前
+                beforeUpdate: function () {
+                    console.log(this.num, '5');
+                },
+                // 更新后
+                updated: function () {
+                    console.log(this.num, '6');
+                },
+                // 摧毁前
+                beforeDestroy: function () {
+                    console.log(this.num, '7');
+                },
+                // 摧毁后
+                destroyed: function () {
+                    console.log(this.num, '8');
+                }
+            });
+        };
+
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <h3>{{num}}</h3>
+    </div>
+</body>
+
+</html>

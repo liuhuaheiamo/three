@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生ajax</title>
+    <script>
+        function getData() {
+            //ajax技术
+            // 1 创建对象
+            var httpRequest = new XMLHttpRequest();
+            //打开一个http链接
+            // http://47.106.244.1:8099/manager/category/findAllCategory
+            // 2 创建一个新的http请求
+            httpRequest.open('get', 'http://47.106.244.1:8099/manager/category/findAllCategory');
+            // 3 发起请求  send()可以传递参数
+            httpRequest.send();
+            // 4 设置响应的变化函数
+            //接受相应
+            httpRequest.onreadystatechange = function () {
+                // 成功时
+                //  5 获取成功时返回的数据
+                if (httpRequest.readyState === 4 && httpRequest.status === 200)
+                    //获取相应
+                    console.log(httpRequest.responseText);
+            }
+            // 失败时
+            if (httpRequest.readyState === 4 && httpRequest.status === 500)
+                //获取相应
+                console.log(httpRequest.responseText);
+        }
+        function handler() {
+            getData();
+        }
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <span>点击按钮发起请求获取数据</span>
+        <button class="btn" onclick="handler()">获取</button>
+    </div>
+</body>
+
+</html>

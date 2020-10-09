@@ -1,0 +1,61 @@
+1 html是超文本标记语言
+   超文本:字符，图片，视频，音频，超链接等非文字元素。
+2 开发环境
+  编辑器：vscode subline
+  浏览器：谷歌，火狐，ie，欧朋
+3 b/s架构
+  browser：浏览器
+  server 服务器
+4 html结构
+  doctype  声明部分
+    html   html的根元素，用来包含html文档的所有元素
+    head 头部，不在浏览器窗口显示
+    title  显示在浏览器选项卡的标题
+5 核心属性
+   title
+   id
+   class
+   style
+6 特有属性
+    a标签
+    img标签
+7 元素分类
+   块级元素：作为页面的框架或者主体
+     特点
+     1 独占一行空间
+     2 默认的宽度为100%，默认高度由子元素或者内容决定
+     3 可以指定宽高
+
+     div
+     h1····h6
+     p
+     ul
+     ol
+     dl
+  行内元素： 填充网页内容
+    特点
+     1 可以和其他元素共享一行
+     2 默认宽高由内容决定
+     3 不能够指定宽高
+     4 行内元素里面不可以嵌套块级元素，但是块级元素里面可以嵌套喊个你元素
+     span
+     a标签
+     img标签
+     b
+     i
+    em
+    sub
+    sup
+ 8 input
+   type
+     1 text
+     2 password
+     3 sumbit
+     4 radio
+     5 checkbox
+     6 file
+     7 checked
+     8 placeholder   提示语
+9 H5新增标签
+  
+      

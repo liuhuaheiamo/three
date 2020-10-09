@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单输入绑定</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    num: '',
+                    as: '',
+                    aa: '',
+                    bb: '',
+                    msg: ''
+                },
+                methods: {
+                    handler() {
+
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 单行文本框 -->
+        单行<input v-model='num' type="text"><span>{{num}}</span>
+        <br>
+        <!-- 多行文本框 -->
+        <textarea v-model='num' cols="30" rows="10"></textarea>
+        <!-- 复选按钮 -->
+        <!-- 可以获取选中的布尔值 -->
+        <input v-model='as' type="checkbox">男
+        <input v-model='as' type="checkbox">女
+        <span>{{as}}</span>
+        <!-- 单选按钮 -->
+        <br>
+        <!-- 获取value值 -->
+        <input type="radio" name="gender" value="55" v-model='aa'>男
+        <input type="radio" name="gender" value="66" v-model='aa'>女
+        <span>{{aa}}</span>
+        <br>
+        <!-- 下拉菜单 -->
+        <!-- 获取value值 -->
+        <select v-model='bb'>
+            <option value="">11</option>
+            <option value="222">22</option>
+            <option value="333">33</option>
+            <option value="555">55</option>
+        </select>
+        <span>{{bb}}</span>
+        <!-- 修饰符 -->
+        <!-- lazy   这个的作用效果是当用户输入的时候并不会同步显示，而是当用户退出输入并点击一下其他地方的时候才触发-->
+        <input type="text" v-model.lazy='num'>
+        <br>
+        <!-- number -->
+        <input type="text" v-model.number='msg'><span>{{msg}}</span>
+        <!-- trim  自动过滤首尾空白 -->
+        <br>
+        <input type="text" v-model.trim='num'>
+    </div>
+</body>
+
+</html>

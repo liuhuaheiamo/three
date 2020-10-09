@@ -1,0 +1,34 @@
+1  组件内守卫
+     声明在组件内部
+       三个钩子函数
+         beforeRouterEnter
+             在当前钩子函数中不能指向this
+              this！=组件
+              next(function(vm){
+                  vm-->this
+              })
+         beforeRouterUpdate
+         beforeRouterLeave
+         $router:每一个路由私有的路由对象
+             三个参数
+               to：即将进入的路由对象   a-->b   所以为b的路由对象
+               from：上一次离开的路由对象   a-->b    为a路由
+               next():函数
+                   进行跳转
+                   next()  什么参数都没有的话就跳转到to
+                   next(false) 
+ 2 全局守卫  
+        判断用户是否登录
+    声明在全局
+    beforeEach
+    afterEach 
+
+
+    vuex是一个xue插件
+      vuex对数据状态进行状态管理对以共享数据机型状态管理
+      1基本使用
+        1 实例化vuex(状态机)
+        
+        2 注入到vue的根实例中
+          new Vue一般为根实例
+                  

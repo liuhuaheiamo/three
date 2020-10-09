@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表渲染</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    list: [1, 4, 52, 698, 11, 8],
+                    obj: {
+                        name: 'lisi',
+                        age: 12,
+                        gender: '男'
+                    },
+                    arr: [
+                        {
+                            name: 'lisi',
+                            age: 12,
+                            gender: '男'
+                        },
+                        {
+                            name: 'lisi1',
+                            age: 11,
+                            gender: '女'
+                        },
+                        {
+                            name: 'lisi2',
+                            age: 10,
+                            gender: '男'
+                        },
+                        {
+                            name: 'lisi3',
+                            age: 14,
+                            gender: '女'
+                        },
+                        {
+                            name: 'lisi4',
+                            age: 16,
+                            gender: '男'
+                        },
+                    ]
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 数组时 -->
+        <ul>
+            <li v-for='(item,index) in list'>{{item}}--{{index}}</li>
+        </ul>
+        <!-- 对象    value就是属性值   key属性名  index下标或者叫索引-->
+        <ul>
+            <li v-for='(value,key,index) in obj'>{{key}}-{{value}}--{{index}}</li>
+        </ul>
+        <!-- 数组里面是对象时 -->
+        <ul>
+            <li v-for='(item,index) in arr'>名字：{{item.name}}--年龄：{{item.age}}--性别：{{item.gender}}--{{index}}</li>
+        </ul>
+    </div>
+</body>
+
+</html>

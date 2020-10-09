@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>底层api</title>
+    <script src="../js/axios.min.js"></script>
+    <script src="/6-jQuery&h5api/js/jQuery-3.5.1.js"></script>
+    <script>
+        var baseURL = 'http://121.199.76.85:7788';
+        var data = {
+            username ='admin1',
+            password ='123321'
+        }
+
+        $.ajax({
+            url: baseURL + '/user/login',
+            method: 'post',
+            data: JSON.stringify(data),
+            headers: {
+                //设置json
+                'Content-Type': 'application/json'
+            },
+            success: function (res) {
+                console.log(res);
+            }
+        })
+
+
+
+
+        axios({
+            url,
+            baseURL,
+            method: 'post',
+            data,
+            // 设置json
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+
+
+        axios.post(baseURL + url, data).then(Response)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

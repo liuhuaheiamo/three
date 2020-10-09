@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插值</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    num: 10,
+                    msg: '这是一个文本',
+                    addHtml: `
+                    <h3>66666</h3>
+                    `,
+                    handler: function () {
+                        alert('555');
+                    },
+                    one: 'one'
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 文本   这里的msg是一个变量 -->
+        <span>文本:{{msg}}</span>
+        <!-- 原始的html -->
+        <span v-html='addHtml'></span>
+        <!-- 属性 -->
+        <div v-bind:id='one'></div>
+        <!-- 事件 -->
+        <button v-on:click='handler'>点击按钮</button>
+        <!-- javaScript表达式 -->
+        <h2>{{num+10}}</h2>
+    </div>
+</body>
+
+</html>

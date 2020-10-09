@@ -1,0 +1,96 @@
+1 什么是 AJAX ？
+      AJAX = 异步 JavaScript 和 XML。
+      AJAX 是一种用于创建快速动态网页的技术。
+
+     通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情下，对网页的某部分进行更新。
+   传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。
+有很多使用 AJAX 的应用程序案例：新浪微博、Google 地图、开心网等等。
+
+
+
+
+2 XMLHttpRequest 是 AJAX 的基础。
+
+  XMLHttpRequest 对象
+     所有现代浏览器均支持 XMLHttpRequest 对象（IE5 和 IE6 使用 ActiveXObject）。
+
+   XMLHttpRequest 用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
+
+  创建 XMLHttpRequest 对象
+   所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。
+
+  创建 XMLHttpRequest 对象的语法：  
+
+      variable=new XMLHttpRequest();
+  老版本的 Internet Explorer （IE5 和 IE6）使用 ActiveX 对象：
+
+      variable=new ActiveXObject("Microsoft.XMLHTTP");
+为了应对所有的现代浏览器，包括 IE5 和 IE6，请检查浏览器是否支持 XMLHttpRequest 对象。如果支持，则创建 XMLHttpRequest 对象。如果不支持，则创建 ActiveXObject ：
+
+
+
+
+
+1、什么是Ajax
+  Ajax：即异步 JavaScript 和XML。Ajax是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，Ajax可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。而传统的网页(不使用 Ajax)如果需要更新内容，必需重载整个网页面。
+
+2、同步与异步的区别
+  同步提交：当用户发送请求时，当前页面不可以使用，服务器响应页面到客户端，响应完成，用户才可以使用页面。
+
+  异步提交：当用户发送请求时，当前页面还可以继续使用，当异步请求的数据响应给页面，页面把数据显示出来 。
+
+3、ajax的工作原理
+  客户端发送请求，请求交给xhr，xhr把请求提交给服务，服务器进行业务处理，服务器响应数据交给xhr对象，xhr对象接收数据，由javascript把数据写到页面上
+
+4,要完整实现一个AJAX异步调用和局部刷新,通常需要以下几个步骤:
+
+  1 创建XMLHttpRequest对象,即创建一个异步调用对象.
+  2 创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.
+  3 发送HTTP请求.
+  4 设置响应HTTP请求状态变化的函数.
+  5 获取异步调用返回的数据.
+  6 使用JavaScript和DOM实现局部刷新.
+
+  1、创建XMLHttpRequest对象
+      不同浏览器使用的异步调用对象有所不同，在IE浏览器中异步调用使用的是XMLHTTP组件中的XMLHttpRequest对象，而在Netscape、Firefox浏览器中则直接使用XMLHttpRequest组件。因此，在不同浏览器中创建XMLHttpRequest对象的方式都有所不同.
+        在Netscape浏览器中创建XMLHttpRequest对象的方式为:
+           var xmlHttpRequest = new XMLHttpRequest();
+
+  2、创建HTTP请求
+       创建了XMLHttpRequest对象之后，必须为XMLHttpRequest对象创建HTTP请求，用于说明XMLHttpRequest对象要从哪里获取数据。通常可以是网站中的数据,也可以是本地中其他文件中的数据。
+
+         1 method：该参数用于指定HTTP的请求方法，一共有get、post、head、put、delete五种方法，常用的方法为get和post。
+         2 URL：该参数用于指定HTTP请求的URL地址，可以是绝对URL，也可以是相对URL。
+         3 flag：该参数为可选，参数值为布尔型。该参数用于指定是否使用异步方式。true表示异步、false表示同步，默认为true。
+         4 name：该参数为可选参数，用于输入用户名。如果服务器需要验证，则必须使用该参数。
+         5 password：该参数为可选，用于输入密码。若服务器需要验证，则必须使用该参数。
+
+  3、设置响应HTTP请求状态变化的函数
+       创建完HTTP请求之后，应该就可以将HTTP请求发送给Web服务器了。然而，发送HTTP请求的目的是为了接收从服务器中返回的数据。从创建XMLHttpRequest对象开始，到发送数据、接收数据、XMLHttpRequest对象一共会经历以下5中状态。
+
+         1 未初始化状态。在创建完XMLHttpRequest对象时，该对象处于未初始化状态，此时XMLHttpRequest对象的readyState属性值为0。
+         2 初始化状态。在创建完XMLHttpRequest对象后使用open()方法创建了HTTP请求时，该对象处于初始化状态。此时XMLHttpRequest对象的readyState属性值为1。
+         3 发送数据状态。在初始化XMLHttpRequest对象后，使用send()方法发送数据时，该对象处于发送数据状态，此时XMLHttpRequest对象的readyState属性值为2。
+         4 接收数据状态。Web服务器接收完数据并进行处理完毕之后，向客户端传送返回的结果。此时，XMLHttpRequest对象处于接收数据状态，XMLHttpRequest对象的readyState属性值为3。
+         5 完成状态。XMLHttpRequest对象接收数据完毕后，进入完成状态，此时XMLHttpRequest对象的readyState属性值为4。此时接收完毕后的数据存入在客户端计算机的内存中，可以使用responseText属性或responseXml属性来获取数据。
+
+         //设置当XMLHttpRequest对象状态改变时调用的函数，注意函数名后面不要添加小括号
+                 xmlHttpRequest.onreadystatechange = getData;
+ 
+                //定义函数
+                    function getData(){
+                      //判断XMLHttpRequest对象的readyState属性值是否为4，如果为4表示异步调用完成
+                      if(xmlHttpRequest.readyState == 4) {
+                     //设置获取数据的语句
+                      }
+                  }
+   4、设置获取服务器返回数据的语句
+       如果XMLHttpRequest对象的readyState属性值等于4，表示异步调用过程完毕，就可以通过XMLHttpRequest对象的responseText属性或responseXml属性来获取数据。
+       但是，异步调用过程完毕，并不代表异步调用成功了，如果要判断异步调用是否成功，还要判断XMLHttpRequest对象的status属性值，只有该属性值为200，才表示异步调用成功，因此，要获取服务器返回数据的语句，还必须要先判断XMLHttpRequest对象的status属性值是否等于200，如以下代码所示：
+           if(xmlHttpRequst.status == 200) {
+               document.write(xmlHttpRequest.responseText);//将返回结果以字符串形式输出
+             //document.write(xmlHttpRequest.responseXML);//或者将返回结果以XML形式输出
+        }
+  5、发送HTTP请求
+       在经过以上几个步骤的设置之后，就可以将HTTP请求发送到Web服务器上去了。发送HTTP请求可以使用XMLHttpRequest对象的send()方法，其语法代码如下所示：
+       XMLHttpRequest.send(data);

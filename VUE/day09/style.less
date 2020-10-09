@@ -1,0 +1,20 @@
+
+@width:200px;
+
+.app{
+    width: @width;
+    height: @width;
+    background-color:chartreuse ;
+}
+p{
+    .app();
+    border: 2px solid red;
+}
+#one{
+    width: @width;
+    height: @width;
+    background-color: aqua;
+}
+.one1{
+    #one();
+}

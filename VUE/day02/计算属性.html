@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.app',
+                data: {
+                    arr: 'hello'
+                },
+                computed: {
+                    handler() {
+                        return this.arr.split('').reverse().join('');
+                    }
+                },
+                methods: {
+                    handler1() {
+                        return this.arr.split('').reverse().join('');
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 直接用javaScript计算 -->
+        <!-- split切割字符串，   reverse倒序   join拼接 -->
+        <span>{{arr}}</span>
+        <br>
+        <span>{{arr.split('').reverse().join('')}}</span>
+        <hr>
+        <!-- 在computed -->
+        <!-- {{这里可以直接使用函数}} -->
+        <span>{{handler}}</span>
+        <hr>
+        <!-- 在{{}}里面使用methods的函数要执行 -->
+        <span>{{handler1()}}</span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+1 axios
+   1 作用 
+      1 是一个专一的一步请求封装
+      jquery封装dom操作
+      2 使用一个基于承诺对象
+        jquery不基于promise
+      3 axios对相应数据进行二次封装
+      4 axios发送post请求时默认封装数据为json格式进行传输
+        jquery查询字符串，地址栏上面的拼接
+   2 安装
+      1 cdn
+      2 npm 
+      3 axios.min.js
+   3 使用
+    1 底层api
+         1 axios(comfig)
+           直接根据comfig配置发送请求
+              config:{
+                  url:
+                  baseURL:基路径
+                  method：请求方式
+                  data:  post请求
+                  params： get请求
+                  headers：  头部请求
+              }
+        2 axios.create(config);
+           创建一个请求对象
+           request = axios.create(config)
+    2 简写api
+         axios/request
+              
+    3 全局默认配置
+        axios.default
+    4 请求拦截或者相应拦截
+    5 如何使用axios处理并发请求all()
+
+      less
+         预编译语言
+           可以理解成框架
+           预先编译
+              less--->css--->解析
+        1 特点
+          sass：最早的，最成熟的预编译语言  不是使用最广泛的  更类似于框架
+          1 less是css的预编译语言   使用最广泛的预编译语言   比如说bootstrap
+          sytlus  ：在node环境下常用
+          less使css编程一种动态语言，可以在css中使用
+          less可以运行在node也可以运行在浏览器端
+          less声明的注释，预编译是不会编译到css语法中
+              推荐大家在less多多使用注释
+     2 安装或者叫引入
+        cdn
+        npm
+        less.min.js
+    3 使用
+       1 先要书写less语法
+       2 引入less.js文件
+
+    混入(mixin)
+      类似于方法调用
+      
