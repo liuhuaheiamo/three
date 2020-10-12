@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件注册</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+
+            // 子组件
+            var bb = {
+
+            }
+            // 组件的全局注册
+            // 第一种方式
+            Vue.component('bb-div', {
+                data() {
+                    return {
+                        num: 1008,
+                    }
+
+                },
+                // props: ['msg', 'a'],
+                // 接受数据
+                props: {
+                    // 规定接受的数据类型
+                    // msg: String,
+                    // a: Number,
+                    // 设定默认值
+                    // msg: {
+                    //     type: Number,
+                    //     default: 20
+
+                    // },
+                    // 可以接受多个数据类型
+                    // a: [Number, String],
+                    seta: {
+                        type: Number,
+                        default: 80
+                    },
+                    // 必填项
+                    msg: {
+                        type: String,
+                        // 当required为true的是时候为必填项
+                        required: true,
+                        default: 'ahah'
+                    },
+                    // 自定义规则
+
+                },
+                template: `
+                <div>
+                <span>{{num}}</span>
+                <span>{{msg}}</span> 
+                <span>{{seta}}</span>
+                </div>
+                `
+            });
+
+
+
+            new Vue({
+                el: '.app',
+                data: {
+
+                },
+                // 局部注册
+                // 父组件
+                components: {
+                    'aa-div': {
+                        data() {
+                            return {
+                                num: 100,
+                                msg: '',
+                                d: 55
+                            }
+                        },
+                        template: `
+                <div>
+                 <span>{{num}}</span>
+                <input type="text" v-model.lazy='msg'>
+                <bb-div :msg='msg' :seta='d'></bb-div>
+                </div>
+                `
+                    }
+
+                }
+            })
+
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- <span>{{num}}</span> -->
+        <!-- 在html中显示组件 -->
+        <!-- <my-div></my-div> -->
+        <aa-div></aa-div>
+        <!-- <bb-div></bb-div> -->
+
+    </div>
+</body>
+
+</html>

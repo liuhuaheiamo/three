@@ -8,26 +8,83 @@
     <script src="../js/vue.js"></script>
     <script>
         window.onload = function () {
-            // 组件的全局注册
-            Vue.component({
+            // 定义组件
+            // 父组件
+            var aa = {
                 data() {
-                    num: 10
-                },
+                    return {
+                        num: 100,
+                        msg: 'hello'
+                    }
 
-            });
+                },
+                template: `
+                <div>
+                <span>{{num}}</span>
+                <bb-div :msg='msg' attr-a='a'></bb-div>
+                </div>
+                `
+            }
+            // 子组件
+            var bb = {
+                data() {
+                    return {
+                        num: 1008,
+                    }
+
+                },
+                props: ['msg', 'attr-a'],
+                template: `
+                <div>
+                <span>{{num}}</span>
+                <span>{{msg}}</span> 
+                <span>{{attr-a}}</span>
+                </div>
+                `
+            }
+            // 组件的全局注册
+            // 第一种方式
+            // Vue.component('my-div', {
+            //     data() {
+            //         return {
+            //             num: 10
+            //         }
+
+            //     },
+            //     template: `
+            //     <div>
+            //     <span>{{num}}</span>
+            //     </div>
+            //     `
+
+            // });
+
+            // 第二种方式
+            // Vue.component('aa-div', bb);
+
             new Vue({
                 el: '.app',
                 data: {
 
+                },
+                // 局部注册
+                components: {
+                    'aa-div': aa,
+                    'bb-div': bb
                 }
             })
+
         };
     </script>
 </head>
 
 <body>
     <div class="app">
-        <span>{{num}}</span>
+        <!-- <span>{{num}}</span> -->
+        <!-- 在html中显示组件 -->
+        <!-- <my-div></my-div> -->
+        <aa-div></aa-div>
+        <!-- <bb-div></bb-div> -->
     </div>
 </body>
 
