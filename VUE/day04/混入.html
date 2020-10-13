@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>混入</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            // 全局混入
+            // Vue.mixin({
+
+            // });
+            // 全局声明
+            var mixin = {
+                data() {
+                    return {
+                        num: 10
+                    }
+                },
+                created: function () {
+                    // alert('这是混入的钩子');
+
+                },
+                methods: {
+                    handler() {
+                        alert(22)
+                    }
+                }
+
+
+            }
+            new Vue({
+                el: '.app',
+                // 在实例对象中引入混入   相当于局部混入
+                mixins: [mixin],
+                data: {
+                    // 当实例和混入中有着同名属性时，取用实例对象中的数据
+                    num: 20
+                },
+                // 同名字的钩子函数将混合为一个数组，因此都被调用，而混入的钩子要比实例对象的钩子要执行先
+                created: function () {
+                    // alert('这是实例对象的钩子');
+
+                },
+                // 当混入和实例都有函数的时候执行的是实例中的函数
+                methods: {
+                    handler() {
+                        alert(88)
+                    }
+                }
+
+
+
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <button v-on:click='handler'>运行函数</button>
+        <h2>{{num}}</h2>
+    </div>
+</body>
+
+</html>

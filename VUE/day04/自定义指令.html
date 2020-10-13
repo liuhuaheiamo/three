@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义指令</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            // 全局注册
+
+
+            Vue.directive('text', {
+                inserted: function (el) {
+                    console.log(el);
+                    el.style.background = 'red'
+                }
+            })
+
+            new Vue({
+                el: '.app',
+                data: {
+                    num: 10
+                },
+
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <h3 v-text>{{num}}</h3>
+        <!-- <input type="text" v-focus>  -->
+    </div>
+</body>
+
+</html>

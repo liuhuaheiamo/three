@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤器</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            // 全局注册
+            // Vue.filter('arr', function (res) {
+            //     return res.toUpperCase();
+            // })
+
+            new Vue({
+                el: '.app',
+                data: {
+                    src: 'hello',
+                    id: 'one'
+                },
+                // 局部注册
+                filters: {
+                    'arr': function (res) {
+                        return res.toUpperCase();
+                    },
+                    'acc'(res) {
+                        return res = 'two'
+                    }
+                }
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 将左边的数据进行过滤，也可以说是转换，这次是小写转大写 -->
+        <h3>{{src|arr}}</h3>
+        <div :id='id|acc'></div>
+    </div>
+</body>
+
+</html>

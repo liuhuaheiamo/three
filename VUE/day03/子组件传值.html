@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子组件传值</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        // 子组件传值给父组件一般经历一下几点
+        //    1 在子组件的data中添加数据作为传给父组件的数据
+        //    2 在子组件的methods中声明一个函数获取到子组件data的数据 使用this.$emit('参数名字',数据)
+        //    3 执行子组件中的函数
+        //    4 在父组件中的component中的子组件接受传递来的参数 <my-aa v-on:参数名字='handler'></my-aa>
+        //    5 在父组件中声明函数接受数据
+        //    6 在父组件中data存储接受来的数据
+        window.onload = function () {
+            // 声明组件
+            var aa = {
+                data() {
+                    return {
+                        msg: '这是孩子的数据'
+                    }
+                },
+                methods: {
+                    handler() {
+                        this.$emit('setvul', this.msg)
+                    },
+                },
+
+                template: `
+                <div>
+                    <h2>这是孩子</h2>
+                    <input type="text" v-model='msg'>
+                    <button v-on:click='handler'>按钮</button>
+                </div>
+                `
+            }
+            // 注册组件
+            Vue.component('my-aa', aa);
+
+            new Vue({
+                el: '.app',
+                data: {
+
+                },
+                // 局部声明组件
+                components: {
+                    'my-bb': {
+                        data() {
+                            return {
+                                // 接受孩子的数据
+                                user: ''
+                            }
+                        },
+                        methods: {
+                            handler(msg) {
+                                // 接受孩子传来的数据，并赋值给user
+                                this.user = msg
+                            }
+                        },
+                        template: `
+                <div>
+                    <h2>这是父亲</h2>
+                    <my-aa v-on:setvul='handler'></my-aa>
+                <span>{{user}}</span> 
+                </div>
+                `
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- 显示组件 -->
+        <my-bb></my-bb>
+    </div>
+</body>
+
+</html>

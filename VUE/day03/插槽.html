@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插槽</title>
+    <script src="../js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            Vue.component('my-aa', {
+                data() {
+                    return {}
+                },
+                template: `
+                <div>
+                    <h2>这是孩子</h2>
+                </div>
+                `
+            });
+            new Vue({
+                el: '.app',
+                data: {
+
+                },
+                components: {
+                    'my-bb': {
+                        data() {
+                            return {
+                                arr: {
+                                    name: 'lisi',
+                                    age: 12
+                                },
+                                list: [1, 2, 3, 5, 6, 7, 8]
+                            }
+                        },
+                        template: `
+                <div>
+                    <h1><slot>888</slot></h1>
+                    <h1><slot name='hearder'>888</slot></h1>
+                    <h1><slot name='footer'  :arr='arr' :list='list'>888</slot></h1>
+                    <h2>这是父亲</h2>
+                    
+                </div>
+                `
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- <my-aa></my-aa> -->
+        <my-bb>
+            <!-- 普通插槽   插槽的默认名字为default-->
+            <!-- 可以在要传递的组件的template中用slot接受传递的数据 -->
+            word
+            <!-- 具名插槽  也可以说是指定插槽 给插槽起个名字  因为不能直接操作数据，要用template来在html中传递数据 -->
+            <template v-slot:hearder>
+                6666
+            </template>
+            <!-- 作用域插槽  在作用域内获取数据 -->
+            <template v-slot:footer='res'>
+                {{res.arr.name}}
+                {{res.list}}
+            </template>
+        </my-bb>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渲染函数</title>
+    <script src="../js//vue.js"></script>
+    <script>
+        window.onload = function () {
+            Vue.component(
+                'my-child', {
+                data() {
+                    return {
+
+                    }
+                },
+                template: `
+                <div>
+        <h1 v-if><slot></slot></h1>
+        <h2 v-else-if><slot></slot></h2>
+        <h3 v-else-if><slot></slot></h3>
+        <h4 v-else-if><slot></slot></h4>
+        <h5 v-else-if><slot></slot></h5>
+        <h6 v-else-if><slot></slot></h6>
+    </div>
+                
+                `
+            }
+            )
+
+
+            new Vue({
+                el: '.app',
+                data: {
+
+                },
+                components: {
+                    'my-parent': {
+                        data() {
+
+                        },
+                        template: `
+                        <div>
+                            <my-child></my-child>
+                            </div>
+                        `
+                    }
+                }
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="app">
+
+    </div>
+
+</body>
+
+</html>
